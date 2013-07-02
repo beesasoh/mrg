@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  level: 1
+  cost: 1
+
+two:
+  title: MyString
+  level: 1
+  cost: 1

@@ -1,0 +1,16 @@
+<h1>List of all subjects</h1>
+
+
+<ul>
+<% @subjects.each do |subject| %>
+	<li>
+		<%= subject.name %>
+		<br />
+		<%= image_tag subject.image_thumb.url(:thumb) %>
+	</li>
+
+<% end %>
+
+</ul>
+
+<%= link_to("Add new subject", :action => 'new') %>

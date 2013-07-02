@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rb-readline', '~> 0.4.2'
 gem 'omniauth-facebook'
 gem 'rails', '3.2.13'
+gem "paperclip", "~> 3.0"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

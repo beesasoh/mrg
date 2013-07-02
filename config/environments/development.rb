@@ -34,4 +34,7 @@ Mrg::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  #pointing paper clip to image magick
+  Paperclip.options[:command_path] = "/usr/bin/"
 end

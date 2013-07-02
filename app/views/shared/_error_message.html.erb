@@ -1,0 +1,12 @@
+<% if object && object.errors.size > 0 %>
+	<div id = "error_div">
+		<h4><%= pluralize(object.errors.size, "error") %> prevented the record from being saved</h4>
+		<div class = "errors">
+		<ul>
+			<% object.errors.full_messages.each do |msg| %>
+				<li> <%= msg %> </li>
+			<% end %>
+		</ul>
+	</div>
+	</div>
+<% end %>

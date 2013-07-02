@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130618092318) do
+ActiveRecord::Schema.define(:version => 20130702071901) do
 
   create_table "authors", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -44,9 +44,13 @@ ActiveRecord::Schema.define(:version => 20130618092318) do
   add_index "courses_users", ["user_id", "course_id"], :name => "index_courses_users_on_user_id_and_course_id"
 
   create_table "subjects", :force => true do |t|
-    t.string   "name",       :limit => 100
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.string   "name",                     :limit => 100
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
+    t.string   "image_thumb_file_name"
+    t.string   "image_thumb_content_type"
+    t.integer  "image_thumb_file_size"
+    t.datetime "image_thumb_updated_at"
   end
 
   create_table "users", :force => true do |t|

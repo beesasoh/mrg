@@ -1,4 +1,16 @@
 Mrg::Application.routes.draw do
+  get "subject/new"
+
+  get "subject/create"
+
+  get "subject/edit"
+
+  get "subject/update"
+
+  get "subject/delete"
+
+  get "subject/destroy"
+
   get "home/index"
 
   match 'auth/:provider/callback', to: 'session#create'

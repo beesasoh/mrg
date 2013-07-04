@@ -35,6 +35,10 @@ Mrg::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  # in Rails::Initializer.run do |config|
+  config.action_controller.allow_forgery_protection = false
+  config.gem "koala"
+
   #pointing paper clip to image magick
   Paperclip.options[:command_path] = "/usr/bin/"
 end

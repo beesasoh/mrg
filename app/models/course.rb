@@ -1,5 +1,5 @@
 class Course < ActiveRecord::Base
-  attr_accessible :cost, :level, :title ,:num_questions, :questions
+  attr_accessible :cost, :level, :title ,:num_questions, :questions , :author_id , :subject_id
 
   belongs_to :author
   belongs_to :subject

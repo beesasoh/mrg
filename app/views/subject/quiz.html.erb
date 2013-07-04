@@ -1,0 +1,13 @@
+<h1>Seems you want a <%= @subject.name %> test</h1>
+
+
+<ul>
+	<% courses = @subject.courses %>
+	<% if courses.empty? %>
+			<p>Ohhhh, can't find any <%= @subject.name %> quiz now, Please try me later</p>
+	<% else %>
+		<% courses.each do |course| %>
+			<li><%= course.title %></li>
+		<% end %>
+	<% end %>
+</ul>

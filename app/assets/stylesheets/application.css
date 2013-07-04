@@ -1,13 +1,245 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
- */
+body{
+	margin:0;
+	padding:0;
+	background-color:#F3F4F6;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+}
+a{
+	text-decoration: none;
+ 	color: #333;
+ 	font-weight: bold;
+}
+.clear-fix{
+	clear:both;
+}
+#wrapper{
+	width:100%;
+	height:100%;
+}
+#fixed-right-side-bar{
+	background-color:#E8E8E8;
+	border-left:1px solid #ABABAB;
+	width:200px;
+	position:fixed;
+	right:0;
+	top:0;
+	height:100%;
+}
+#mrg-main{
+	margin-right:200px;
+	/*background-color:#CCC;*/
+}
+
+#mrg-page{
+	width:960px;
+	margin:0 auto;
+	border:1px solid #F3F4F6;
+}
+
+#header{
+	margin-top:10px;
+	height:90px;
+}
+
+#header .logo{
+	float:left;
+	width:50%;
+}
+#header .logo .mrg-logo{
+	float:left;
+}
+#header .logo .mrg-title{
+	float:left;
+}
+#header .logo h1{
+	display:inline-block;
+	font-size:20px;
+	color:#339900;
+	margin-top: 0.8em;
+	margin-left:1em;
+}
+#header .links{
+	float:right;
+	width:50%;
+}
+#header .links ul{
+	list-style-type:none;
+}
+#header .links ul li{
+	float:left;
+	border-right: 1px solid #999;
+	padding:0 0.5em;
+	line-height:10px;
+}
+#header .links ul li:last-child{
+	border-right: none;
+}
+#header .links ul li a{
+	font-size:11.4px;
+	color:#339900;
+	
+}
+#header .links .mrg-links{
+	text-align:center;
+	float:right;
+}
+#header .links .mrg-user-avatar{
+	float:right;
+	padding:10px;
+	padding-right:0;
+}
+#header .links .mrg-user-avatar img{
+	max-width: 50px;
+	max-height: 50px;
+	border: 1px solid #ccc;
+}
+
+#mrg-loading{
+	visibility:hidden;
+	text-align:center;
+}
+
+#mrg-content{
+	width:100%;
+	border:1px solid #BDBDBD;
+	background-color:#F8F8F8;
+	margin-bottom:5em;
+	min-height:600px;
+	-webkit-box-shadow: inset 0px 2px 3px 1px #D5D5D5;
+	box-shadow: inset 0px 2px 3px 1px #D5D5D5;
+}
+
+#mrg-content .section-header{
+	height:50px;
+}
+#mrg-content .section-header .mrg-section-header{
+	float:left;
+	width:70%;
+}
+#mrg-content .section-header .mrg-section-header h2{
+	font-size:30px;
+	font-weight:normal;
+	color:#B8B8B8;
+	margin:0.4em;
+}
+#mrg-content .section-header .mrg-section-link{
+	float:right;
+	padding-right:15px;
+	padding-top:35px;
+}
+#mrg-content .section-header .mrg-section-link a{
+	color:#9B9B9B;
+	font-size:13px;
+	font-weight:bold;
+}
+#mrg-content .section-header .mrg-section-link a:hover{
+	color:#030303;
+}
+
+
+#mrg-content .mrg-table{
+	width:100%;
+	border-top:1px solid #BDBDBD;
+	border-bottom: 1px solid #BDBDBD;;
+	border-collapse:collapse;
+}
+
+#mrg-content .mrg-table td{
+	padding:0;
+	vertical-align:top;
+}
+#mrg-content .mrg-table td:first-child{
+	border-right: 1px solid #BDBDBD;
+}
+#mrg-content .mrg-table td.mrg-spanner{
+	width:50%;
+}
+#mrg-content .mrg-table label{
+	color:#333333;
+	font-weight:bold;
+	display:block;
+	margin-left:10px;
+}
+#mrg-content .mrg-table span{
+	display:block;
+	margin-left:10px;
+}
+#mrg-content .mrg-table td .mrg-play{
+	background-color:#339900;
+	background-image:url(play.png);
+	background-repeat:no-repeat;
+	background-position:center center;
+	width:460px;
+	height: 340px;
+	margin:10px;
+}
+#mrg-content .mrg-table td .mrg-library{
+	width:460px;
+	height: 340px;
+	margin:10px;
+	background-image:url(library-thumb.jpg);
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+#mrg-content .mrg-table td .mrg-ranking{
+	width:460px;
+	height: 340px;
+	margin:10px;
+	background-image:url(ranking-thumb.jpg);
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+.thumbs{
+}
+.thumbs .mrg-thumb{
+	width:49.5%;
+	float:left;
+	border:1px solid #999;
+	height:200px;
+	border-right:none;
+	border-bottom:none;
+}
+.thumbs .mrg-thumb img{
+	border:1px solid #C0C0C0;
+	margin:	7px;
+	width:220px;
+	height:140px;
+}
+.thumbs .mrg-thumb .lib{
+	width:220px;
+	height:150px;
+	background-color:#F3F4F6;
+	border:1px solid #D5D5D5;
+	margin:8px;
+	background-image:url(lib-icon.png);
+	background-repeat:no-repeat;
+	background-position:left center;
+	text-align:center;
+}
+.thumbs .mrg-thumb .lib h4{
+	margin-top:5em;
+	margin-left:1em;
+}
+.thumbs .mrg-thumb:first-child{
+	border-top:none;
+	border-left:none;
+}
+.thumbs .mrg-thumb:nth-child(2){
+	border-top:none;
+}
+.thumbs .mrg-thumb:nth-child(3){
+	border-left:none;
+}
+#subject_list{
+}
+#subject_list ul{
+	list-style-type: none;
+}
+#subject_list ul li{
+	float: left;
+	padding:0.7em;
+}
+#subject_list ul li img{
+	border: 1px solid #999;
+}

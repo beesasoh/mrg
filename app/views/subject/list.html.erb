@@ -1,16 +1,19 @@
 <h1>List of all subjects</h1>
 
 
+<div id="subject_list">
 <ul>
 <% @subjects.each do |subject| %>
 	<li>
-		<%= subject.name %>
+		<%= link_to image_tag(subject.image_thumb.url(:thumb)) , :action => 'quizzes', :id => subject.id %>
 		<br />
-		<%= image_tag subject.image_thumb.url(:thumb) %>
+		<div><%= link_to(subject.name, :action => 'quizzes', :id => subject.id) %></div>
+		<span><%= pluralize(subject.courses.length, 'quiz') %></span>
 	</li>
 
 <% end %>
-
+	<div class = "clear-fix"></div>
 </ul>
+</div>
 
 <%= link_to("Add new subject", :action => 'new') %>

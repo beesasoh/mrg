@@ -9,6 +9,11 @@ class SubjectController < ApplicationController
     @subjects = Subject.all
   end
 
+  def quizzes
+    @subject = Subject.find(params[:id])
+    render 'quiz'
+  end
+
   def new
     @subject = Subject.new
   end
@@ -24,7 +29,7 @@ class SubjectController < ApplicationController
   end
 
   def edit
-    @subject = Subject.find(params[:id])
+    @subject = Subject.find_by_id(params[:id])
   end
 
   def update

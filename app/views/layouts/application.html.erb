@@ -11,8 +11,7 @@
 <div id="wrapper">
    
     <div id="fixed-right-side-bar">
-    	<% #@graph = Koala::Facebook::API.new(user.oauth_token) %>
-    	<% #profile = @graph.get_object("me") %>
+    	
     </div>
    
   
@@ -65,6 +64,13 @@
             </div>
         </div>
     </div>
+</div>
+
+
+<div>
+	<%# @graph = Koala::Facebook::API.new(user.oauth_token) %>
+    <%# profile = @graph.get_object("me") %>
+    <%# friends = @graph.get_connections("me", "friends") %>
 </div>
 
 </body>

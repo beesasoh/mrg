@@ -11,7 +11,36 @@
 <div id="wrapper">
    
     <div id="fixed-right-side-bar">
-    	
+    	<h3>Invite freinds</h3>
+    	<div>
+			<ul>
+				<% @graph = Koala::Facebook::API.new(user.oauth_token) %>
+			    <%# profile = @graph.get_object("me") %>
+			    <% friends = @graph.get_connections("me", "friends") %>
+			    <% friends.sample(20).each do |freind| %>
+			    	<li>
+			    		<span class="fb-img">
+			    			<%= image_tag("http://graph.facebook.com/#{freind['id']}/picture?width=30&height=30") %>
+			    		</span>
+						<span class="fb-name"><%= freind["name"][0..25]  %></span>
+
+						<div class="fb-invite-tool-tip">
+			             	<div class="wrap">
+			                	<div class="fb-prof-medium">
+			                    	<%= image_tag("http://graph.facebook.com/#{freind['id']}/picture?width=100&height=100") %>
+			                    </div>
+			                    <div class="fb-inv">
+			                    	<span class="fb-tooltip-name"><%= freind["name"][0..25]  %></span>
+			                        <span class="desc">Revision is better with freinds</span>
+			                        <a class="inv-btn">Invite freind</a>
+			                    </div>
+			                    <div class="clear-fix"></div>
+			                </div>
+			            </div>	
+			    	</li>
+			    <% end %>
+			</ul>
+		</div>
     </div>
    
   
@@ -66,12 +95,6 @@
     </div>
 </div>
 
-
-<div>
-	<%# @graph = Koala::Facebook::API.new(user.oauth_token) %>
-    <%# profile = @graph.get_object("me") %>
-    <%# friends = @graph.get_connections("me", "friends") %>
-</div>
 
 </body>
 </html>

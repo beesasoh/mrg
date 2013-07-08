@@ -1,4 +1,4 @@
-<% user = User.find_by_id(session[:user_id]) %>
+<% user = User.find_by_id(2) %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,8 @@
 <body>
 <div id="wrapper">
    
-    <div id="fixed-right-side-bar">
+ <div id="fixed-right-side-bar">
+    <!--   
     	<h3>Invite freinds</h3>
     	<div>
 			<ul>
@@ -41,7 +42,8 @@
 			    <% end %>
 			</ul>
 		</div>
-    </div>
+    -->
+</div>
    
   
     <div id="mrg-main">
@@ -49,7 +51,9 @@
             
             <div id="header">
                 <div class="logo">
-                    <div class="mrg-logo"><%= image_tag('logo.png') %></div>
+                    <div class="mrg-logo">
+                        <%= link_to image_tag('logo.png'), root_url %>
+                    </div>
                     <div class="mrg-title"><h1>My revision guide</h1></div>
                     <div class="clear-fix"></div>
                 </div>

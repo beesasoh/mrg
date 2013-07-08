@@ -1,9 +1,7 @@
 Mrg::Application.routes.draw do
-  
   match 'auth/:provider/callback', to: 'session#create'
   match 'auth/failure', to: redirect('/')
   match 'signout' , to: 'session#destroy', as: 'signout'
-  match 'subjects' , to: 'subject#list'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

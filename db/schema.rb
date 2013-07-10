@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130702071901) do
+ActiveRecord::Schema.define(:version => 20130710080031) do
 
   create_table "authors", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -21,16 +21,41 @@ ActiveRecord::Schema.define(:version => 20130702071901) do
     t.datetime "updated_at",                :null => false
   end
 
+  create_table "books", :force => true do |t|
+    t.string   "title"
+    t.integer  "author_id"
+    t.integer  "subject_id"
+    t.text     "description"
+    t.text     "content"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.string   "book_file_file_name"
+    t.string   "book_file_content_type"
+    t.integer  "book_file_file_size"
+    t.datetime "book_file_updated_at"
+  end
+
+  add_index "books", ["author_id"], :name => "index_books_on_author_id"
+  add_index "books", ["subject_id"], :name => "index_books_on_subject_id"
+
+  create_table "choices", :force => true do |t|
+    t.integer  "question_id"
+    t.string   "choice"
+    t.boolean  "correct",     :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  add_index "choices", ["question_id"], :name => "index_choices_on_question_id"
+
   create_table "courses", :force => true do |t|
     t.integer  "author_id"
     t.integer  "subject_id"
-    t.string   "title",         :limit => 100
-    t.integer  "num_questions"
+    t.string   "title",      :limit => 100
     t.integer  "level"
     t.integer  "cost"
-    t.text     "questions"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   add_index "courses", ["author_id"], :name => "index_courses_on_author_id"
@@ -42,6 +67,20 @@ ActiveRecord::Schema.define(:version => 20130702071901) do
   end
 
   add_index "courses_users", ["user_id", "course_id"], :name => "index_courses_users_on_user_id_and_course_id"
+
+  create_table "questions", :force => true do |t|
+    t.integer  "course_id"
+    t.text     "question"
+    t.text     "explanation"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  add_index "questions", ["course_id"], :name => "index_questions_on_course_id"
 
   create_table "subjects", :force => true do |t|
     t.string   "name",                     :limit => 100

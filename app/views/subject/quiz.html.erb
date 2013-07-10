@@ -1,16 +1,21 @@
-<div id = "mrg_tests">
-<h1>Seems you want a <%= @subject.name %> test</h1>
+<h1 class="mrg_head">Ready for <%= @subject.name %> test? Select exercise.</h1>
+<div id = "mrg_tests" class="wrap">
 
+	<div class="t1"> 
+		<%= link_to_function image_tag('back_btn.png') , "history.back()" %>
+	</div>
+	<div class="t2">
+		<ul>
+			<% courses = @subject.courses %>
+			<% if courses.empty? %>
+					<p>Ohhhh, can't find any <%= @subject.name %> quiz now, Please try me later</p>
+			<% else %>
+				<% courses.each do |course| %>
+					<li><a href=""><%= course.title %></a></li>
+				<% end %>
+			<% end %>
+		</ul>
 
-<ul>
-	<% courses = @subject.courses %>
-	<% if courses.empty? %>
-			<p>Ohhhh, can't find any <%= @subject.name %> quiz now, Please try me later</p>
-	<% else %>
-		<% courses.each do |course| %>
-			<li><%= course.title %></li>
-		<% end %>
-	<% end %>
-</ul>
-
+	</div>
+	<div class="clear-fix"></div>
 </div>

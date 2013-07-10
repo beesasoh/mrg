@@ -1,4 +1,20 @@
 Mrg::Application.routes.draw do
+  get "book/index"
+
+  get "book/new"
+
+  get "book/create"
+
+  get "book/edit"
+
+  get "book/update"
+
+  get "book/delete"
+
+  get "book/destroy"
+
+  get "book/list"
+
   match 'auth/:provider/callback', to: 'session#create'
   match 'auth/failure', to: redirect('/')
   match 'signout' , to: 'session#destroy', as: 'signout'

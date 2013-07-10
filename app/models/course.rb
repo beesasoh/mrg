@@ -3,6 +3,7 @@ class Course < ActiveRecord::Base
 
   belongs_to :author
   belongs_to :subject
+  has_many :questions
   has_and_belongs_to_many :users
 
   validates :title, :presence => true

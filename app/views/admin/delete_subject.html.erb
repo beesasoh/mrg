@@ -1,0 +1,14 @@
+<h1 class="mrg_head">Delete subject</h1>
+
+<div class="wrap">
+
+	<p>You are about to delete <strong><%= @subject.name %></strong></p>
+
+	<p>This will delete the subject, all courses/ questions under it</p>
+
+	<br />
+	<%= link_to("Continue" , :action => 'destroy_subject', :id => @subject.id ) %>
+	<br /><br />
+	<%= link_to "<< Back" , :back %>
+
+</div>

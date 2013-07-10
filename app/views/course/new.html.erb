@@ -1,5 +1,6 @@
-<h1>Create new test/course</h1>
+<h1 class="mrg_head">Create new test/course</h1>
 
+<div class="wrap">
 <div class="form form_for_course">
 
 	<%= render(:partial => 'shared/error_message', :locals => {:object => @course}) %>
@@ -33,5 +34,7 @@
 	<%= f.submit("Create test") %>
 
 <% end %>
+
+</div>
 
 </div>

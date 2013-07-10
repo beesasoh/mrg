@@ -1,0 +1,11 @@
+<h1 class="mrg_head">List of books</h1>
+
+<div class="wrap">
+
+<ul>
+	<% @books.each do |book| %>
+		<li><%= link_to book.title , :action => 'view' , :id => book.id %></li>
+	<% end %>
+</ul>
+
+</div>

@@ -10,8 +10,14 @@ a{
  	color: #333;
  	font-weight: bold;
 }
+h1,h2{
+	font-size: 20px;
+}
 .clear-fix{
 	clear:both;
+}
+.wrap{
+	padding: 10px;
 }
 #wrapper{
 	width:100%;
@@ -140,6 +146,9 @@ a{
 	margin-top: 0.8em;
 	margin-left:1em;
 }
+#header .logo a{
+color:#339900;
+}
 #header .links{
 	float:right;
 	width:50%;
@@ -177,7 +186,7 @@ a{
 }
 
 #mrg-loading{
-	display: none;
+	visibility: hidden;
 	text-align:center;
 }
 
@@ -197,6 +206,14 @@ a{
 #mrg-content .section-header .mrg-section-header{
 	float:left;
 	width:70%;
+}
+h1.mrg_head{
+	font-size:26px;
+	font-weight:normal;
+	color:#B8B8B8;
+	margin:0.4em 0;
+	padding: 0.4em;
+	border-bottom: 1px solid #BDBDBD;
 }
 #mrg-content .section-header .mrg-section-header h2{
 	font-size:30px;
@@ -316,11 +333,59 @@ a{
 }
 #subject_list ul{
 	list-style-type: none;
+	padding: 0;
+	margin:0;
 }
 #subject_list ul li{
 	float: left;
-	padding:0.7em;
+	padding:0.5em;
 }
 #subject_list ul li img{
 	border: 1px solid #999;
+	width: 216px;
+}
+
+#mrg_tests{
+
+}
+#mrg_tests .t1{
+	float: left;
+	width: 15%;
+	text-align: center;
+}
+#mrg_tests .t2{
+	float: left;
+	width: 84%;
+	}
+#mrg_tests .t2 ul{
+	list-style-type: none;
+	padding:0;
+	margin: 0;
+}
+#mrg_tests .t2 ul li{
+	max-width: 750px;
+}
+#mrg_tests .t2 ul li a{
+	background-color: #EAEAEA;
+	display: block;
+	padding: 15px;
+	margin: 7px 0;
+	font-size: 16px;
+	font-weight: normal;
+}
+#mrg_tests .t2 ul li a:hover{
+	background-color: #339900;
+	color: #fff;
+}
+a.btn{
+	background-color: #ccc;
+	padding: 5px 15px;
+}
+a.edit{
+	font-weight:normal;
+	color: #339900;
+}
+a.delete{
+	font-weight: normal;
+	color: #FF0000;
 }

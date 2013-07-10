@@ -1,0 +1,21 @@
+<h1 class="mrg_head">Create a new subject</h1>
+
+<div class="form form_new_subject wrap">
+
+	 <%= render(:partial => 'shared/error_message', :locals => {:object => @subject}) %>
+
+<%= form_for :subject, :url => {:action => 'create_subject'}, :html => { :multipart => true } do |f| %>
+  
+  <%= label_tag(:name, 'Name: ') %>
+  <%= f.text_field(:name) %>
+
+  <br /><br />
+
+  <%= label_tag(:image_thumb, 'Subject thumbnail: ') %>
+  <%= f.file_field :image_thumb %>
+
+   <br /><br />
+  <%= f.submit("Create subject") %>
+<% end %>
+
+</div>

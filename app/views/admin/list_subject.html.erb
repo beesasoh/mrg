@@ -8,12 +8,18 @@
 		<%= link_to image_tag(subject.image_thumb.url(:thumb)) , :action => 'quizzes', :id => subject.id %>
 		<br />
 		<div><a href = <%= "subject/quizzes/#{subject.id}#mrg_tests" %> class = "mrg_ajax_load" ><%= subject.name %></a></div>
-		<span><%= pluralize(subject.courses.length, 'quiz') %></span>
+		<span><%= pluralize(subject.courses.length, 'quiz') %> /
+			<%= link_to "edit", {:action => 'edit_subject' , :id => subject.id} , :class => 'edit' %> / 
+			<%= link_to "delete", {:action => 'delete_subject' , :id => subject.id}, :class => 'delete' %>
+		</span>
 	</li>
 
 <% end %>
 	<div class = "clear-fix"></div>
 </ul>
+
+<br><br>
+<%= link_to "Create new", {:action => 'new_subject'} , :class => 'btn' %>
 </div>
 
 </div>

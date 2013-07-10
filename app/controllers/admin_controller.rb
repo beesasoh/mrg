@@ -47,4 +47,48 @@ class AdminController < ApplicationController
 	    redirect_to(:action => 'list_subject')
 	end 
 
+	def list_course
+		@courses = Course.all
+	end
+
+	def new_course
+		 @course = Course.new(:author_id => 3 , :cost => 0 , :level => 2)
+	end
+
+	def create_course
+		@course = Course.new(params[:course])
+	    if @course.save
+	      flash[:notice] = "Test has been created"
+	      redirect_to(:action => 'list_course')
+	    else
+	      render 'new_course'
+	    end
+	end
+
+	def edit_course
+		 @course = Course.find_by_id(params[:id])
+	end
+
+	def update_course
+		@course = Course.find(params[:id])
+	     if @course.update_attributes(params[:course])
+	        flash[:notice] = "Course updated"
+	        redirect_to(:action => 'list_course')
+	      else
+	        render 'edit_course'
+	      end
+	end
+
+	def delete_course
+		@course = Course.find_by_id(params[:id])
+	end
+
+	def destroy_course
+		#deleting a course/test means to delete all of its questions and choices
+	    course = Course.find(params[:id])
+	    course.destroy
+	    flash[:notice] = "Course has been deleted"
+	    redirect_to(:action => 'list_course')
+	end
+
 end

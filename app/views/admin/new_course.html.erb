@@ -1,0 +1,33 @@
+<% @page_title = "Create new test" %>
+<h1 class="mrg_head">Create new test/course</h1>
+
+<div class="wrap">
+<div class="form form_for_course">
+
+	<%= render(:partial => 'shared/error_message', :locals => {:object => @course}) %>
+<%= form_for :course, :url => {:action => 'create_course'} do |f| %>
+	
+	<%= label_tag(:title, "Test title: ") %>
+	<%= f.text_field(:title) %>
+	<br /><br />
+
+	<% authors = Author.all.map {|author| [author.name , author.id] }  %>
+	<%= label_tag(:author, "Author: ") %>
+	<%= f.select(:author_id, authors) %>
+	<br /><br />
+
+	<% subjects = Subject.all.map {|subject| [subject.name , subject.id] }  %>
+	<%= label_tag(:subject, "Subject: ") %>
+	<%= f.select(:subject_id, subjects) %>
+	<br /><br />
+
+	<%= f.hidden_field(:cost) %>
+	<%= f.hidden_field(:level) %>
+
+	<%= f.submit("Create test") %>
+
+<% end %>
+
+</div>
+
+</div>

@@ -1,0 +1,16 @@
+<% @page_title = "admin | delete test /course" %>
+
+<h1 class="mrg_head">Delete Course</h1>
+
+<div class="wrap">
+
+	<p>You are about to delete <strong><%= @course.title %></strong></p>
+
+	<p>This will delete the Course, and all questions under it</p>
+
+	<br />
+	<%= link_to("Continue" , :action => 'destroy_course', :id => @course.id ) %>
+	<br /><br />
+	<%= link_to "<< Back" , :back %>
+
+</div>

@@ -389,3 +389,16 @@ a.delete{
 	font-weight: normal;
 	color: #FF0000;
 }
+
+#mrg_admin_table{
+	border: 1px solid #BDBDBD;
+	border-collapse: collapse;
+}
+#mrg_admin_table th , #mrg_admin_table td{
+	border: 1px solid #BDBDBD;
+	padding: 10px;
+} 
+#mrg_admin_table th{
+	background-color: brown;
+	color: #fff;
+}

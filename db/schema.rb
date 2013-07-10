@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710080031) do
+ActiveRecord::Schema.define(:version => 20130710112349) do
 
   create_table "authors", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -52,10 +52,11 @@ ActiveRecord::Schema.define(:version => 20130710080031) do
     t.integer  "author_id"
     t.integer  "subject_id"
     t.string   "title",      :limit => 100
+    t.boolean  "published",                 :default => false
     t.integer  "level"
     t.integer  "cost"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
   end
 
   add_index "courses", ["author_id"], :name => "index_courses_on_author_id"

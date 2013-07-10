@@ -1,5 +1,5 @@
 class Course < ActiveRecord::Base
-  attr_accessible :cost, :level, :title ,:num_questions, :questions , :author_id , :subject_id
+  attr_accessible :cost, :level, :title , :author_id , :subject_id , :published
 
   belongs_to :author
   belongs_to :subject
@@ -8,6 +8,5 @@ class Course < ActiveRecord::Base
 
   validates :title, :presence => true
   validates :level, :presence => true
-  validates :num_questions, :presence => true
   validates :cost, :presence => true, :numericality => {:only_integer => true}
 end

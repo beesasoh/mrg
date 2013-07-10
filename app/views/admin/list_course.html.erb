@@ -1,0 +1,37 @@
+<% @page_title = "admin | List of tests" %>
+
+<h1 class="mrg_head">List of all tests</h1>
+
+<div class="wrap">
+<table width="100%" id="mrg_admin_table">
+	<tr>
+		<th>Title</th>
+		<th>Subject</th>
+		<th>Status</th>
+		<th>Author</th>
+		<th>Questions</th>
+		<th>Action</th>
+	</tr>
+
+	<% @courses.each do |course| %>
+		<tr>
+			<td><%= course.title %></td>
+			<td><%= course.subject.name %></td>
+			<td><%= course.published %></td>
+			<td><%= course.author.name %></td>
+			<td align="center"><%= course.questions.length %></td>
+			<td align="center">
+				<%= link_to "edit", {:action => 'edit_course', :id => course.id}, :class => 'edit' %> /
+				<%= link_to "delete", {:action => 'delete_course' , :id => course.id}, :class => 'delete' %> /
+				<%= link_to "Questions", "#" %> 
+			</td>
+		</tr>
+	<% end %>
+
+</table>
+
+<br />
+
+<%= link_to("Add new test", {:action => 'new_course'} , :class => 'btn') %>
+
+</div>

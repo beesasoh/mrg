@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710112349) do
+ActiveRecord::Schema.define(:version => 20130710130117) do
 
   create_table "authors", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -25,10 +25,11 @@ ActiveRecord::Schema.define(:version => 20130710112349) do
     t.string   "title"
     t.integer  "author_id"
     t.integer  "subject_id"
+    t.boolean  "published",              :default => true
     t.text     "description"
     t.text     "content"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.string   "book_file_file_name"
     t.string   "book_file_content_type"
     t.integer  "book_file_file_size"

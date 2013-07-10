@@ -393,6 +393,7 @@ a.delete{
 #mrg_admin_table{
 	border: 1px solid #BDBDBD;
 	border-collapse: collapse;
+	width: 100%;
 }
 #mrg_admin_table th , #mrg_admin_table td{
 	border: 1px solid #BDBDBD;

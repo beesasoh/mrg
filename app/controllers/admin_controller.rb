@@ -91,4 +91,47 @@ class AdminController < ApplicationController
 	    redirect_to(:action => 'list_course')
 	end
 
+	def list_book
+		@books = Book.all
+	end
+
+	def new_book
+		 @book = Book.new(:author_id => 3)
+	end
+
+	def create_book
+		 @book = Book.new(params[:book])
+	    if @book.save
+	      flash[:notice] = "New book has been created"
+	      redirect_to(:action => 'list_book')
+	    else
+	      render 'new_book'
+	    end
+	end
+
+	def edit_book
+		@book = Book.find_by_id(params[:id])
+	end
+
+	def update_book
+		@book = Book.find(params[:id])
+	     if @book.update_attributes(params[:book])
+	        flash[:notice] = "Book updated"
+	        redirect_to(:action => 'list_book')
+	      else
+	        render 'edit_book'
+	      end
+	end
+
+	def delete_book
+		@book = Book.find_by_id(params[:id])
+	end
+
+	def destroy_book
+		book = Book.find(params[:id])
+	    book.destroy
+	    flash[:notice] = "Book has been deleted"
+	    redirect_to(:action => 'list_book')
+	end
+
 end

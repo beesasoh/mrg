@@ -1,0 +1,17 @@
+<% @page_title = "admin | edit book" %>
+<h1 class="mrg_head">Edit book/handout</h1>
+
+<div class="wrap">
+
+	<%= render(:partial => 'shared/error_message', :locals => {:object => @book}) %>
+
+	<%= form_for :book , :url => {:action => 'update_book', :id => @book.id } ,  
+						:html => { :multipart => true } do |f| %>
+
+		<%= render :partial => 'book_form' , :locals =>{:f => f} %>
+
+		<%= f.submit("Save") %>
+
+	<% end %>
+
+</div>

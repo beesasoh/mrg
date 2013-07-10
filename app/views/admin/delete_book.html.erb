@@ -1,0 +1,16 @@
+<% @page_title = "admin | delete book/handout" %>
+
+<h1 class="mrg_head">Delete Book</h1>
+
+<div class="wrap">
+
+	<p>You are about to delete <strong><%= @book.title %></strong></p>
+
+	<p>This action can not be undone.</p>
+
+	<br />
+	<%= link_to("Continue" , :action => 'destroy_book', :id => @book.id ) %>
+	<br /><br />
+	<%= link_to "<< Back" , :back %>
+
+</div>

@@ -1,0 +1,29 @@
+<%= label_tag(:title, "Title: ") %><br />
+<%= f.text_field(:title) %>
+<br /><br />
+
+<% authors = Author.all.map {|author| [author.name , author.id] }  %>
+<%= label_tag(:author, "Author") %><br />
+<%= f.select(:author_id, authors) %>
+<br /><br />
+
+<% subjects = Subject.all.map {|subject| [subject.name , subject.id] }  %>
+<%= label_tag(:subject, "Subject:") %><br />
+<%= f.select(:subject_id, subjects) %>
+<br /><br />
+
+<%= label_tag(:description, "Description: ") %><br />
+<%= f.text_area(:description , :size => "50x10") %>
+<br /><br />
+
+<%= label_tag(:content, "Contents: ") %><br />
+<%= f.text_area(:content, :size => "100x10") %>
+<br /><br />
+
+<%= label_tag(:book_file, "File: ") %><br>
+<%= f.file_field(:book_file) %>
+<br /><br />
+
+<%= label_tag(:published, "Published: ") %> <br />
+<%= f.radio_button(:published,true) %> Yes <br />
+<%= f.radio_button(:published, false) %> No <br /><br />

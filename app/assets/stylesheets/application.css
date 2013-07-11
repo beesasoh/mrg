@@ -358,6 +358,7 @@ h1.mrg_head{
 	width: 84%;
 	}
 #mrg_tests .t2 ul{
+	font-family: 'Marmelad', sans-serif;
 	list-style-type: none;
 	padding:0;
 	margin: 0;
@@ -403,3 +404,65 @@ a.delete{
 	background-color: brown;
 	color: #fff;
 }
+
+/*styles apply to the play page only */
+
+h1.score{
+	color: #C60;
+	text-align: center;
+}
+#mrg_qns{
+
+}
+
+#mrg_qns ul{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+#mrg_qns ul li span.qns{
+	font-family: 'Alef', sans-serif;
+	line-height: 25px;
+	color:#C60;
+	font-weight:normal;
+	font-size:22px;
+	display:block;
+	padding:0.5em;
+	padding-bottom:0;
+	margin-bottom: 10px;
+}
+
+#mrg_qns ul.chs li{
+	background-color: #FBFBFB;
+	font-family: 'Marmelad', sans-serif;
+	color:#444444;font-weight:normal;
+	padding:1.7em 1em;
+	border-width:1px 0 0;border-top:1px solid #E0E0E0;
+	font-size: 16px;
+}
+#mrg_qns ul.chs li:last-child{
+	border-bottom:1px solid #CCC;
+}
+#mrg_qns ul.chs li:hover{
+	background-color: #EBEBEB;
+}
+
+#mrg_qns .qns{
+	display: none;
+}
+#mrg_qns .first{
+	display: block;
+}
+
+.que ul li.wrong2{
+	color:#FFFFFF;
+	background-color: #FF0000;
+	text-shadow:none;
+}
+.que ul li.correct2{
+	color:#FFFFFF;
+	background-color: #009900;
+	text-shadow:none;}
+
+/* end play styles */

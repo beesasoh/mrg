@@ -1,4 +1,6 @@
 Mrg::Application.routes.draw do
+  get "play/index"
+
   get "book/index"
 
   get "book/new"

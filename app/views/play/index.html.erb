@@ -1,0 +1,28 @@
+<% @page_title = "Play | My revision guide" %>
+
+<h1 class= "mrg_head score"> Score : 0</h1>
+
+<div id="mrg_qns">
+
+<ul id="qns-wrap">
+	<% if @course.questions.empty?  %>
+		<span> Test not ready, return soon</span>
+	<% else %>
+		<% count = 1 %>
+		<% @course.questions.sample(10).each do |qn| %>
+			<div class= "qns <%= displayFirst count  %>">
+				<li>
+				<span class="qns"><%= qn.question %></span>
+					<ul class="chs">
+						<% qn.choices.sample(qn.choices.length).each do |ch| %>
+							<li><%= ch.choice %> --- <%= ch.correct %> </li>
+						<% end %>
+					</ul>
+				</li>
+			</div>
+			<% count += 1 %>
+		<% end %>
+	<% end %>
+	
+</ul>
+</div>

@@ -134,4 +134,33 @@ class AdminController < ApplicationController
 	    redirect_to(:action => 'list_book')
 	end
 
+	def hash_test
+
+	end
+
+	def process_hash_test
+		@questions = eval(params[:questions])
+		
+		@questions.each do |q|
+			quiz = Question.new
+			quiz.question = q["question"] 
+			quiz.course_id = 3
+			answer = q["answer"]
+			if quiz.save
+				q["choices"].each do |c|
+					ch = Choice.new
+					ch.question_id = quiz.id
+					ch.choice = c["choice"]
+					ch.correct = true if(c["choice"] == answer)	
+					ch.save
+				end
+			end
+		end
+	end
+
+	def test
+	end
+
+
+
 end

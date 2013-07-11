@@ -1,0 +1,17 @@
+<% @page_title = "admin | Create test from hash" %>
+
+<h1 class="mrg_head">Create test from Hash</h1>
+
+<div class="wrap">
+	<form method = "post" action = "process_hash_test" >
+
+		<label><strong>Paste Hash array of questions here:</strong></label><br />
+
+		<textarea name="questions" style="width:100%; height:700px;"></textarea>
+		<br />
+		<%= submit_tag("Save test") %>
+		<br />
+		<br />
+	</form>
+
+</div>

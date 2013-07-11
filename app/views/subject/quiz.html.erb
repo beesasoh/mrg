@@ -11,7 +11,10 @@
 					<p>Ohhhh, can't find any <%= @subject.name %> quiz now, Please try me later</p>
 			<% else %>
 				<% courses.each do |course| %>
-					<li><a href=""><%= course.title %></a></li>
+					<li>
+						<%= link_to course.title, {:controller => 'play',
+													:id => course.id} %>
+						
 				<% end %>
 			<% end %>
 		</ul>

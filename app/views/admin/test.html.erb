@@ -1,0 +1,426 @@
+<%
+
+	hash = [
+  {"question"=>"A hockey player swings her hockey stick and strikes a puck. According to Newton's third law of motion, which of the following is a reaction to the stick pushing on the puck?",
+  "choices"=>[
+    {"choice" => "the puck pushing on the stick"},
+    {"choice" => "the stick pushing on the player"},
+    {"choice" => "the player pushing on the stick"},
+    {"choice" => "the puck pushing on the player"}
+   ],
+  "answer"=>"the puck pushing on the stick"},
+  {"question"=>"Approximately how much heat must be removed from 0.50 kg of water to change its temperature from 24?C to 5?C?",
+  "choices"=>[
+    {"choice" => "0 J"},
+    {"choice" => "19,900 J"},
+    {"choice" => "39,800 J"},
+    {"choice" => "79,500 J"}
+   ],
+  "answer"=>"39,800 J"},
+  {"question"=>"A cart at the top of a hill is released and rolls down the hill. Which of the following describes the energy of the cart just as it reaches the bottom of the hill?",
+  "choices"=>[
+    {"choice" => "The cart has no energy."},
+    {"choice" => "The cart has maximum kinetic energy."},
+    {"choice" => "The cart has maximum gravitational potential energy."},
+    {"choice" => "The cart has equal gravitational potential and kinetic energy."}
+   ],
+  "answer"=>"The cart has maximum kinetic energy."},
+  {"question"=>"When one end of a short metal bar is heated, the opposite end will eventually become hot. Which of the following processes transfers the heat through the bar?",
+  "choices"=>[
+    {"choice" => "condensation"},
+    {"choice" => "conduction"},
+    {"choice" => "convection"},
+    {"choice" => "radiation"}
+   ],
+  "answer"=>"conduction"},
+  {"question"=>"Which of the following will definitely cause a change in the velocity of a parked car?",
+  "choices"=>[
+    {"choice" => "The car experiences an unbalanced force."},
+    {"choice" => "All forces acting on the car increase by 1 N."},
+    {"choice" => "All forces acting on the car decrease by 1 N."},
+    {"choice" => "The forces acting on the car are equal and balanced."}
+   ],
+  "answer"=>"The car experiences an unbalanced force."},
+  {"question"=>"Which of the following provides the best example of simple harmonic motion?",
+  "choices"=>[
+    {"choice" => "riding a regular bus route"},
+    {"choice" => "sliding down a water slide"},
+    {"choice" => "running a consistent daily jog"},
+    {"choice" => "swinging on a playground swing"}
+   ],
+  "answer"=>"running a consistent daily jog"},
+  {"question"=>"Jessica places 1000 g of water at 20.0oC in an insulated cup. The specific heat capacity of water is 4.20 J/goC. What is the final temperature of the water if 5000 J of energy is added to the water in the insulated cup?",
+  "choices"=>[
+    {"choice" => "20.1oC"},
+    {"choice" => "20.5oC"},
+    {"choice" => "21.2oC"},
+    {"choice" => "25.0oC"}
+   ],
+  "answer"=>"20.5oC"},
+  {"question"=>"Which of the following is a vector quantity?",
+  "choices"=>[
+    {"choice" => "mass"},
+    {"choice" => "force"},
+    {"choice" => "temperature"},
+    {"choice" => "kinetic energy"}
+   ],
+  "answer"=>"mass"},
+  {"question"=>"What is the mass of an object weighing 63 N on Earth?",
+  "choices"=>[
+    {"choice" => "0.1 kg"},
+    {"choice" => "6.3 kg"},
+    {"choice" => "73 kg"},
+    {"choice" => "617 kg"}
+   ],
+  "answer"=>"73 kg"},
+  {"question"=>"Which of the following is least likely to result in the generation of static charge?",
+  "choices"=>[
+    {"choice" => "peeling plastic wrap off a CD case"},
+    {"choice" => "combing dry hair with a plastic comb"},
+    {"choice" => "rubbing one's shoes on a synthetic carpet"},
+    {"choice" => "drying one's body with a towel after a shower"}
+   ],
+  "answer"=>"rubbing one's shoes on a synthetic carpet"},
+  {"question"=>"Which of the following is least likely to result in the generation of static charge?",
+  "choices"=>[
+    {"choice" => "peeling plastic wrap off a CD case"},
+    {"choice" => "combing dry hair with a plastic comb"},
+    {"choice" => "rubbing one's shoes on a synthetic carpet"},
+    {"choice" => "drying one's body with a towel after a shower"}
+   ],
+  "answer"=>"combing dry hair with a plastic comb"},
+  {"question"=>"What is the current in resistor 2?",
+  "choices"=>[
+    {"choice" => "1.0 A"},
+    {"choice" => "1.3 A"},
+    {"choice" => "1.5 A"},
+    {"choice" => "3.0 A"}
+   ],
+  "answer"=>"3.0 A"},
+  {"question"=>"Which of the following substances is not elastic?",
+  "choices"=>[
+    {"choice" => "Glass"},
+    {"choice" => "Rubber"},
+    {"choice" => "Plastic"},
+    {"choice" => "Copper"}
+   ],
+  "answer"=>"Glass"},
+  {"question"=>"A bus carrying a heavy load on it's rack is more unstable when moving because",
+  "choices"=>[
+    {"choice" => "its centre of gravity is raised"},
+    {"choice" => "the friction on the ground increases"},
+    {"choice" => "its total weight is increased"},
+    {"choice" => "its pressure on the tyres is increased"}
+   ],
+  "answer"=>"its centre of gravity is raised"},
+  {"question"=>"The sensitivity of a thermometer can be increased by",
+  "choices"=>[
+    {"choice" => "increasing the volume of the bulb"},
+    {"choice" => "increasing the amount of liquid in the thermometer"},
+    {"choice" => "decreasing the thickness of the stem wall"},
+    {"choice" => "decreasing the diameter of the bore of the capillary tube"}
+   ],
+  "answer"=>"decreasing the diameter of the bore of the capillary tube"},
+  {"question"=>"When a body in stable equilibrium is tilted slightly",
+  "choices"=>[
+    {"choice" => "the position of its center of gravity is lowered"},
+    {"choice" => "the position of its center of gravity is raised"},
+    {"choice" => "the position of its center of gravity does not change"},
+    {"choice" => "it topples over"}
+   ],
+  "answer"=>"the position of its center of gravity is lowered"},
+  {"question"=>"A flywheel connected to an internal combustion engine is made heavy in order to",
+  "choices"=>[
+    {"choice" => "store rotational kinetic energy"},
+    {"choice" => "store kinetic energy"},
+    {"choice" => "produce a spark"},
+    {"choice" => "help valves to open at regular intervals"}
+   ],
+  "answer"=>"help valves to open at regular intervals"},
+  {"question"=>"A bullet of mass 150g is fired with a seed of 400ms-1.The rifle recoils with a speed of 10ms-1.Find the mass of the rifle",
+  "choices"=>[
+    {"choice" => "60.0kg"},
+    {"choice" => "6.0kg"},
+    {"choice" => "3.0kg"},
+    {"choice" => "0.6kg"}
+   ],
+  "answer"=>"6.0kg"},
+  {"question"=>"Which one of the following equations does not represent the expression for power P, in terms of voltage V, current I, and resistance R?",
+  "choices"=>[
+    {"choice" => "P=VI"},
+    {"choice" => "P=I2R"},
+    {"choice" => "P=V2/R"},
+    {"choice" => "P=R2/I"}
+   ],
+  "answer"=>"P=R2/I"},
+  {"question"=>"A parachute released from an aeroplane will fall with constant velocity when",
+  "choices"=>[
+    {"choice" => "its weight is equal to the upthrust"},
+    {"choice" => "its weight is equal to the air resistance"},
+    {"choice" => "the air resistance is equal to the upthrust"},
+    {"choice" => "the upthrust plus the air resistance are equal to its weight"}
+   ],
+  "answer"=>"the upthrust plus the air resistance are equal to its weight"},
+  {"question"=>"In metals heat is transmitted by",
+  "choices"=>[
+    {"choice" => "conduction and radiation"},
+    {"choice" => "convection and radiation"},
+    {"choice" => "conduction only"},
+    {"choice" => "convection only"}
+   ],
+  "answer"=>"conduction only"},
+  {"question"=>"Calculate the pressure exerted on the road by a car of mass 740kg if the area of contact between the road and each of the four tyres is 50 cm2",
+  "choices"=>[
+    {"choice" => "37Nm-2"},
+    {"choice" => "3.7 x104 Nm-2"},
+    {"choice" => "3.7 x105 Nm-2"},
+    {"choice" => "1.48x106 Nm-2"}
+   ],
+  "answer"=>"3.7 x105 Nm-2"},
+  {"question"=>"A high voltage d.c may be obtained from a low voltage d.c by the use of ",
+  "choices"=>[
+    {"choice" => "a dynamo"},
+    {"choice" => "an induction coil"},
+    {"choice" => "a generator"},
+    {"choice" => "a transformer"}
+   ],
+  "answer"=>"a generator"},
+  {"question"=>"The mass of a radioactive substance falls to 1/4 of its original mass after 10 days. What is its half life?",
+  "choices"=>[
+    {"choice" => "2.5 days"},
+    {"choice" => "5 days"},
+    {"choice" => "20 days"},
+    {"choice" => "40 days"}
+   ],
+  "answer"=>"40 days"},
+  {"question"=>"Which one of the following controls the brightness of a spot on the screen of a cathode ray oscilloscope?",
+  "choices"=>[
+    {"choice" => "X-plates"},
+    {"choice" => "Y-plates"},
+    {"choice" => "The grid"},
+    {"choice" => "The anode"}
+   ],
+  "answer"=>"The grid"},
+  {"question"=>"A beam of white light is to be passed through a combination of two filters. Which filter combination will allow only red light?",
+  "choices"=>[
+    {"choice" => "Blue and red filters"},
+    {"choice" => "Cyan and red filters"},
+    {"choice" => "Yellow and magenta filters"},
+    {"choice" => "Cyan and magenta filters"}
+   ],
+  "answer"=>"Yellow and magenta filters"},
+  {"question"=>"When liquid is heated",
+  "choices"=>[
+    {"choice" => "its molecules move with the same speed"},
+    {"choice" => "its density decreases"},
+    {"choice" => "evaporation takes place throughout the liquid"},
+    {"choice" => "boiling occurs at all temperatures"}
+   ],
+  "answer"=>"its density decreases"},
+  {"question"=>"How much energy is required to melt 2kg of ice at 00 celicius?",
+  "choices"=>[
+    {"choice" => "0 KJ"},
+    {"choice" => "167 KJ"},
+    {"choice" => "334 KJ"},
+    {"choice" => "668 KJ"}
+   ],
+  "answer"=>"668 KJ"},
+  {"question"=>"An electric motor is connected by a cable to a 240 V supply. The p.d across the motor is 239 V when the current flowing is 5A.The resistance of the cable is",
+  "choices"=>[
+    {"choice" => "0.2 ohms"},
+    {"choice" => "5 ohms"},
+    {"choice" => "47.8 ohms"},
+    {"choice" => "48 ohms"}
+   ],
+  "answer"=>"0.2 ohms"},
+  {"question"=>"Which of the following is not true about a vacuum flask?",
+  "choices"=>[
+    {"choice" => "it controls loss of heat by radiation using the vacuum"},
+    {"choice" => "it can be used to keep the cold liquids cold"},
+    {"choice" => "the cork is used to reduce loss of heat by convection"},
+    {"choice" => "the silvering of the walls on the vacuum side reduces loss or gain of heat by radiation"}
+   ],
+  "answer"=>"the cork is used to reduce loss of heat by convection"},
+  {"question"=>"Which of the following is the correct order of energy changes at the hydro electric power station?",
+  "choices"=>[
+    {"choice" => "kinetic to potential to electrical"},
+    {"choice" => "potential to kinetic to electrical"},
+    {"choice" => "potential to heat to electrical"},
+    {"choice" => "heat to potential to electrical"}
+   ],
+  "answer"=>"potential to kinetic to electrical"},
+  {"question"=>"In a four stroke internal combustion engine the work required for initial induction and compression comes from ",
+  "choices"=>[
+    {"choice" => "the rotational kinetic energy stored in the flywheel"},
+    {"choice" => "the movement of his steering wheel"},
+    {"choice" => "the separate starter motor"},
+    {"choice" => "the sparking plug"}
+   ],
+  "answer"=>"the separate starter motor"},
+  {"question"=>"The phenomena where a ray of light travels from one medium to another is known as ",
+  "choices"=>[
+    {"choice" => "Reflection"},
+    {"choice" => "Diffraction"},
+    {"choice" => "Interference"},
+    {"choice" => "Refraction"}
+   ],
+  "answer"=>"Refraction"},
+  {"question"=>"What change takes place when a ray of light travels from one medium to another?",
+  "choices"=>[
+    {"choice" => "The speed changes "},
+    {"choice" => "The speed remains constant but kinetic energy changes"},
+    {"choice" => "Nothing changes"},
+    {"choice" => "None of the above"}
+   ],
+  "answer"=>"The speed changes "},
+  {"question"=>"The ratio of Sin i and Sin r is a constant and known as",
+  "choices"=>[
+    {"choice" => "Angle of incidence"},
+    {"choice" => "Refractive index"},
+    {"choice" => "Magnification"},
+    {"choice" => "Total internal reflection"}
+   ],
+  "answer"=>"Refractive index"},
+  {"question"=>"A pencil dipped in water appears bent due to ",
+  "choices"=>[
+    {"choice" => "Total internal reflection"},
+    {"choice" => "Due to refraction of light "},
+    {"choice" => "Due to reflection of light"},
+    {"choice" => "Due to dispersion "}
+   ],
+  "answer"=>"Due to refraction of light "},
+  {"question"=>"The incident ray and emergent ray in a glass slab are",
+  "choices"=>[
+    {"choice" => "Perpendicular to each other "},
+    {"choice" => "Lie on each other"},
+    {"choice" => "Parallel to each other"},
+    {"choice" => "None of these"}
+   ],
+  "answer"=>"Parallel to each other"},
+  {"question"=>"The nature of convex lens is ",
+  "choices"=>[
+    {"choice" => "Converging "},
+    {"choice" => "Diverging"},
+    {"choice" => "Both converging and diverging"},
+    {"choice" => "Neither converging nor diverging "}
+   ],
+  "answer"=>"Converging "},
+  {"question"=>"Which of the following works based on total internal reflection?",
+  "choices"=>[
+    {"choice" => "Prism"},
+    {"choice" => "Optical fibre "},
+    {"choice" => "Microscope"},
+    {"choice" => "Telescope"}
+   ],
+  "answer"=>"Optical fibre "},
+  {"question"=>"Two glass rods rubbed with silk repels each other due to ",
+  "choices"=>[
+    {"choice" => "Current electricity "},
+    {"choice" => "Static electricity "},
+    {"choice" => "Magnetic attraction"},
+    {"choice" => "None of the above "}
+   ],
+  "answer"=>"Static electricity "},
+  {"question"=>"Which of the Newton's law would best explain about fact that: When a bus starts moving we tend to fall back",
+  "choices"=>[
+    {"choice" => "Newton's first law"},
+    {"choice" => "Newton's second law "},
+    {"choice" => "Newton's third law"},
+    {"choice" => "None of the laws"}
+   ],
+  "answer"=>"Newton's first law"},
+  {"question"=>"What is the unit of force?",
+  "choices"=>[
+    {"choice" => "Joule"},
+    {"choice" => "Watt"},
+    {"choice" => "Hertz"},
+    {"choice" => "Newton"}
+   ],
+  "answer"=>"Newton"},
+  {"question"=>"Which best explains the terms speed and velocity?",
+  "choices"=>[
+    {"choice" => "Speed is vector and velocity is vector"},
+    {"choice" => "Velocity is scalar and velocity is vector"},
+    {"choice" => "Both are scalar"},
+    {"choice" => "Speed is scalar and velocity is vector"}
+   ],
+  "answer"=>"Speed is scalar and velocity is vector"},
+  {"question"=>"Which of the following best explains the conversion/ transformation of energy in electric motor?",
+  "choices"=>[
+    {"choice" => "Kinetic to electrical "},
+    {"choice" => "Electrical to kinetic "},
+    {"choice" => "Electrical to potential "},
+    {"choice" => "Kinetic to electric "}
+   ],
+  "answer"=>"Electrical to kinetic "},
+  {"question"=>"We use water as coolant because ",
+  "choices"=>[
+    {"choice" => "It is cheap "},
+    {"choice" => "It has high specific heat capacity "},
+    {"choice" => "It has a low specific heat capacity "},
+    {"choice" => "It is the only substance which can absorb heat "}
+   ],
+  "answer"=>"It has high specific heat capacity "},
+  {"question"=>"Which of the following is most appropriate reason to have parallel connection in our houses?",
+  "choices"=>[
+    {"choice" => "It saves energy"},
+    {"choice" => "We get more current than we need "},
+    {"choice" => "Even if one bulb will fuse others will continue to work"},
+    {"choice" => "None of these "}
+   ],
+  "answer"=>"Even if one bulb will fuse others will continue to work"},
+  {"question"=>"Why should we wear rubber shoes while working with electrical appliances?",
+  "choices"=>[
+    {"choice" => "So that we are at same height with the appliance "},
+    {"choice" => "So that we can save current "},
+    {"choice" => "So that we do not get electric shocks"},
+    {"choice" => "So that we do not waste energy"}
+   ],
+  "answer"=>"So that we do not get electric shocks"},
+  {"question"=>"Which of the statements are correct regarding magnetic field lines?",
+  "choices"=>[
+    {"choice" => "They start from south and end in the north "},
+    {"choice" => "They start from north and end in north"},
+    {"choice" => "They intersect with each other"},
+    {"choice" => "They never intersect with each other"}
+   ],
+  "answer"=>"They never intersect with each other"},
+  {"question"=>"Which of the following is correct regarding earth's magnetic field?",
+  "choices"=>[
+    {"choice" => "The geographical poles and magnetic poles of earth lie on same side "},
+    {"choice" => "The geographical poles and magnetic poles of the earth lie on opposite sides "},
+    {"choice" => "Earth has only geographical poles"},
+    {"choice" => "Earth has only magnetic poles"}
+   ],
+  "answer"=>"The geographical poles and magnetic poles of the earth lie on opposite sides "},
+  {"question"=>"Unit of refractive index is",
+  "choices"=>[
+    {"choice" => "Cm"},
+    {"choice" => "M"},
+    {"choice" => "Degree"},
+    {"choice" => "No unit "}
+   ],
+  "answer"=>"No unit "},
+  {"question"=>"Which of the following are the three physical quantities",
+  "choices"=>[
+    {"choice" => "density, mass, time"},
+    {"choice" => "length, time, mass"},
+    {"choice" => "length, time, weight"},
+    {"choice" => "volume, temperature, mass"}
+   ],
+  "answer"=>"length, time, mass"}
+ ] 
+ %>
+
+<ul>
+	<ol>
+ <% hash.each do |q| %>
+ 	<li><%= q["question"] %>
+ 		<ul>
+ 			<% q["choices"].each do |c| %>
+ 				<li><%= c["choice"] %></li>
+ 			<% end %>
+ 		</ul>
+ 	</li>	
+ <% end %>
+</ol>

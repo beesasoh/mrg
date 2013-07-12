@@ -447,22 +447,19 @@ h1.score{
 #mrg_qns ul.chs li:hover{
 	background-color: #EBEBEB;
 }
-
+#mrg_qns ul.chs li.correct{
+	color:#FFFFFF;
+	background-color: #009900;
+}
+#mrg_qns ul.chs li.wrong{
+	color:#FFFFFF;
+	background-color: #FF0000;
+}
 #mrg_qns .qns{
 	display: none;
 }
 #mrg_qns .first{
 	display: block;
 }
-
-.que ul li.wrong2{
-	color:#FFFFFF;
-	background-color: #FF0000;
-	text-shadow:none;
-}
-.que ul li.correct2{
-	color:#FFFFFF;
-	background-color: #009900;
-	text-shadow:none;}
 
 /* end play styles */

@@ -1,6 +1,6 @@
 <% @page_title = "Play | My revision guide" %>
 
-<h1 class= "mrg_head score"> Score : 0</h1>
+<h1 class= "mrg_head score"> <span id="score">Score : 0</span></h1>
 
 <div id="mrg_qns">
 
@@ -8,14 +8,19 @@
 	<% if @course.questions.empty?  %>
 		<span> Test not ready, return soon</span>
 	<% else %>
-		<% count = 1 %>
+		<%  count = 1
+			correct_ans = Hash.new
+		 %>
 		<% @course.questions.sample(10).each do |qn| %>
-			<div class= "qns <%= displayFirst count  %>">
+			<div id = '<%= "q#{count}" %>' class= "qns <%= displayFirst count  %>">
 				<li>
 				<span class="qns"><%= qn.question %></span>
-					<ul class="chs">
+					<ul id="ach" class="chs">
 						<% qn.choices.sample(qn.choices.length).each do |ch| %>
-							<li><%= ch.choice %> --- <%= ch.correct %> </li>
+							<li id='<%= "#{qn.id}-#{ch.id}" %>'>
+								<%= ch.choice %>
+								<% correct_ans["qn#{qn.id}"] = ch.id if ch.correct %>
+							</li>
 						<% end %>
 					</ul>
 				</li>
@@ -25,4 +30,11 @@
 	<% end %>
 	
 </ul>
+</div>
+
+
+<div id = "xa">
+	<textarea id="xas">
+		<%= correct_ans.to_json %>
+	</textarea>
 </div>

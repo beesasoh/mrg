@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid , :email , :image , :coins , :level
 
   has_and_belongs_to_many :courses
+  has_many :games_played , :class_name => :game
   def self.create_user_from(auth)
   	where(auth.slice(:provider , :uid)).first_or_initialize.tap do |user|
   		user.provider = auth.provider

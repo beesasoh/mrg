@@ -1,25 +1,8 @@
 Mrg::Application.routes.draw do
-  get "play/index"
-
-  get "book/index"
-
-  get "book/new"
-
-  get "book/create"
-
-  get "book/edit"
-
-  get "book/update"
-
-  get "book/delete"
-
-  get "book/destroy"
-
-  get "book/list"
-
   match 'auth/:provider/callback', to: 'session#create'
   match 'auth/failure', to: redirect('/')
   match 'signout' , to: 'session#destroy', as: 'signout'
+  #match 'play/game', to: 'play#game', :via => :post
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

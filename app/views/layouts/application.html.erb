@@ -3,7 +3,7 @@
 <html>
 <head>
   <title><%= @page_title || "My revision guide"%></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag  "application", :media => "all" %>
 <link href='http://fonts.googleapis.com/css?family=Alef' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Marmelad' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "application" %>
@@ -13,56 +13,9 @@
 <div id="wrapper">
    
  <div id="fixed-right-side-bar">
-    <div id="fb-root"></div>
-    <script src="http://connect.facebook.net/en_US/all.js"></script>
-    <script>
-        $(function(){
-            $("a.inv-btn").click(function(){
-                FB.init({
-                    appId : '462973483793316',
-                    cookie : false,
-                    status : true
-                });
-
-                FB.ui({
-                    method: 'apprequest',
-                    message: "Join, its unbelivable"
-                });
-
-            });
-        });
-    </script>     
-    	<h3>Invite freinds</h3>
-    	<div>
-			<ul>
-				<% @graph = Koala::Facebook::API.new(user.oauth_token) %>
-			    <%# profile = @graph.get_object("me") %>
-			    <% friends = @graph.get_connections("me", "friends") %>
-			    <% friends.sample(20).each do |freind| %>
-			    	<li>
-			    		<span class="fb-img">
-			    			<%= image_tag("http://graph.facebook.com/#{freind['id']}/picture?width=30&height=30") %>
-			    		</span>
-						<span class="fb-name"><%= freind["name"][0..25]  %></span>
-
-						<div class="fb-invite-tool-tip">
-			             	<div class="wrap">
-			                	<div class="fb-prof-medium">
-			                    	<%= image_tag("http://graph.facebook.com/#{freind['id']}/picture?width=100&height=100") %>
-			                    </div>
-			                    <div class="fb-inv">
-			                    	<span class="fb-tooltip-name"><%= freind["name"][0..25]  %></span>
-			                        <span class="desc">Revision is better with freinds</span>
-			                        <a class="inv-btn">Invite freind</a>
-			                    </div>
-			                    <div class="clear-fix"></div>
-			                </div>
-			            </div>	
-			    	</li>
-			    <% end %>
-			</ul>
-		</div>  
+    <% #render(:partial => 'shared/side_bar', :locals =>{:user => user}) %> 
 </div>
+
     <div id="mrg-main">
         <div id="mrg-page">
             
@@ -105,8 +58,9 @@
                 </div>
                 
                 <div class="clear-fix"></div>
+                <div id="mrg-loading"><span>Loading...</span><br/><%= image_tag('preloader-w8-line-black.gif') %></div>
             </div>
-            	<div id="mrg-loading">Loading...<br/><%= image_tag('preloader-w8-line-black.gif') %></div>
+            	
             
             <div id="mrg-content">
            

@@ -127,6 +127,7 @@ h1,h2{
 #header{
 	margin-top:10px;
 	height:90px;
+	position: relative;
 }
 
 #header .logo{
@@ -186,10 +187,21 @@ color:#339900;
 }
 
 #mrg-loading{
-	visibility: hidden;
+	display: none;
 	text-align:center;
+	position: absolute;
+	top: 25px;
+	left:35%;
 }
 
+#mrg-loading span{
+	background-color: #CC9900;
+	padding: 5px 15px;
+	border-radius:5px;
+}
+#mrg-loading img{
+	margin-top: 5px;
+}
 #mrg-content{
 	width:100%;
 	border:1px solid #BDBDBD;
@@ -412,7 +424,7 @@ h1.score{
 	text-align: center;
 }
 #mrg_qns{
-
+	display: block;
 }
 
 #mrg_qns ul{
@@ -460,6 +472,49 @@ h1.score{
 }
 #mrg_qns .first{
 	display: block;
+}
+#timer{
+	position: absolute;
+	display: block;
+	padding: 10px;
+	font-size: 20px;
+}
+
+#mrg_play_results{
+	margin: 1em 2em;
+	display: none;
+}
+
+#res-outer{
+	background-color:#CCC;
+	border:1px solid #999;
+	width:60%;
+	height:20px;
+}
+#res-outer .red{
+	background-color: #FF0000;
+	color:#FFF;
+}
+#res-outer .green{
+	background-color:#390;
+	color:#FFF;
+}
+#res-outer .orange{
+	background-color:#F90;
+	color:#000;
+}
+#res-inner{
+	width:0%;
+	height:100%;
+	text-align:right;
+	font-weight: bold;
+}
+#mrg-out{
+	margin: 1em 0;
+	display: none;
+}
+#buttons{
+	margin-top: 2em;
 }
 
 /* end play styles */

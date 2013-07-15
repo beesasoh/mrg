@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710130117) do
+ActiveRecord::Schema.define(:version => 20130715130715) do
 
   create_table "authors", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -69,6 +69,19 @@ ActiveRecord::Schema.define(:version => 20130710130117) do
   end
 
   add_index "courses_users", ["user_id", "course_id"], :name => "index_courses_users_on_user_id_and_course_id"
+
+  create_table "games", :force => true do |t|
+    t.integer  "course_id"
+    t.integer  "subject_id"
+    t.integer  "user_id"
+    t.integer  "score"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "games", ["course_id"], :name => "index_games_on_course_id"
+  add_index "games", ["subject_id"], :name => "index_games_on_subject_id"
+  add_index "games", ["user_id"], :name => "index_games_on_user_id"
 
   create_table "questions", :force => true do |t|
     t.integer  "course_id"

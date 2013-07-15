@@ -1,17 +1,22 @@
 <% @page_title = "Play | My revision guide" %>
 
+<div id="timer">
+	<span id="t_m">10</span>:<span id="t_s">00</span>
+</div> 
 <h1 class= "mrg_head score"> <span id="score">Score : 0</span></h1>
 
 <div id="mrg_qns">
-
 <ul id="qns-wrap">
 	<% if @course.questions.empty?  %>
 		<span> Test not ready, return soon</span>
 	<% else %>
 		<%  count = 1
 			correct_ans = Hash.new
+			number_of_questions = 3
+			correct_ans["num"] = number_of_questions
+			correct_ans["cid"] = @course.id
 		 %>
-		<% @course.questions.sample(10).each do |qn| %>
+		<% @course.questions.sample(number_of_questions).each do |qn| %>
 			<div id = '<%= "q#{count}" %>' class= "qns <%= displayFirst count  %>">
 				<li>
 				<span class="qns"><%= qn.question %></span>
@@ -30,6 +35,21 @@
 	<% end %>
 	
 </ul>
+</div>
+
+<div id="mrg_play_results">
+
+	<div id="res-outer">
+    	<div id="res-inner" class="red"><div id="sss">0</div></div>
+    </div> 
+	
+    <div id="mrg-out"></div>
+
+	<div id="buttons"> 
+		<%= link_to "Play again", "" , :class => 'btn' %>
+		<%= link_to "main menu", :root, :class => 'btn' %>
+	</div>
+	<br />
 </div>
 
 

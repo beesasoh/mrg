@@ -1,0 +1,24 @@
+<% @page_title = @course.title %>
+
+<h1 class="mrg_head"><%= "#{@course.title} : questions" %></h1>
+
+<div id="mrg-admin-edit-qns" class="wrap">
+
+<ol>
+	<% @course.questions.each do |qn| %>
+		<li class='qsn'><%= qn.question.html_safe %> 
+			<%= link_to(" ----edit", {:action => 'edit_question', :id => qn.id}, :class => 'edit') %>
+			<ul>
+				<% qn.choices.each do |ch| %>
+					<li class="ch <%= correct ch.correct %>">
+						<%= ch.choice.html_safe %>
+						<%= link_to(" ----edit",{:action => 'edit_choice', :id => ch.id, :qid => qn.id}, :class => 'edit') %>
+					</li> 
+				<% end %>
+			</ul>
+			<div><%= link_to "change answer", {:action => "change_answer", :id => qn.id}, :class => 'edit'  %></div>
+		</li>
+	<% end %>
+</ol>
+
+</div>

@@ -23,7 +23,7 @@
 			<td align="center">
 				<%= link_to "edit", {:action => 'edit_course', :id => course.id}, :class => 'edit' %> /
 				<%= link_to "delete", {:action => 'delete_course' , :id => course.id}, :class => 'delete' %> /
-				<%= link_to "Questions", "#" %> 
+				<%= link_to "Questions", {:action => 'course_questions' , :id => course.id} %> 
 			</td>
 		</tr>
 	<% end %>

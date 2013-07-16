@@ -19,11 +19,11 @@
 		<% @course.questions.sample(number_of_questions).each do |qn| %>
 			<div id = '<%= "q#{count}" %>' class= "qns <%= displayFirst count  %>">
 				<li>
-				<span class="qns"><%= qn.question %></span>
+				<span class="qns"><%= qn.question.html_safe %></span>
 					<ul id="ach" class="chs">
 						<% qn.choices.sample(qn.choices.length).each do |ch| %>
 							<li id='<%= "#{qn.id}-#{ch.id}" %>'>
-								<%= ch.choice %>
+								<%= ch.choice.html_safe %>
 								<% correct_ans["qn#{qn.id}"] = ch.id if ch.correct %>
 							</li>
 						<% end %>

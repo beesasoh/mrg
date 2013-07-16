@@ -158,9 +158,56 @@ class AdminController < ApplicationController
 		end
 	end
 
-	def test
+	def course_questions
+		@course = Course.find_by_id(params[:id])
 	end
 
+	def edit_question
+		@question = Question.find_by_id(params[:id])
+	end
 
+	def update_question
+		@question = Question.find_by_id(params[:id])
+		if @question.update_attributes(params[:question])
+			redirect_to(:action =>'course_questions', :id => @question.course.id)
+		else
+			render 'edit_question'
+		end
+	end
+
+	def edit_choice
+		@choice = Choice.find_by_id(params[:id])
+		@question = Question.find_by_id(params[:qid])
+	end
+
+	def update_choice
+		@choice = Choice.find_by_id(params[:id])
+		@question = Question.find_by_id(params[:qid])
+		if @choice.update_attributes(params[:choice])
+			redirect_to(:action => 'course_questions', :id => @question.course.id)
+		else
+			render 'edit_choice'
+		end
+	end
+
+	def change_answer
+		@question = Question.find_by_id(params[:id])
+	end
+
+	def update_answer
+		question = Question.find_by_id(params[:qsn])
+		ans = params[:ans]
+		if ans == nil
+			flash[:notice] = "Please select the answer"
+			redirect_to(:action => 'change_answer', :id => question.id)
+		else
+			question.choices.each do |ch|
+				ch.update_attributes(:correct => false)
+			end
+			ch = Choice.find(ans)
+		    ch.update_attributes(:correct => true)
+			redirect_to(:action => 'course_questions', :id => question.course.id)
+		end
+	end
 
 end

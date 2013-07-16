@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  attr_accessible :question, :course_id , :image
+  attr_accessible :question, :course_id , :image , :explanation
 
   belongs_to :course
   has_many :choices

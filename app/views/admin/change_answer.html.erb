@@ -1,0 +1,23 @@
+<% @page_title = "admin | change answer" %>
+
+<h1 class="mrg_head">Change answer</h1>
+
+<div class="wrap">
+	<div class="qns"><%= @question.question %></div>
+	<br />
+	<div id="choices">
+	
+	<%= form_tag('/admin/update_answer') do %>
+	<input type="hidden" name="qsn" value = "<%= @question.id %>">
+	<% @question.choices.each do |ch| %>
+		
+		<%= radio_button_tag 'ans' , ch.id %>  <%= ch.choice %><br />
+
+	<% end %>
+	<br />
+	<%= submit_tag("Change") %>
+	
+	<% end %>
+
+	</div>
+</div>

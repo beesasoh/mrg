@@ -1,0 +1,15 @@
+<% @page_title = "admin | Edit choice" %>
+
+<h1 class="mrg_head">Edit choice</h1>
+
+<div class="wrap">
+	<strong>Qns: </strong><%= @question.question %><br /><br />
+	<%= form_for :choice, :url => {:action => 'update_choice', :id => @choice.id, :qid => @question.id} do |f| %>
+
+		<%= label_tag(:choice, "Choice") %><br />
+		<%= f.text_field(:choice) %>
+		<br ><br />
+
+		<%= f.submit("Save") %>
+	<% end %>
+</div>

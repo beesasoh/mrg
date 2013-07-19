@@ -28,7 +28,7 @@ test:
   database: mrg_test
   pool: 5
   username: root
-  password:
+  password: dbadmin
   socket: /var/run/mysqld/mysqld.sock
 
 production:

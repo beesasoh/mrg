@@ -1,4 +1,6 @@
 Mrg::Application.routes.draw do
+  get "social/index"
+
   match 'auth/:provider/callback', to: 'session#create'
   match 'auth/failure', to: redirect('/')
   match 'signout' , to: 'session#destroy', as: 'signout'

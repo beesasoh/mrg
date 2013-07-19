@@ -5,7 +5,5 @@ class Game < ActiveRecord::Base
   belongs_to :course
   belongs_to :subject
 
-  validates :subject_id, :presence => true
-  validates :user_id, :presence => true
-  validates :course_id, :presence => true
+  validates_presence_of :subject_id, :user_id , :course_id , :score
 end

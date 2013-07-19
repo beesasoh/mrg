@@ -1,4 +1,7 @@
 class PlayController < ApplicationController
+
+ #verify :method => :post, :only => :game
+ #verify :xhr => :true, :only => :game
   
   def index
   	require 'json'
@@ -8,7 +11,6 @@ class PlayController < ApplicationController
   def game  	
   	custom = Hash.new
 
-  	if request.post?
 	  	score = params[:score]
 	  	course_id = params[:course]
 	  	course = Course.find(course_id)
@@ -26,10 +28,6 @@ class PlayController < ApplicationController
 	  		custom["message"] = "failed due to error"
 	  		render json: custom
 	  	end
-	else
-		custom["message"] = "Dont be a hero"
-		render json: custom
-	end
   end
 
 end

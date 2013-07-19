@@ -3,11 +3,40 @@ class Course < ActiveRecord::Base
 
   belongs_to :author
   belongs_to :subject
-  has_many :questions
+  has_many :questions , :dependent => :destroy
   has_many :games_played , :class_name => :game
   has_and_belongs_to_many :users
 
-  validates :title, :presence => true
-  validates :level, :presence => true
-  validates :cost, :presence => true, :numericality => {:only_integer => true}
+  validates_presence_of :title, :level, :cost
+  validates :cost, :numericality => {:only_integer => true}
+  validates :published, inclusion: [true,false]
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,6 +3,5 @@ class Choice < ActiveRecord::Base
 
  	belongs_to :question
 
- 	validates :choice, :presence => true
- 	validates :question_id, :presence => true
+ 	validates_presence_of :choice, :question_id
 end

@@ -1,21 +1,38 @@
  <div id="fb-root"></div>
     <script src="http://connect.facebook.net/en_US/all.js"></script>
     <script>
-        $(function(){
-            $("a.inv-btn").click(function(){
-                FB.init({
+        // $(function(){
+        //     $("a.inv-btn").click(function(){
+        //         FB.init({
+        //             appId : '462973483793316',
+        //             cookie : false,
+        //             status : true,
+        //             frictionlessRequests : true
+        //         });
+
+        //         FB.ui({
+        //             method: 'apprequest',
+        //             message: "Join, its unbelivable"
+        //         });
+
+        //     });
+        // });
+        $(document).ready(function(){
+        	fb_request();
+        });
+        function fb_request(){
+        	FB.init({
                     appId : '462973483793316',
                     cookie : false,
-                    status : true
+                    status : true,
+                    frictionlessRequests : true
                 });
 
-                FB.ui({
+        	FB.ui({
                     method: 'apprequest',
                     message: "Join, its unbelivable"
                 });
-
-            });
-        });
+        }
     </script>     
     	<h3>Invite freinds</h3>
     	<div>

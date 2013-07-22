@@ -17,7 +17,7 @@
 			correct_ans["cid"] = @course.id
 		 %>
 		<% @course.questions.sample(number_of_questions).each do |qn| %>
-			<div id = '<%= "q#{count}" %>' class= "qns <%= displayFirst count  %>">
+			<div id = '<%= "q#{count}" %>' class= "qns <%= displayFirstQuestion count  %>">
 				<li>
 				<span class="qns"><%= qn.question.html_safe %></span>
 					<ul id="ach" class="chs">

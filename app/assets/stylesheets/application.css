@@ -418,7 +418,10 @@ a.delete{
 }
 
 /*styles apply to the play page only */
-
+#xa{
+	visibility: hidden !important;
+	display: none !important;
+}
 h1.score{
 	color: #C60;
 	text-align: center;

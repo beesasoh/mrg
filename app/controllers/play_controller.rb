@@ -2,32 +2,39 @@ class PlayController < ApplicationController
 
  #verify :method => :post, :only => :game
  #verify :xhr => :true, :only => :game
+ #try to use before_filter
   
   def index
   	require 'json'
   	@course = Course.find_by_id(params[:id])
   end
 
-  def game  	
-  	custom = Hash.new
+  def create 
+  		results_hash = Hash.new
+  		if request.get?
+  			results_hash["message"] = "dont be a hero"
+			render json: results_hash
+		else
+			score = params[:score]
+		  	course_id = params[:course]
+		  	course = Course.find(course_id)
 
-	  	score = params[:score]
-	  	course_id = params[:course]
-	  	course = Course.find(course_id)
+		  	game = Game.new
+		  	game.user = User.find(2)
+		  	game.course = course
+		  	game.subject = course.subject
+		  	game.score = score
 
-	  	game = Game.new
-	  	game.user = User.find(2)
-	  	game.course = course
-	  	game.subject = course.subject
-	  	game.score = score
-
-	  	if game.save
-	  		custom["message"] = "Weldone"
-	  		render json: custom
-	  	else
-	  		custom["message"] = "failed due to error"
-	  		render json: custom
-	  	end
+		  	if game.save
+		  		#todo
+		  		#display results of play
+		  		results_hash["message"] = "Weldone"
+		  		render json: results_hash
+		  	else
+		  		results_hash["message"] = "failed due to error"
+		  		render json: results_hash
+		  	end
+		end
   end
 
 end

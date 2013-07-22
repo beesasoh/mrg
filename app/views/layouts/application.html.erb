@@ -1,120 +1,29 @@
-<% user = User.find_by_id(2) %>
+<% user = User.find_by_id(2) 
+   #@graph = Koala::Facebook::API.new(user.oauth_token)
+    #friends = @graph.get_connections("me", "friends")
+    #profile = @graph.get_object("me")
+    session[:user_id] = user.id
+%>
 <!DOCTYPE html>
 <html>
 <head>
   <title><%= @page_title || "My revision guide"%></title>
   <%= stylesheet_link_tag  "application", :media => "all" %>
-<link href='http://fonts.googleapis.com/css?family=Alef' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Marmelad' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Alef' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Marmelad' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <div id="wrapper">
-   
- <div id="fixed-right-side-bar">
-    <%# render(:partial => 'shared/side_bar', :locals =>{:user => user}) %> 
-     <div id="fb-root"></div>
-    <script src="http://connect.facebook.net/en_US/all.js"></script>
-    <script>
-        $(function(){
-            $("a.inv-btn").click(function(){
-                FB.init({
-                    appId : '462973483793316',
-                    cookie : false,
-                    status : true
-                });
-
-                FB.ui({
-                    method: 'apprequest',
-                    message: "Join, its unbelivable"
-                });
-
-            });
-        });
-    </script>     
-<h3>Invite freinds</h3>
-<div>
-<ul>
-    <% @graph = Koala::Facebook::API.new(user.oauth_token) %>
-    <%# profile = @graph.get_object("me") %>
-    <% friends = @graph.get_connections("me", "friends") %>
-    <% friends.sample(20).each do |freind| %>
-        <li>
-            <span class="fb-img">
-                <%= image_tag("http://graph.facebook.com/#{freind['id']}/picture?width=30&height=30") %>
-            </span>
-            <span class="fb-name"><%= freind["name"][0..25]  %></span>
-
-            <div class="fb-invite-tool-tip">
-                <div class="wrap">
-                    <div class="fb-prof-medium">
-                        <%= image_tag("http://graph.facebook.com/#{freind['id']}/picture?width=100&height=100") %>
-                    </div>
-                    <div class="fb-inv">
-                        <span class="fb-tooltip-name"><%= freind["name"][0..25]  %></span>
-                        <span class="desc">Revision is better with freinds</span>
-                        <a class="inv-btn">Invite freind</a>
-                    </div>
-                    <div class="clear-fix"></div>
-                </div>
-            </div>  
-        </li>
-    <% end %>
-</ul>
-</div>
-</div>
+    <div id="fixed-right-side-bar">
+    </div>
 
     <div id="mrg-main">
         <div id="mrg-page">
-            
-            <div id="header">
-                <div class="logo">
-                    <div class="mrg-logo">
-                        <%= link_to image_tag('logo.png'), root_url %>
-                    </div>
-                    <div class="mrg-title"><h1>
-                        <%= link_to("My revision guide", root_url) %></h1></div>
-                    <div class="clear-fix"></div>
-                </div>
-                
-                <div class="links">
-                    <div class="mrg-user-avatar">
-                       <% if user %>
-							<%= image_tag(user.image) %>
-						<% else %>
-							<%= image_tag('avatar.png') %>
-						<% end %>	
-                    </div>
-                    <div class="mrg-links">
-                    	<%= image_tag('patchit-logo.png') %>
-                        <ul>
-                            <li><a href="#">my account</a></li>
-                            <li><a href="#">link 2</a></li>
-                            <li>
-                            	<a href="#">
-                            		<% if user %>
-										<%= user.name %>
-									<% else %>
-										<%= link_to('Login','/auth/facebook') %>
-									<% end %>
-                            	</a>
-                            </li>
-                            <div class="clear-fix"></div>
-                        </ul>
-                    </div>
-                    <div class="clear-fix"></div>
-                </div>
-                
-                <div class="clear-fix"></div>
-                <div id="mrg-loading"><span>Loading...</span><br/><%= image_tag('preloader-w8-line-black.gif') %></div>
-            </div>
-            	
-            
+            <%= render :partial => "layouts/head" , :locals => {:user => user}  %>    
             <div id="mrg-content">
-           
                  <%= yield %>
-            
             </div>
         </div>
     </div>

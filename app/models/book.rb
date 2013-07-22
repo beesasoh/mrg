@@ -5,9 +5,6 @@ class Book < ActiveRecord::Base
   belongs_to :subject
   has_attached_file :book_file
 
-  validates :title , :presence => 'true'
-  validates :author_id, :presence => 'true'
-  validates :subject_id, :presence => 'true'
-  validates_attachment :book_file, :presence => true,
-  										:size => { :in => 1..20.megabytes }
+  validates_presence_of :title, :author_id, :subject_id, :book_file
+  validates_attachment :book_file, :size => { :in => 1..20.megabytes }
 end

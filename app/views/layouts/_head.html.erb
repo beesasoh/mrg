@@ -1,0 +1,41 @@
+     <div id="header">
+                <div class="logo">
+                    <div class="mrg-logo">
+                        <%= link_to image_tag('logo.png'), root_url %>
+                    </div>
+                    <div class="mrg-title"><h1>
+                        <%= link_to("My revision guide", root_url) %></h1></div>
+                    <div class="clear-fix"></div>
+                </div>
+                
+                <div class="links">
+                    <div class="mrg-user-avatar">
+                       <% if user %>
+							<%= image_tag(user.image) %>
+						<% else %>
+							<%= image_tag('avatar.png') %>
+						<% end %>	
+                    </div>
+                    <div class="mrg-links">
+                    	<%= image_tag('patchit-logo.png') %>
+                        <ul>
+                            <li><a href="#">my account</a></li>
+                            <li><a href="#">favourites</a></li>
+                            <li>
+                            	<a href="#">
+                            		<% if user %>
+										<%= link_to('Sign out','/logout') %>
+									<% else %>
+										<%= link_to('Login','/auth/facebook') %>
+									<% end %>
+                            	</a>
+                            </li>
+                            <div class="clear-fix"></div>
+                        </ul>
+                    </div>
+                    <div class="clear-fix"></div>
+                </div>
+                
+                <div class="clear-fix"></div>
+                <div id="mrg-loading"><span>Loading...</span><br/><%= image_tag('preloader-w8-line-black.gif') %></div>
+            </div>

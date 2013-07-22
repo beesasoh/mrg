@@ -8,7 +8,6 @@ class BookController < ApplicationController
     @books = Book.all
   end
 
-
   def view
     @book = Book.find(params[:id]);
   end

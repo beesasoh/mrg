@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
 	layout "admin"
+	#TODO add before_filter that checks for admin for all actions
 	def index
 	end
 

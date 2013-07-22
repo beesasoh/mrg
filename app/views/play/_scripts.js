@@ -99,7 +99,7 @@ var MRG_PLAY = {
 		setTimeout(function(){
 			PLAY_SCORE.anim(f_score);
 		},500);
-		$.post("game", {course: c_id, score: f_score}, function(data){
+		$.post("/play/create", {course: c_id, score: f_score}, function(data){
 			$("#mrg-out").html(data.message);
 		},"json");
 	},

@@ -32,8 +32,7 @@ describe User do
   		user = FactoryGirl.build(:user)
   		user.should respond_to(:courses)
   	end
-
-  	pending "test method create user from auth"
+    
   end
 
 end

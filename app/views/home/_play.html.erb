@@ -1,0 +1,44 @@
+<!-- play section -->
+<div id= "mrg-index">
+<div class="section-header">
+<div class="mrg-section-header">
+    	<h2>Play</h2>
+    </div>
+    <div class="mrg-section-link">
+    	
+        <a href = "subject#subject_list" class = "mrg_ajax_load">View all subjects</a>
+    </div>
+    <div class="clear-fix"></div>
+</div>
+
+<table class="mrg-table">
+	<tr>
+    	<td class="mrg-spanner">
+            <div class="mrg-play"></div>
+            <label>Multiple choice exercises</label>
+            <span>Click on the subject to play</span>
+        </td>
+        
+    	<td>
+            <div class="thumbs">
+            	
+            		<% @subjects.sample(4).each do |subject| %>
+                    <div class="mrg-thumb">
+                        <div>
+                            <%= link_to image_tag(subject.image_thumb.url(:thumb)) , 
+                                :controller => 'subject',
+                                :action => 'quizzes', 
+                                :id => subject.id %>
+                            <label>
+                              <%= link_to(subject.name, :action => 'quizzes', :id => subject.id) %></label>
+                            <span><%= pluralize(subject.courses.length, 'Exercise') %></span>
+                        </div>
+                    </div>
+                    <% end %>
+                	
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+<!-- end play section -->

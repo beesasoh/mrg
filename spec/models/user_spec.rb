@@ -32,7 +32,28 @@ describe User do
   		user = FactoryGirl.build(:user)
   		user.should respond_to(:courses)
   	end
-    
+  end
+
+  describe "Methods" do
+    it "points should return the total points of the user" do
+      user = FactoryGirl.create(:user)
+      game1 = FactoryGirl.create(:game, :score => 20, :user_id => user.id)
+      game2 = FactoryGirl.create(:game, :score => 30, :user_id => user.id)
+      expect(user.points).to eq(50)
+    end
+
+    it "points_today should returns the points the user has earned today" do
+      user = FactoryGirl.create(:user)
+      game1 = FactoryGirl.create(:game, :score => 20, :user_id => user.id ,:created_at => 2.days.ago)
+      game2 = FactoryGirl.create(:game, :score => 30, :user_id => user.id ,:created_at => Date.today)
+      expect(user.points_today).to eq(30)
+    end
+    it "points_this_week should return points the user earned this week" do
+      user = FactoryGirl.create(:user)
+      game1 = FactoryGirl.create(:game, :score => 20, :user_id => user.id ,:created_at => 2.weeks.ago)
+      game2 = FactoryGirl.create(:game, :score => 30, :user_id => user.id)
+      expect(user.points_this_week).to eq(30)
+    end
   end
 
 end

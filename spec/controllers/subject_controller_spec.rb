@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe SubjectController do
+	before(:each) do
+			user = FactoryGirl.create(:user)
+			session[:user_id] = user.id
+	end
 	describe "GET :index" do
 		it "should be successful" do
 			get :index

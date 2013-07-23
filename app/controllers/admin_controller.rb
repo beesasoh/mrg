@@ -1,5 +1,7 @@
 class AdminController < ApplicationController
+
 	layout "admin"
+	before_filter :confirm_logged_in
 	#TODO add before_filter that checks for admin for all actions
 	def index
 	end

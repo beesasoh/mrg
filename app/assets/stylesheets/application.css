@@ -73,6 +73,7 @@ h1,h2{
 	top:0px;
 	display:none;
 	border-right:none;
+
 }
 #fixed-right-side-bar ul li .fb-invite-tool-tip img{
 	max-width: 100px;
@@ -81,6 +82,7 @@ h1,h2{
 
 #fixed-right-side-bar ul li:hover .fb-invite-tool-tip{
 	display:block;
+	z-index: 100 !important;
 }
 #fixed-right-side-bar ul li .fb-invite-tool-tip:hover{
 	display:block;

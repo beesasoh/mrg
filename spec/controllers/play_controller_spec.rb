@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe PlayController do
+	before(:each) do
+			user = FactoryGirl.create(:user)
+			session[:user_id] = user.id
+	end
+
 	describe "GET :index" do
 		it "assigns course" do
 			course = FactoryGirl.create(:course)

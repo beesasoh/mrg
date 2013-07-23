@@ -1,0 +1,112 @@
+
+<style type="text/css">
+body{
+	padding:3em;
+	font-family: 'Roboto', sans-serif;
+	font-size:14px;
+}
+.clear{
+	clear:both;
+}
+a{
+	color:#069;
+	text-decoration:none;
+}
+#mrg-wrapper{
+	max-width:1200px;
+	margin:0 auto;
+}
+#mrg-download{
+	text-align:right;
+	margin-bottom:2em;
+	margin-right:8em;
+	font-size:14px;
+}
+#mrg-home{
+}
+#mrg-home .left{
+	width:60%;
+	float:left;
+}
+#mrg-home .left img{
+	width:80%;
+}
+#mrg-home .right{
+	width:39%;
+	float:left;
+	margin-top:4em;
+}
+#login{
+	width:340px;
+	height:330px;
+	background-color:#F0F6F9;
+	border:1px solid #ABCDDD;
+	border-radius: 5px;
+	padding:10px;
+}
+#login .logo{
+	width:23%;
+	float:left;
+	text-align:center;
+}
+#login .title{
+	width:70%;
+	float:left;
+}
+#login .title h1{
+	color:#3D8BB1;
+	font-size:25px;
+	margin:10px 0;
+	font-weight:normal;
+}
+#login .text{
+	margin:2em 0;
+	color:#353535;
+	line-height:24px;
+}
+#login .line{
+	height:1px;
+	width:97%;
+	background-color:#C1C1C1;
+	margin:10px 0;
+}
+.fb-btn{
+	text-align:center;
+	margin-top:2em;
+}
+</style>
+<body>
+<div id ="mrg-wrapper">
+	<div id="mrg-download"><a href="#">Download</a></div>
+    
+    <div id="mrg-home">
+    	<div class="left">
+        	<%= image_tag "my_revision_guide1.jpg" %>
+        </div>
+        <div class="right">
+        	<div id="login">
+       
+            	<div class="logo">
+            		<%= image_tag "logo.png" %>
+            	</div>
+
+                <div class="title"><h1>My revision guide</h1></div>
+            	<div class="clear"></div>
+                
+                <div class="text">
+                	Welcome to my revision guide, Login with facebook to get started. No need for extra user names or passwords.
+                    You will be able to see your friends already using my revision guide and revision is much more fun with freinds.
+                </div>
+                
+                <center><div class="line"></div></center>
+                
+                <div class="fb-btn">
+                	<a href="/auth/facebook">
+                		<%= image_tag "fb-login.png" %>
+                    </a>
+                 </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

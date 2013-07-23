@@ -1,9 +1,3 @@
-<% user = User.find_by_id(2) 
-   #@graph = Koala::Facebook::API.new(user.oauth_token)
-    #friends = @graph.get_connections("me", "friends")
-    #profile = @graph.get_object("me")
-    session[:user_id] = user.id
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,11 +11,12 @@
 <body>
 <div id="wrapper">
     <div id="fixed-right-side-bar">
+      <%= render :partial => 'layouts/side_bar', :locals => {:user => current_user} %>
     </div>
 
     <div id="mrg-main">
         <div id="mrg-page">
-            <%= render :partial => "layouts/head" , :locals => {:user => user}  %>    
+            <%= render :partial => "layouts/head" , :locals => {:user => current_user}  %>    
             <div id="mrg-content">
                  <%= yield %>
             </div>

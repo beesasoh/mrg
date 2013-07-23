@@ -1,9 +1,6 @@
 class PlayController < ApplicationController
 
- #verify :method => :post, :only => :game
- #verify :xhr => :true, :only => :game
- #try to use before_filter
-  
+	before_filter :confirm_logged_in  
   def index
   	require 'json'
   	@course = Course.find_by_id(params[:id])
@@ -24,6 +21,7 @@ class PlayController < ApplicationController
 		  	game.course = course
 		  	game.subject = course.subject
 		  	game.score = score
+		  	game.created_at = Date.today
 
 		  	if game.save
 		  		#todo

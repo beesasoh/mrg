@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe HomeController do
+	before(:each) do
+			user = FactoryGirl.create(:user)
+			session[:user_id] = user.id
+	end
 	describe "GET #index" do
 		it "it responds sussesfully with status code 200" do
 			get :index

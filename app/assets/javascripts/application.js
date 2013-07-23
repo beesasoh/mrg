@@ -15,17 +15,15 @@
 //= require_tree .
 
 $(document).ready(function(){
-	//handle_ajax_click();
-	
-	/* initial_page_state = {
-			page_to_load : "",
-			section: "mrg-index",
-			div_to_replace: "mrg-content",
-			loading_div : "mrg-loading"
-	}
-	history.replaceState(initial_page_state,"My revision guide", null);
-	window.onpopstate = MRG.popStateHandler;
-	*/
+	// initial_page_state = {
+	// 		page_to_load : "/",
+	// 		section: "mrg-index",
+	// 		div_to_replace: "mrg-content",
+	// 		loading_div : "mrg-loading"
+	// }
+	// history.replaceState(initial_page_state,"My revision guide", null);
+	// window.onpopstate = MRG.popStateHandler;
+	// handle_ajax_click();
 	
 });
 

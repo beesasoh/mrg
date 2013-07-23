@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :courses
   has_many :games_played , :class_name => :game ,:dependent => :destroy
   
+  
   def self.create_user_from(auth)
   	where(auth.slice(:provider , :uid)).first_or_initialize.tap do |user|
   		user.provider = auth.provider
@@ -20,6 +21,19 @@ class User < ActiveRecord::Base
   		user.oauth_expires_at = Time.at(auth.credentials.expires_at)
   		user.save!
   	end
-
   end
+
+  def points
+    Game.where(:user_id => self.id).sum(:score)
+  end
+
+  def points_today
+    Game.where(:user_id => self.id, :created_at => Date.today).sum(:score)
+  end
+
+  def points_this_week
+    Game.where(:user_id => self .id, 
+                :created_at => Date.today.at_beginning_of_week..Date.today.at_end_of_week).sum(:score)
+  end
+
 end

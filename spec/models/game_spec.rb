@@ -26,4 +26,73 @@ describe Game do
   	end
   end
 
+  describe "Methods" do
+
+  	it "rankings returns the global rankings" do
+  		user1 = FactoryGirl.create(:user)
+    	user2 = FactoryGirl.create(:user)
+    	game1 = FactoryGirl.create(:game, :score => 20, :user_id => user1.id,:created_at => Date.today)
+    	game2 = FactoryGirl.create(:game, :score => 30, :user_id => user1.id,:created_at => Date.today)
+    	game3 = FactoryGirl.create(:game, :score => 20, :user_id => user2.id,:created_at => Date.today)
+   		game4 = FactoryGirl.create(:game, :score => 40, :user_id => user2.id, :created_at => 2.days.ago)
+  		expect(Game.rankings.keys).to eq([user2.id,user1.id])
+  	end
+
+  	it "rankings_today returns the rankings of the day" do 
+  		user1 = FactoryGirl.create(:user)
+    	user2 = FactoryGirl.create(:user)
+    	game1 = FactoryGirl.create(:game, :score => 20, :user_id => user1.id,:created_at => Date.today)
+    	game2 = FactoryGirl.create(:game, :score => 30, :user_id => user1.id,:created_at => Date.today)
+    	game3 = FactoryGirl.create(:game, :score => 20, :user_id => user2.id,:created_at => Date.today)
+   		game4 = FactoryGirl.create(:game, :score => 40, :user_id => user2.id, :created_at => 2.days.ago)
+  		expect(Game.rankings_today.keys).to eq([user1.id,user2.id])
+  	end
+
+  	it "rankings_this_week returns the user rankings of the week" do
+  		user1 = FactoryGirl.create(:user)
+    	user2 = FactoryGirl.create(:user)
+    	game1 = FactoryGirl.create(:game, :score => 20, :user_id => user1.id,:created_at => Date.today)
+    	game2 = FactoryGirl.create(:game, :score => 30, :user_id => user1.id,:created_at => Date.today)
+    	game3 = FactoryGirl.create(:game, :score => 20, :user_id => user2.id,:created_at => Date.today)
+   		game4 = FactoryGirl.create(:game, :score => 40, :user_id => user2.id, :created_at => 2.weeks.ago)
+  		expect(Game.rankings_today.keys).to eq([user1.id,user2.id])
+  	end
+
+  	it "rank with num returns the id of the user in position num on global rankings" do
+  		user1 = FactoryGirl.create(:user)
+    	user2 = FactoryGirl.create(:user)
+    	game1 = FactoryGirl.create(:game, :score => 20, :user_id => user1.id,:created_at => Date.today)
+    	game2 = FactoryGirl.create(:game, :score => 30, :user_id => user1.id,:created_at => Date.today)
+    	game3 = FactoryGirl.create(:game, :score => 20, :user_id => user2.id,:created_at => Date.today)
+   		game4 = FactoryGirl.create(:game, :score => 40, :user_id => user2.id,:created_at => 2.weeks.ago)
+   		expect(Game.rank(10)).to eq(nil)
+  		expect(Game.rank(2)).to eq(user1.id)
+  	end
+
+  	it "rank_today with num returns the id of the user in position num on todays performance" do
+  		user1 = FactoryGirl.create(:user)
+    	user2 = FactoryGirl.create(:user)
+    	game1 = FactoryGirl.create(:game, :score => 20, :user_id => user1.id,:created_at => Date.today)
+    	game2 = FactoryGirl.create(:game, :score => 30, :user_id => user1.id,:created_at => Date.today)
+    	game3 = FactoryGirl.create(:game, :score => 20, :user_id => user2.id,:created_at => Date.today)
+   		game4 = FactoryGirl.create(:game, :score => 40, :user_id => user2.id,:created_at => 2.weeks.ago)
+   		expect(Game.rank_today(10)).to eq(nil)
+  		expect(Game.rank_today(1)).to eq(user1.id)
+  		expect(Game.rank_today(2)).to eq(user2.id)
+  	end
+
+  	it "rank_this_week with num returns the id of the user in position num on the week performance" do
+  		user1 = FactoryGirl.create(:user)
+    	user2 = FactoryGirl.create(:user)
+    	game1 = FactoryGirl.create(:game, :score => 20, :user_id => user1.id,:created_at => Date.today)
+    	game2 = FactoryGirl.create(:game, :score => 30, :user_id => user1.id,:created_at => Date.today)
+    	game3 = FactoryGirl.create(:game, :score => 20, :user_id => user2.id,:created_at => Date.today)
+   		game4 = FactoryGirl.create(:game, :score => 40, :user_id => user2.id,:created_at => 2.weeks.ago)
+   		expect(Game.rank_this_week(10)).to eq(nil)
+  		expect(Game.rank_this_week(1)).to eq(user1.id)
+  		expect(Game.rank_this_week(2)).to eq(user2.id)
+  	end
+
+  end
+
 end

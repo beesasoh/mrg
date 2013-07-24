@@ -100,8 +100,8 @@ var MRG_PLAY = {
 			PLAY_SCORE.anim(f_score);
 		},500);
 		$.post("/play/create", {course: c_id, score: f_score}, function(data){
-			$("#mrg-out").html(data.message);
-		},"json");
+			$("#mrg-out").html(data);
+		});
 	},
 
 	hideQuestions : function(){

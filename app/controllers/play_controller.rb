@@ -17,20 +17,18 @@ class PlayController < ApplicationController
 		  	course = Course.find(course_id)
 
 		  	game = Game.new
-		  	game.user = User.find(2)
+		  	game.user = current_user
 		  	game.course = course
 		  	game.subject = course.subject
 		  	game.score = score
 		  	game.created_at = Date.today
 
 		  	if game.save
-		  		#todo
-		  		#display results of play
-		  		results_hash["message"] = "Weldone"
-		  		render json: results_hash
+		  		# results_hash["message"] = "Weldone"
+		  		# render json: results_hash
+		  		render :layout =>'game'
 		  	else
-		  		results_hash["message"] = "failed due to error"
-		  		render json: results_hash
+		  		render :layout =>'game'
 		  	end
 		end
   end

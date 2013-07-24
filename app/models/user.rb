@@ -32,8 +32,50 @@ class User < ActiveRecord::Base
   end
 
   def points_this_week
-    Game.where(:user_id => self .id, 
+    Game.where(:user_id => self.id, 
                 :created_at => Date.today.at_beginning_of_week..Date.today.at_end_of_week).sum(:score)
+  end
+
+  def rank
+    Game.rankings.keys.index(self.id) + 1
+  end
+
+  def rank_today
+    Game.rankings_today.keys.index(self.id) + 1
+  end
+
+  def rank_this_week
+    Game.rankings_this_week.keys.index(self.id) + 1
+  end
+
+  def next_up positions_up=1
+    current_user_rank = self.rank 
+    if current_user_rank <= positions_up || positions_up < 0
+      return nil
+    else
+      Game.rank(current_user_rank-positions_up)
+    end
+  end
+
+  def next_down positions_down=1
+    current_user_rank = self.rank 
+    if positions_down < 0
+      return nil
+    else
+      Game.rank(current_user_rank + positions_down)
+    end
+  end
+
+  def next_up_today num=1
+  end
+
+  def next_down_today num=1
+  end
+
+  def next_up_this_week num=1
+  end
+
+  def next_down_this_week num=1
   end
 
 end

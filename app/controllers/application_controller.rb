@@ -21,4 +21,15 @@ class ApplicationController < ActionController::Base
   	end
   end
 
+  def confirm_admin
+    user = User.find(session[:user_id])
+    if user.role == "admin"
+      return true
+    else
+      flash[:notice] = "Please login"
+      redirect_to("/")
+      return false
+    end
+  end
+
 end

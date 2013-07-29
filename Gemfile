@@ -7,6 +7,8 @@ gem "paperclip", "~> 3.0"
 gem "koala", "~> 1.7.0rc1"
 gem "factory_girl_rails"
 gem 'mysql2'
+gem 'rack-mini-profiler'
+gem 'turbolinks'
 
 group :development, :test do
 	gem 'rspec-rails', '~> 2.0'

@@ -7,12 +7,12 @@
 
 <div id="mrg_qns">
 <ul id="qns-wrap">
-	<% if @course.questions.empty?  %>
+	<% if @course.nil? || @course.questions.empty?  %>
 		<span> Test not ready, return soon</span>
 	<% else %>
 		<%  count = 1
 			correct_ans = Hash.new
-			number_of_questions = 10
+			number_of_questions = 5
 			correct_ans["num"] = number_of_questions
 			correct_ans["cid"] = @course.id
 		 %>
@@ -39,16 +39,22 @@
 
 <div id="mrg_play_results">
 
-	<div id="res-outer">
-    	<div id="res-inner" class="red"><div id="sss">0</div></div>
-    </div> 
-	
-    <div id="mrg-out"></div>
-
-	<div id="buttons"> 
+	<div class = "left">
+		<div id="res-outer">
+	    	<div id="res-inner" class="red"><div id="sss">0</div></div>
+	    </div> 
+		
+	    <div id="mrg-out"></div>
+	    <div id="buttons"> 
 		<%= link_to "Play again", "" , :class => 'btn' %>
 		<%= link_to "main menu", {:controller=>"home", :action => "index"}, :class => 'btn' %>
 	</div>
+	</div>
+
+	<div class = "right">
+		<div class="earned-points"><span id = "earned-points">17</span>points</div>
+	</div>
+		<div class= "clear-fix"></div>
 	<br />
 </div>
 

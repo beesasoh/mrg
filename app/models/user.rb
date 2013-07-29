@@ -23,6 +23,26 @@ class User < ActiveRecord::Base
   	end
   end
 
+  def first_name
+    self.name.split(" ")[0]
+  end
+
+  def first_and_last_name
+    names = self.name.split(" ")
+    names.length <= 2 ? "#{names[0]} #{names[1]}" : "#{names[0]} #{names[2]}"
+  end
+
+  def get_friends
+    app_users = User.pluck(:uid)
+    graph = Koala::Facebook::API.new(self.oauth_token)
+    friends_hash_array = graph.get_connections("me", "friends")
+    user_fb_friends = []
+    friends_hash_array.each do |friend_hash|
+      user_fb_friends << friend_hash["id"]
+    end
+    return app_users & user_fb_friends
+  end
+
   def points
     Game.where(:user_id => self.id).sum(:score)
   end
@@ -37,45 +57,76 @@ class User < ActiveRecord::Base
   end
 
   def rank
-    Game.rankings.keys.index(self.id) + 1
+    user_postion_in_zero_indexed_array = Game.rankings.keys.index(self.id)
+    nil || user_postion_in_zero_indexed_array + 1 if !user_postion_in_zero_indexed_array.nil?
   end
 
   def rank_today
-    Game.rankings_today.keys.index(self.id) + 1
+    user_postion_in_zero_indexed_array = Game.rankings_today.keys.index(self.id)
+    nil || user_postion_in_zero_indexed_array + 1 if !user_postion_in_zero_indexed_array.nil?
   end
 
   def rank_this_week
-    Game.rankings_this_week.keys.index(self.id) + 1
+    user_postion_in_zero_indexed_array = Game.rankings_this_week.keys.index(self.id)
+    nil || user_postion_in_zero_indexed_array + 1 if !user_postion_in_zero_indexed_array.nil?
+  end
+
+  def rank_in_friends 
+    user_postion_in_zero_indexed_array = Game.friends_ranking(self).keys.index(self.id)
+    nil || user_postion_in_zero_indexed_array + 1 if !user_postion_in_zero_indexed_array.nil?
   end
 
   def next_up positions_up=1
-    current_user_rank = self.rank 
-    if current_user_rank <= positions_up || positions_up < 0
-      return nil
-    else
-      Game.rank(current_user_rank-positions_up)
-    end
+    return nil if (current_user_rank = self.rank) == nil 
+    Game.rank(current_user_rank-positions_up) if current_user_rank > positions_up && positions_up >= 0
   end
 
   def next_down positions_down=1
-    current_user_rank = self.rank 
-    if positions_down < 0
-      return nil
+    return nil if (current_user_rank = self.rank) == nil 
+    return nil if Game.rankings.size < current_user_rank + positions_down
+    Game.rank(current_user_rank + positions_down) if positions_down >= 0
+  end
+
+  def next_up_today positions_up=1
+    return nil if (current_user_rank = self.rank_today) == nil 
+    Game.rank_today(current_user_rank-positions_up) if current_user_rank > positions_up && positions_up >= 0
+  end
+
+  def next_down_today positions_down=1
+    return nil if (current_user_rank = self.rank_today) == nil 
+    return nil if Game.rankings_today.size < current_user_rank+positions_down
+    Game.rank_today(current_user_rank+positions_down) if positions_down >= 0
+  end
+
+  def next_up_this_week positions_up=1
+    return nil if (current_user_rank = self.rank_this_week) == nil 
+    Game.rank_this_week(current_user_rank-positions_up) if current_user_rank > positions_up && positions_up >= 0
+  end
+
+  def next_down_this_week positions_down=1
+    return nil if (current_user_rank = self.rank_this_week) == nil 
+    return nil if Game.rankings_this_week.size < current_user_rank+positions_down
+    Game.rank_this_week(current_user_rank+positions_down) if positions_down >= 0
+  end
+
+  def get_pivot_array ranking_array
+    return nil if (current_user_index = ranking_array.index(self.id)) == nil
+    ranking_array_size = ranking_array.size
+    return ranking_array if ranking_array_size <= 5
+    if [0,1,2].index(current_user_index) != nil
+      return ranking_array[0..4]
+    elsif (ranking_array_size - current_user_index) <= 3
+      return ranking_array[(ranking_array_size-5)..(ranking_array_size-1)]
     else
-      Game.rank(current_user_rank + positions_down)
+      return ranking_array[(current_user_index-2)..(current_user_index+2)]
     end
   end
 
-  def next_up_today num=1
-  end
-
-  def next_down_today num=1
-  end
-
-  def next_up_this_week num=1
-  end
-
-  def next_down_this_week num=1
+  def post_to_wall message
+    graph = Koala::Facebook::API.new(self.oauth_token)
+    graph.put_connections("me", "feed", 
+                      :message => message,
+                      :link => "http://myrevisionguide.com/pages/subjects.html")
   end
 
 end

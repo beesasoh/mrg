@@ -1,0 +1,10 @@
+<h3>Invite freinds</h3>
+<div>
+<ul>
+	<% @graph = Koala::Facebook::API.new(user.oauth_token) %>
+    <%= profile = @graph.get_object("me") %>
+    <%# friends = @graph.get_connections("me", "friends") %>
+    
+</ul>
+</div>
+l

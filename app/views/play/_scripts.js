@@ -101,6 +101,7 @@ var MRG_PLAY = {
 		},500);
 		$.post("/play/create", {course: c_id, score: f_score}, function(data){
 			$("#mrg-out").html(data);
+			MRG_PLAY.handle_share();
 		});
 	},
 
@@ -133,14 +134,27 @@ var MRG_PLAY = {
 		eval("var j = "+a);
 		c_Id = j['cid'];
 		return c_Id
+	},
+	handle_share : function(){
+		$("a.share").click(function(){
+			message = $(this).attr('title');
+			MRG_PLAY.post_to_wall(message);
+			$(this).remove();
+			return false;
+		});
+	},
+	post_to_wall : function(m){
+		$.get("/play/fb_share", {message: m}, function(data){
+			//alert("Posted to wall")
+		});
 	}
-
 }
 
 var PLAY_SCORE = {
 	s    : 0,
 	anim : function(sc){
 		eles = document.getElementById("sss");
+		earned_points = document.getElementById("earned-points");
 		ele = document.getElementById("res-inner");
 		if(PLAY_SCORE.s < sc){
 			ele.style.width = PLAY_SCORE.s+"%";
@@ -152,12 +166,21 @@ var PLAY_SCORE = {
 				ele.className = 'red'
 			}
 			eles.innerHTML = Math.round(PLAY_SCORE.s) +"%";
+			earned_points.innerHTML = Math.round(PLAY_SCORE.s);
 			PLAY_SCORE.s += 0.1;
 			setTimeout(function(){
 				PLAY_SCORE.anim(sc);	
 			},5);
 		}else{
-			$("#mrg-out").show();
+			$("#mrg-out").fadeIn();
+			PLAY_SCORE.add_share_link_to_score(sc);
 		}
+	},
+
+	add_share_link_to_score : function(sc){
+		message = "earned "+ sc +" points in a game at My revision guide";
+		$(".earned-points").append("<div class='fb-share'><a class ='share' href='#' title = '"+message+"'>share on facebook</a></div>");
+		MRG_PLAY.handle_share();
 	}
+
 }

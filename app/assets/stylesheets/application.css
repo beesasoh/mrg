@@ -2,7 +2,7 @@ body{
 	margin:0;
 	padding:0;
 	background-color:#F3F4F6;
-	font-family:Arial, Helvetica, sans-serif;
+	font-family: 'Arial', sans-serif;
 	font-size:13px;
 }
 a{
@@ -212,6 +212,8 @@ color:#339900;
 	min-height:600px;
 	-webkit-box-shadow: inset 0px 2px 3px 1px #D5D5D5;
 	box-shadow: inset 0px 2px 3px 1px #D5D5D5;
+	font-family: 'Open Sans', sans-serif;
+	line-height: 15px;
 }
 
 #mrg-content .section-header{
@@ -352,7 +354,7 @@ h1.mrg_head{
 }
 #subject_list ul li{
 	float: left;
-	padding:0.5em;
+	padding:1em 3.5em;
 }
 #subject_list ul li img{
 	border: 1px solid #999;
@@ -489,11 +491,24 @@ h1.score{
 	margin: 1em 2em;
 	display: none;
 }
-
+#mrg_play_results .left{
+	width: 60%;
+	float: left;
+}
+#mrg_play_results .right{
+	width: 38%;
+	float: right;
+}
+#mrg_play_results .right .earned-points{
+	text-align: center;
+}
+#earned-points{
+	font-size: 46px;
+}
 #res-outer{
 	background-color:#CCC;
 	border:1px solid #999;
-	width:60%;
+	width:100%;
 	height:20px;
 }
 #res-outer .red{
@@ -521,6 +536,47 @@ h1.score{
 #buttons{
 	margin-top: 2em;
 }
+.rank-wrapper{
+	width: 100%;
+	background: #fff;
+	border: 1px solid #ddd;
+	margin: 10px 0;
+	padding: 5px 0;
+}
+.rank-wrapper h3{
+	margin: 2px 0 3px;
+	padding: 2px 5px 7px;
+	color: #333;
+	font-weight: normal;
+	font-size: 15px;
+	border-bottom: 1px solid #ddd;
+}
+.rank-wrapper .r-item{
+	width:20%;
+	float:left;
+	text-align:center;
+}
+.rank-wrapper .r-item .u-rank{
+	font-weight: bold;
+	font-size: 14px;
+	color: #393939;
+
+}
+.rank-wrapper .r-item .u-img img{
+	border:1px solid #ccc;
+	border-radius: 100px;
+}
+.rank-wrapper .fb-share{
+	text-align: right;
+	min-height: 15px;
+	padding-right: 5px;
+}
+.fb-share a{
+	font-size: 11px;
+	color: #003366;
+	font-weight: normal;
+}
+
 
 /* end play styles */
 
@@ -557,3 +613,85 @@ h1.score{
 	
 }
 /* end admin edit tests */
+
+/* styles for the rankings pages */
+
+#rank-menu{
+	text-align: right;
+	margin-top: -0.8em;
+}
+#rank-menu ul{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	float: right;
+	border: 1px solid #ccc; 
+	border-top: none;
+}
+#rank-menu ul li{
+	float: left;
+}
+#rank-menu ul li a{
+	display: block;
+	padding:0.5em 1.3em;
+	border-right: 1px solid #ccc;
+	font-weight: normal;
+	background-color: #F5F5F5;
+}
+#rank-menu ul li a:hover{
+	background-color: #EBEBEB;
+}
+#rank-menu ul li a:active{
+	background-color: blue;
+}
+
+#rankings-list{
+
+}
+#rankings-list ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+#rankings-list ul li{
+	float: left;
+	width: 280px;
+	height: 110px;
+	background-color: #fff;
+	border:1px solid #ccc;
+	margin: 1em;
+	position: relative;
+}
+#rankings-list ul li .rank-item{
+	padding: 5px;
+}
+#rankings-list ul li .rank-item .rank-image{
+	float: left;
+	width: 40%;
+}
+#rankings-list ul li .rank-item .rank-image img{
+
+}
+#rankings-list ul li .rank-item .rank-info{
+	float: left;
+	width: 60%;
+}
+#rankings-list .rank-info .rank-name{
+	color: #003366;
+	font-size: 14px;
+}
+#rankings-list .rank-info .rank-school{
+	font-size: 11px;
+	margin: 5px 0;	
+}
+#rankings-list .rank-info .rank-marks{
+	margin: 5px 0;	
+}
+#rankings-list .rank-info .rank-position{
+	position: absolute;
+	bottom: 15px;
+	right: 5px;
+	font-size: 2em;
+	color: #4d4d4d;
+}
+/* end of ranking styles */

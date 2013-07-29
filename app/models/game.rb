@@ -21,6 +21,12 @@ class Game < ActiveRecord::Base
   		.group("games.user_id").sum(:score)
   end
 
+  def self.friends_ranking user
+    friends = user.get_friends
+    friends << user.uid
+    joins(:user).where("users.uid" => friends).order("sum_score desc").group("games.user_id").sum(:score)
+  end
+
   def  self.rank num
     if rankings.size < num
       return nil

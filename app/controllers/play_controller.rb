@@ -24,13 +24,21 @@ class PlayController < ApplicationController
 		  	game.created_at = Date.today
 
 		  	if game.save
-		  		# results_hash["message"] = "Weldone"
-		  		# render json: results_hash
-		  		render :layout =>'game'
+		  		@rankings = Game.rankings
+		  		@rankings_today = Game.rankings_today
+		  		@rankings_this_week = Game.rankings_this_week
+		  		@rankings_friends = Game.friends_ranking current_user
+ 		  		render :layout =>'game'
 		  	else
 		  		render :layout =>'game'
 		  	end
 		end
+  end
+
+  def fb_share
+  	message = params[:message]
+  	current_user.post_to_wall(message)
+  	render :text => "posted"
   end
 
 end

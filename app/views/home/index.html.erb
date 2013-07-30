@@ -5,4 +5,38 @@
 <%= render :partial => "ranking" %>
 
 
+<script type="text/javascript">
+$(document).ready(function(){
+	MRG_HOME.check_for_school();
+});
+
+MRG_HOME = {
+
+	check_for_school : function(){
+		$.get("/user/school_info", function(data){
+			if(data != "ok"){
+				$("#top-info").html(data);
+			}else{
+				MRG_HOME.check_for_motto();
+			}
+		});
+	},
+
+	check_for_motto : function(){
+		$.get("/user/motto", function(data){
+			if(data != "ok"){
+				$("#top-info").html(data);
+			}else{
+				// MRG_HOME.check_for_motto();
+			}
+		});
+	},
+	display_friends : function(){
+
+	}
+}
+
+</script>
+
+
 

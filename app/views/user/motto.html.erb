@@ -1,0 +1,35 @@
+<div class="top-info">
+	
+	<h2>What is your motto?</h2>
+	<p>The phrase meant to formally summarize your motivation or intention</p>
+		<form>
+			<input type="text" name="motto" id="motto-field" placeholder="Type your motto" required 
+				style="border-radius:5px; width:60%; padding:10px; border:none">
+			
+			<div style="color:#000;display:none" id="info-error">
+				<br />
+				it looks like you forgot to enter your motto
+			</div>
+				<br /><br />
+				<a href="#" onclick="handle()" class="btn">save</a> &nbsp;&nbsp; <a href="#" onclick="dismiss()" class="btn">Remind me later</a>
+		</form>
+</div>
+
+<script type="text/javascript">
+	function handle(){
+		motto = $('#motto-field').val();
+		if(motto == "" || motto == null){
+			$("#info-error").show()
+		}else{
+			$.post("/user/add_motto", {user_motto : motto}, function(data){
+			});
+			dismiss();
+		}
+		return false;
+	}
+
+	function dismiss(){
+		$(".top-info").remove();
+		return false;
+	}
+</script>

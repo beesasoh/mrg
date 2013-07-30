@@ -15,7 +15,7 @@ module RankingsHelper
 
 				html << "<div class = 'rank-info'>"
 				html <<	"<div class ='rank-name'>#{user.first_and_last_name[0..22]}</div>"
-					html << "<div class = 'rank-school'>Mugwanya summit college kyengera</div>"
+					html << "<div class = 'rank-school'>#{(user.school.nil? ? "no school": user.school.name)}</div>"
 					html << "<div class = 'rank-marks'>points: #{user.points}</div>"
 					html << "<div class = 'rank-position'>#{user.rank}</div>"
 				html << '</div>'
@@ -25,6 +25,7 @@ module RankingsHelper
 		end
 
 		html << "</ul>"
+		html << '<div class = "clear-fix"></div>'
 		html << "</div>"
 
 		return html.html_safe
@@ -55,6 +56,7 @@ module RankingsHelper
 		end
 
 		html << "</ul>"
+		html << '<div class = "clear-fix"></div>'
 		html << "</div>"
 
 		return html.html_safe
@@ -85,6 +87,7 @@ module RankingsHelper
 		end
 
 		html << "</ul>"
+		html << '<div class = "clear-fix"></div>'
 		html << "</div>"
 
 		return html.html_safe
@@ -115,6 +118,7 @@ module RankingsHelper
 		end
 
 		html << "</ul>"
+		html << '<div class = "clear-fix"></div>'
 		html << "</div>"
 
 		return html.html_safe

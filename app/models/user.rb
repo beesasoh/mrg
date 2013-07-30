@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid , :email , :image , :coins , :level
+  attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid , :email , :image , :coins , :level , :school_id , :motto
 
   validates_presence_of :name, :oauth_expires_at, :oauth_token, :provider, :uid , :email , :coins , :level
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
 
   has_and_belongs_to_many :courses
   has_many :games_played , :class_name => :game ,:dependent => :destroy
-  
+  belongs_to :school
   
   def self.create_user_from(auth)
   	where(auth.slice(:provider , :uid)).first_or_initialize.tap do |user|

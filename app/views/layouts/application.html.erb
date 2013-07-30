@@ -17,7 +17,10 @@
 
     <div id="mrg-main">
         <div id="mrg-page">
-            <%= render :partial => "layouts/head" , :locals => {:user => current_user}  %>    
+            <%= render :partial => "layouts/head" , :locals => {:user => current_user}  %>   
+            <div id="top-info">
+
+            </div>
             <div id="mrg-content">
                  <%= yield %>
             </div>

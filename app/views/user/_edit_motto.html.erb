@@ -1,0 +1,13 @@
+<div id="edit-motto">
+	<h3>Your motto</h3>
+	<form>
+		<input type="text" name="motto" id="motto-field" placeholder="Type your motto" required value="<%= current_user.motto %>" />
+		
+		<div style="color:#000;display:none" id="motto-info-error">
+			<br />
+			it looks like you forgot to enter your motto
+		</div>
+			<p></p>
+			<a href="#" id="save-motto" class="btn">save</a> &nbsp;&nbsp; 
+	</form>
+</div>

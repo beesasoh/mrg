@@ -1,0 +1,30 @@
+<% @page_title = "admin | List of badges" %>
+
+<h1 class="mrg_head">List of badges</h1>
+
+<div class="wrap">
+<table width="100%" id="mrg_admin_table">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+		<th>Action</th>
+	</tr>
+
+	<% @badges.each do |badge| %>
+		<tr>
+			<td><%= badge.name %></td>
+			<td><%= badge.description %></td>
+			<td align="center">
+				<%= link_to "edit", {}, :class => 'edit' %> /
+				<%= link_to "delete", {}, :class => 'delete' %>
+			</td>
+		</tr>
+	<% end %>
+
+</table>
+
+<br />
+
+<%= link_to("Add new badge", {:action => 'new_badge'} , :class => 'btn') %>
+
+</div>

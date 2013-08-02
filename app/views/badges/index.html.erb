@@ -1,0 +1,19 @@
+<% @page_title = "Badges" %>
+<h1 class="mrg_head">Badges</h1>
+<%= render :partial => 'rankings/rank_menu'%>
+
+<div class="wrap">
+	<div id="badges">
+		<div class ="badge-wrap">
+			<% @badges.each do |badge| %>
+				<div class = "badge-item">
+					<div class = "b-img"></div>
+					<div class = "b-name"><%= badge.name %></div>
+					<div class = "b-desc"><%= badge.description %></div>
+				</div>
+			<% end %>
+		<div class = "clear-fix"></div>
+		</div>
+	</div>
+</div>
+

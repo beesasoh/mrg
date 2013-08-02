@@ -1,0 +1,26 @@
+<div id="edit-school">
+	<% profile = user_graph.get_object("me")%>
+	<h3>School</h3>
+
+	<% if (education = profile["education"]).nil? %>
+		It seems you have not provided any education history at facebook, please visit facebook and set your
+		education histroy
+	<% else %>
+		<div>Select school </div>
+		<form>
+		
+			<% education.each do |sc| %>
+				<input type="hidden" name="sch_name" id='<%= sc["school"]["id"] %>' value='<%= sc["school"]["name"] %>' />
+				<input type = "radio" name="sch" <%= selected_school(sc["school"]["id"]) %> value='<%= sc["school"]["id"] %>'> 
+				<span ><%= sc["school"]["name"] %> </span>
+				<br />
+			<% end %>
+			<div style="color:#000;display:none" id="info-error">
+				<br />
+				it seems your forgot to select a school, please select one school above
+			</div>
+				<p></p>
+				<a href="#" id="save-school" class="btn">save</a> 
+		</form>
+	<% end %>
+</div>

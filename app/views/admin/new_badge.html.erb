@@ -1,0 +1,26 @@
+<h1 class="mrg_head">Create a new badge</h1>
+
+<div class="form form_new_subject wrap">
+
+	 <%= render(:partial => 'shared/error_message', :locals => {:object => @badge}) %>
+
+<%= form_for :badge, :url => {:action => 'create_badge'}, :html => { :multipart => true } do |f| %>
+  
+  <%= label_tag(:name, 'Name: ') %>
+  <%= f.text_field(:name) %>
+
+  <br /><br />
+
+  <%= label_tag(:description, 'Description: ') %>
+  <%= f.text_area(:description, :size => "40x5") %>
+
+  <br /><br />
+
+  <%= label_tag(:image_thumb, 'Badge image: ') %>
+  <%= f.file_field :image_thumb %>
+
+   <br /><br />
+  <%= f.submit("Create badge") %>
+<% end %>
+
+</div>

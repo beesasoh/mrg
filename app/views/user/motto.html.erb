@@ -11,25 +11,32 @@
 				it looks like you forgot to enter your motto
 			</div>
 				<br /><br />
-				<a href="#" onclick="handle()" class="btn">save</a> &nbsp;&nbsp; <a href="#" onclick="dismiss()" class="btn">Remind me later</a>
+				<a href="#" id="d_save" class="btn">save</a> &nbsp;&nbsp; 
+				<a href="#" id="d_dismiss" class="btn">Remind me later</a>
 		</form>
 </div>
 
 <script type="text/javascript">
-	function handle(){
-		motto = $('#motto-field').val();
-		if(motto == "" || motto == null){
-			$("#info-error").show()
-		}else{
-			$.post("/user/add_motto", {user_motto : motto}, function(data){
-			});
-			dismiss();
-		}
-		return false;
-	}
+	
+	$(function(){
 
-	function dismiss(){
-		$(".top-info").remove();
-		return false;
-	}
+		$("#d_dismiss").click(function(){
+			$(".top-info").remove();
+			return false;
+		});
+
+		$("#d_save").click(function(){
+			motto = $('#motto-field').val();
+			if(motto == "" || motto == null){
+				$("#info-error").show()
+			}else{
+				$.post("/user/add_motto", {user_motto : motto}, function(data){
+				});
+				$(".top-info").remove();
+			}
+			return false;
+		});
+			
+	});
+
 </script>

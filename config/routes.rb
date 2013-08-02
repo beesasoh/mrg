@@ -1,9 +1,11 @@
 Mrg::Application.routes.draw do
 
+  get "badges/index"
+
   match 'auth/:provider/callback', to: 'session#create'
   match 'auth/failure', to: redirect('/')
   match 'signout' , to: 'session#destroy', as: 'signout'
-  # match 'play/:id', :controller => 'play', :action => 'index'
+  #match 'play/:id', :controller => 'play', :action => 'index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

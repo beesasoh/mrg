@@ -13,7 +13,9 @@ module PlayHelper
         	user = User.find(user_id)
 	        html << "<div class='r-item'>"
 		        html << "<div class='u-rank'>#{user.rank}</div>"   	
-		        html << "<div class='u-img'><img src='http://graph.facebook.com/#{user.uid}/picture?width=70&height=70' /></div>"
+		        html << "<div class='u-img'>"
+		        html << "#{user.linked_image(70)}"
+		        html << "</div>"
 		        html << "<div class='u-name'> #{user.first_name}</div>"
 		        html << "<div class='u-points'>#{user.points}</div>"      
 	        html <<  "</div>"
@@ -33,7 +35,9 @@ module PlayHelper
         	user = User.find(user_id)
 	        html << "<div class='r-item'>"
 		        html << "<div class='u-rank'>#{user.rank_today}</div>"   	
-		        html << "<div class='u-img'><img src='http://graph.facebook.com/#{user.uid}/picture?width=70&height=70' /></div>"
+		        html << "<div class='u-img'>"
+		        html << "#{user.linked_image(70)}"
+		        html << "</div>"
 		        html << "<div class='u-name'> #{user.first_name}</div>"
 		        html << "<div class='u-points'>#{user.points_today}</div>"      
 	        html <<  "</div>"
@@ -53,7 +57,9 @@ module PlayHelper
         	user = User.find(user_id)
 	        html << "<div class='r-item'>"
 		        html << "<div class='u-rank'>#{user.rank_this_week}</div>"   	
-		        html << "<div class='u-img'><img src='http://graph.facebook.com/#{user.uid}/picture?width=70&height=70' /></div>"
+		        html << "<div class='u-img'>"
+		        html << "#{user.linked_image(70)}"
+		        html << "</div>"
 		        html << "<div class='u-name'> #{user.first_name}</div>"
 		        html << "<div class='u-points'>#{user.points_this_week}</div>"      
 	        html <<  "</div>"
@@ -73,7 +79,9 @@ module PlayHelper
         	user = User.find(user_id)
 	        html << "<div class='r-item'>"
 		        html << "<div class='u-rank'>#{user.rank}</div>"   	
-		        html << "<div class='u-img'><img src='http://graph.facebook.com/#{user.uid}/picture?width=70&height=70' /></div>"
+		        html << "<div class='u-img'>"
+		        html << "#{user.linked_image(70)}"
+		        html << "</div>"
 		        html << "<div class='u-name'> #{user.first_name}</div>"
 		        html << "<div class='u-points'>#{user.points}</div>"      
 	        html <<  "</div>"

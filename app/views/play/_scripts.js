@@ -7,7 +7,8 @@ var myMin;
 var c_id;
 var d = document;
 var ans = new Array;
-$(document).ready(function(){
+
+$(function(){
 	a = $("textarea#xas").val();
 	myMin = MRG_PLAY.getNumberOfQuestions();
 	c_id = MRG_PLAY.getCourseId();

@@ -1,0 +1,26 @@
+<div id="user-top">
+	<div class="user-top-wrapper">
+
+		<div class = "user-top-left">
+			<div class="rank-label">rank</div>
+			<div class="rank"><%= user.rank %></div>
+			<div class = "prof-image">
+				<img src='http://graph.facebook.com/<%= user.uid %>/picture?width=190&height=190' />
+			</div>
+		</div>
+
+		<div class = "user-top-right">
+			<div class="user-cover">
+					<img src="" id="user-cover-img" />
+				<div class = "motto"><%= user.motto.nil? ? "no motto" : user.motto %></div>
+			</div>
+				<div id="prof-fields">
+					<div class="field"><%= user.name %></div>
+					<div class="field">School: <%= user.school.nil? ? "no school" : user.school.name %></div>
+					<div class="field">Points: <%= user.points %></div>
+				</div>
+		</div>
+
+		<div class="clear-fix"></div>
+	</div>
+</div> 

@@ -1,0 +1,14 @@
+<table id="user-stats">
+	<tr>
+		<th>Subject</th>
+		<th>Games played</th>
+		<th>Points</th>
+	</tr>
+	<% stats.each do |stat|%>
+		<tr>
+			<td><%= Subject.find_by_id(stat[0]).name %></td>
+			<td align="right"><%= user.num_games_played_subject stat[0] %></td>
+			<td align="right"><%= stat[1] %></td>
+		</tr>
+	<% end %>
+</table>

@@ -1,7 +1,6 @@
 <div class="top-info">
 	<%
-	graph = Koala::Facebook::API.new(current_user.oauth_token)
-	profile = graph.get_object("me")
+	profile = user_graph.get_object("me")
 	%>
 	<h2>We would like some info about your school</h2>
 
@@ -9,7 +8,7 @@
 		It seems you have not provided any education history at facebook, please visit facebook and set your
 		education histroy
 		<br /><br /><br />
-		<a href="#" onclick="dismiss()" class="btn">Remind me later</a>
+		<a href="#" id = "d_dismiss" class="btn">Remind me later</a>
 	<% else %>
 		<div>Which school should we add to your profile? </div>
 		<form>
@@ -25,27 +24,32 @@
 				it seems your forgot to select a school, please select one school above
 			</div>
 				<br />
-				<a href="#" onclick="handle()" class="btn">save</a> &nbsp;&nbsp; <a href="#" onclick="dismiss()" class="btn">Remind me later</a>
+				<a href="#" id = "d_save" class="btn">save</a> &nbsp;&nbsp; 
+				<a href="#" id = "d_dismiss" class="btn">Remind me later</a>
 		</form>
 	<% end %>
 </div>
 
 <script type="text/javascript">
-	function handle(){
-		school = $('input[name="sch"]:checked').val();
-		if(school == undefined){
-			$("#info-error").show()
-		}else{
-			school_name = $("#"+school).val();
-			$.post("/user/school", {sch_id: school, sch_name: school_name}, function(data){
-			});
-			dismiss();
-		}
-		return false;
-	}
 
-	function dismiss(){
-		$(".top-info").remove();
-		return false;
-	}
+	$(function(){
+		$("#d_dismiss").click(function(){
+			$(".top-info").remove();
+			return false;
+		});
+
+		$("#d_save").click(function(){
+			school = $('input[name="sch"]:checked').val();
+			if(school == undefined){
+				$("#info-error").show()
+			}else{
+				school_name = $("#"+school).val();
+				$.post("/user/school", {sch_id: school, sch_name: school_name}, function(data){
+				});
+				 $(".top-info").remove();
+			}
+			return false;
+		});
+
+	});
 </script>

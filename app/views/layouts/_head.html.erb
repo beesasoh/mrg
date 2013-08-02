@@ -10,17 +10,12 @@
     
     <div class="links">
         <div class="mrg-user-avatar">
-           <% if user %>
-				<%= image_tag(user.image) %>
-			<% else %>
-				<%= image_tag('avatar.png') %>
-			<% end %>	
+           <%= link_to image_tag(user.image) , "/user/me" %>	
         </div>
         <div class="mrg-links">
         	<%= image_tag('patchit-logo.png') %>
             <ul>
-                <li><a href="#">my account</a></li>
-                <li><a href="#">favourites</a></li>
+                <li><%= link_to "my account", "/user/me" %></li>
                 <li>
 					<%= link_to('Sign out','/signout') %>
                 </li>

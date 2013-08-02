@@ -213,6 +213,24 @@ class AdminController < ApplicationController
 		end
 	end
 
+	def list_badges
+		@badges = Badge.all
+	end
+
+	def new_badge
+		@badge = Badge.new
+	end
+
+	def create_badge
+		@badge = Badge.new(params[:badge])
+		if @badge.save
+			flash[:notice] = "Successfully created new badge..."
+			redirect_to(:action => 'list_badges')
+		else
+			render 'new_badge'
+		end
+	end
+
 end
 
 

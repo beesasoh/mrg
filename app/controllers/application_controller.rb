@@ -8,6 +8,16 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def user_graph
+    Koala::Facebook::API.new(current_user.oauth_token)
+  end
+  helper_method :user_graph
+
+  protected 
+
+  def not_found
+    redirect_to :controller => 'home' , :action => 'index'
+  end
 
   protected
   

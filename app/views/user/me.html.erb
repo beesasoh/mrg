@@ -1,0 +1,76 @@
+<% @page_title = @user.name %>
+<h1 class="mrg_head"><%= @user.name %></h1>
+
+<%= render :partial => 'header', :locals => {:user => @user} %>
+
+<div class="wrap">
+
+	<div id="edit-user-info">
+		<div class = "left">
+			<%= render :partial => 'edit_school' %>
+			<%= render :partial => 'edit_motto' %>
+		</div>
+		<div class = "right">
+			<div class = "wrap">
+			we use facebook data therefore you don't have to edit
+			most of your data from my revision guide. To change  
+			your cover photo, names or profile picture, just change them from facebook and we will automatically update them.
+			Also to add a new school you have to add it to your facebook education history and we will add it to the list of your schools.
+			</div>
+		</div>
+		<div class="clear-fix"></div>
+	</div>
+	<%= render :partial => 'stats_table', :locals => {:user => @user, :stats => @stats} %>
+</div>
+
+
+<script type="text/javascript">
+
+$(function(){
+	$.get("https://graph.facebook.com/<%= @user.uid %>?fields=cover", function(data){
+		ele = document.getElementById("user-cover-img");
+
+		if(data["cover"] == undefined){
+			ele.style.top = "35%";
+			ele.style.left = "30%";
+			ele.src = "/assets/cover-place.png";
+		}
+		else {
+			
+			if (data["cover"]["offset_y"] != undefined){
+				off_y  = data["cover"]["offset_y"] * 2
+				ele.style.clip = "rect("+off_y+"px,720px,1000px,0px)";
+				off_y_neg = off_y * -1;
+				ele.style.top = off_y_neg+"px"
+			}
+			ele.src = data["cover"]["source"];
+		}
+	},"json");
+
+	$("#save-motto").click(function(){
+		motto = $('#motto-field').val();
+		if(motto == "" || motto == null){
+			$("#motto-info-error").show()
+		}else{
+			$.post("/user/add_motto", {user_motto : motto}, function(data){
+			});
+			location.reload();
+		}
+		return false;
+	});
+
+	$("#save-school").click(function(){
+		school = $('input[name="sch"]:checked').val();
+		if(school == undefined){
+			$("#info-error").show()
+		}else{
+			school_name = $("#"+school).val();
+			$.post("/user/school", {sch_id: school, sch_name: school_name}, function(data){
+			});
+			location.reload();
+		}
+		return false;
+	});
+});
+
+</script>

@@ -32,6 +32,11 @@ class User < ActiveRecord::Base
     names.length <= 2 ? "#{names[0]} #{names[1]}" : "#{names[0]} #{names[2]}"
   end
 
+  def linked_image size
+    img = "<a href='/user/index/#{self.id}'><img src='http://graph.facebook.com/#{self.uid}/picture?width=#{size}&height=#{size}' /></a>"
+    return img.html_safe
+  end 
+
   def get_friends
     app_users = User.pluck(:uid)
     graph = Koala::Facebook::API.new(self.oauth_token)
@@ -127,6 +132,18 @@ class User < ActiveRecord::Base
     graph.put_connections("me", "feed", 
                       :message => message,
                       :link => "http://myrevisionguide.com/pages/subjects.html")
+  end
+
+  def stats
+    Game.where(:user_id => self.id).group(:subject_id).sum(:score)
+  end
+
+  def num_games_played
+    Game.where(:user_id => self.id).count
+  end
+
+  def num_games_played_subject subject_id
+    Game.where(:user_id => self.id, :subject_id => subject_id).count
   end
 
 end

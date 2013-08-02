@@ -10,7 +10,7 @@ module RankingsHelper
 			html << '<li>'
 			html << "<div class='rank-item'>"
 				html << "<div class = 'rank-image'>"
-				html <<	"<img src='http://graph.facebook.com/#{user.uid}/picture?width=100&height=100' />"
+				html << "#{user.linked_image(100)}"
 				html << '</div>'
 
 				html << "<div class = 'rank-info'>"
@@ -41,12 +41,12 @@ module RankingsHelper
 			html << '<li>'
 			html << "<div class='rank-item'>"
 				html << "<div class = 'rank-image'>"
-				html <<	"<img src='http://graph.facebook.com/#{user.uid}/picture?width=100&height=100' />"
+				html << "#{user.linked_image(100)}"
 				html << '</div>'
 
 				html << "<div class = 'rank-info'>"
 				html <<	"<div class ='rank-name'>#{user.first_and_last_name[0..22]}</div>"
-					html << "<div class = 'rank-school'>Mugwanya summit college kyengera</div>"
+					html << "<div class = 'rank-school'>#{(user.school.nil? ? "no school": user.school.name)}</div>"
 					html << "<div class = 'rank-marks'>points: #{user.points}</div>"
 					html << "<div class = 'rank-position'>#{user.rank}</div>"
 				html << '</div>'
@@ -72,12 +72,12 @@ module RankingsHelper
 			html << '<li>'
 			html << "<div class='rank-item'>"
 				html << "<div class = 'rank-image'>"
-				html <<	"<img src='http://graph.facebook.com/#{user.uid}/picture?width=100&height=100' />"
+				html << "#{user.linked_image(100)}"
 				html << '</div>'
 
 				html << "<div class = 'rank-info'>"
 				html <<	"<div class ='rank-name'>#{user.first_and_last_name[0..22]}</div>"
-					html << "<div class = 'rank-school'>Mugwanya summit college kyengera</div>"
+					html << "<div class = 'rank-school'>#{(user.school.nil? ? "no school": user.school.name)}</div>"
 					html << "<div class = 'rank-marks'>points: #{user.points_today}</div>"
 					html << "<div class = 'rank-position'>#{user.rank_today}</div>"
 				html << '</div>'
@@ -103,12 +103,12 @@ module RankingsHelper
 			html << '<li>'
 			html << "<div class='rank-item'>"
 				html << "<div class = 'rank-image'>"
-				html <<	"<img src='http://graph.facebook.com/#{user.uid}/picture?width=100&height=100' />"
+				html << "#{user.linked_image(100)}"
 				html << '</div>'
 
 				html << "<div class = 'rank-info'>"
 				html <<	"<div class ='rank-name'>#{user.first_and_last_name[0..22]}</div>"
-					html << "<div class = 'rank-school'>Mugwanya summit college kyengera</div>"
+					html << "<div class = 'rank-school'>#{(user.school.nil? ? "no school": user.school.name)}</div>"
 					html << "<div class = 'rank-marks'>points: #{user.points_this_week}</div>"
 					html << "<div class = 'rank-position'>#{user.rank_this_week}</div>"
 				html << '</div>'

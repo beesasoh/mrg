@@ -1,0 +1,36 @@
+<% @page_title = @user.name %>
+<h1 class="mrg_head"><%= @user.name %></h1>
+
+<%= render :partial => 'header', :locals => {:user => @user} %>
+
+<div class="wrap">
+	<%= render :partial => 'stats_table', :locals => {:user => @user, :stats => @stats} %>
+</div>
+
+
+<script type="text/javascript">
+
+$(function(){
+	$.get("https://graph.facebook.com/<%= @user.uid %>?fields=cover", function(data){
+		ele = document.getElementById("user-cover-img");
+
+		if(data["cover"] == undefined){
+			ele.style.top = "35%";
+			ele.style.left = "30%";
+			ele.src = "/assets/cover-place.png";
+		}
+		else {
+
+			if (data["cover"]["offset_y"] != undefined){
+				off_y  = data["cover"]["offset_y"] * 2
+				ele.style.clip = "rect("+off_y+"px,720px,1000px,0px)";
+				off_y_neg = off_y * -1;
+				ele.style.top = off_y_neg+"px"
+			}
+			ele.src = data["cover"]["source"];
+		}
+			
+	},"json");
+});
+
+</script>

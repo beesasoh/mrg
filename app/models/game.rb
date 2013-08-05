@@ -7,18 +7,19 @@ class Game < ActiveRecord::Base
 
   validates_presence_of :subject_id, :user_id , :course_id , :score
 
-  def self.rankings
-  	order("sum_score desc").group("games.user_id").sum(:score)
+  def self.rankings lim=0
+    return order("sum_score desc").group("games.user_id").sum(:score) if lim == 0
+  	order("sum_score desc").group("games.user_id").limit(lim).sum(:score)
   end
 
-  def self.rankings_today
-  	where(:created_at => Date.today).order("sum_score desc").group("games.user_id").sum(:score)
+  def self.rankings_today lim=0
+  	return where(:created_at => Date.today).order("sum_score desc").group("games.user_id").sum(:score) if lim == 0
+    where(:created_at => Date.today).order("sum_score desc").group("games.user_id").limit(lim).sum(:score)
   end
 
-  def self.rankings_this_week
-  	where(:created_at => Date.today.at_beginning_of_week..Date.today.at_end_of_week)
-  		.order("sum_score desc")
-  		.group("games.user_id").sum(:score)
+  def self.rankings_this_week lim=0
+  	return where(:created_at => Date.today.at_beginning_of_week..Date.today.at_end_of_week).order("sum_score desc").group("games.user_id").sum(:score) if lim == 0
+    where(:created_at => Date.today.at_beginning_of_week..Date.today.at_end_of_week).order("sum_score desc").group("games.user_id").limit(lim).sum(:score)
   end
 
   def self.friends_ranking user

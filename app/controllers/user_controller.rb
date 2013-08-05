@@ -11,12 +11,6 @@ class UserController < ApplicationController
 		end
 	end
 
-	def me
-		@user = current_user
-		@stats = @user.stats.to_a
-		render :layout => "application.html.erb"
-	end
-
 	def school_info
 		if current_user.school.nil?
 			#render the form for school options

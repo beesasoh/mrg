@@ -16,12 +16,14 @@
     $.getScript('//connect.facebook.net/en_UK/all.js', function(){
         FB.init({
           appId: '462973483793316',
+          frictionlessRequests : true,
           channelUrl: '//localhost:3000/channel.html',
         });
       });     
       
-      $(".inv-btn").click(function(){
+      $("li.fb-inv").click(function(){
         uid = $(this).attr('name')
+        $(this).fadeOut();
           FB.ui(
             {
              method: 'apprequests',
@@ -33,6 +35,8 @@
             }
           );
       });
+
+      $(".side-bar-item").niceScroll();
   });
 
   

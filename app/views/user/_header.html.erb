@@ -1,4 +1,9 @@
 <div id="user-top">
+	<% if user.id == current_user.id %>
+		<div class="edit-btn">
+			<img src="/assets/edit.gif" id="edit-btn">
+		</div>
+	<% end %>
 	<div class="user-top-wrapper">
 
 		<div class = "user-top-left">

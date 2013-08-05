@@ -1,0 +1,23 @@
+<h3>Rankings</h3>
+<div class="side-bar-item">
+    <div class="side-bar-section">
+    <ul>
+        <% ranking_arr = Game.rankings(10).keys %>
+        <% ranking_arr.each do |user_id| %>
+            <% user = User.find_by_id(user_id) %>
+            <li>
+                <div class = "left">
+                    <span class="fb-img">
+                        <%= image_tag("http://graph.facebook.com/#{user.uid}/picture?width=30&height=30") %>
+                    </span>
+                </div>
+                <div class = "right">
+                    <span class="fb-name"><%= user.name %></span><br />
+                    <strong><%= user.points %></strong>
+                </div>
+                <div class="clear-fix"></div>
+            </li>
+        <% end %>
+    </ul>
+    </div>
+</div>

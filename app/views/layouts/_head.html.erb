@@ -10,12 +10,12 @@
     
     <div class="links">
         <div class="mrg-user-avatar">
-           <%= link_to image_tag(user.image) , "/user/me" %>	
+           <%= link_to image_tag(user.image) , {:controller =>'user', :action => 'index', :id=>user.id} %>	
         </div>
         <div class="mrg-links">
         	<%= image_tag('patchit-logo.png') %>
             <ul>
-                <li><%= link_to "my account", "/user/me" %></li>
+                <li><%= link_to "my account", {:controller =>'user', :action => 'index', :id=>user.id} %></li>
                 <li>
 					<%= link_to("signout",signout_url) %>
                 </li>

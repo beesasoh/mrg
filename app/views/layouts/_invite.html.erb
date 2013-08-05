@@ -1,0 +1,22 @@
+<h3>Invite friends</h3>
+<div class="side-bar-item">
+    <div class="side-bar-section">
+    <ul>
+        <% friends = user_graph.get_connections("me", "friends") %>
+        <% friends.sample(20).each do |friend| %>
+        	<li class="fb-inv" name="<%= friend['id'] %>">
+                <div class = "left">
+            		<span class="fb-img">
+                        <%= image_tag("http://graph.facebook.com/#{friend['id']}/picture?width=30&height=30") %>
+            		</span>
+                </div>
+                <div class = "right">
+        			<span class="fb-name"><%= friend["name"] %></span><br />
+                    <%= image_tag("invite.gif") %>
+                </div>
+                <div class="clear-fix"></div>
+        	</li>
+        <% end %>
+    </ul>
+    </div>
+</div>

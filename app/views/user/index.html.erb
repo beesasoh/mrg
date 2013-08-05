@@ -4,6 +4,9 @@
 <%= render :partial => 'header', :locals => {:user => @user} %>
 
 <div class="wrap">
+	<% if @user.id == current_user.id %>
+		<%= render :partial => 'user_edit_form' %>
+	<% end %>
 	<%= render :partial => 'stats_table', :locals => {:user => @user, :stats => @stats} %>
 </div>
 
@@ -31,6 +34,36 @@ $(function(){
 		}
 			
 	},"json");
+
+	$("#save-motto").click(function(){
+		motto = $('#motto-field').val();
+		if(motto == "" || motto == null){
+			$("#motto-info-error").show()
+		}else{
+			$.post("/user/add_motto", {user_motto : motto}, function(data){
+			});
+			location.reload();
+		}
+		return false;
+	});
+
+	$("#save-school").click(function(){
+		school = $('input[name="sch"]:checked').val();
+		if(school == undefined){
+			$("#info-error").show()
+		}else{
+			school_name = $("#"+school).val();
+			$.post("/user/school", {sch_id: school, sch_name: school_name}, function(data){
+			});
+			location.reload();
+		}
+		return false;
+	});
+
+	$("#edit-btn").click(function(){
+		//alert("clicked")
+		$("#edit-user-info").show();
+	});
 });
 
 </script>

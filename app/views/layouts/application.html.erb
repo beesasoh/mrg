@@ -8,8 +8,40 @@
   <%= stylesheet_link_tag  "http://fonts.googleapis.com/css?family=Open+Sans:400,600", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <script type="text/javascript">
+
+  $(document).ready(function() {
+    $.ajaxSetup({ cache: true });
+    $.getScript('//connect.facebook.net/en_UK/all.js', function(){
+        FB.init({
+          appId: '462973483793316',
+          channelUrl: '//localhost:3000/channel.html',
+        });
+      });     
+      
+      $(".inv-btn").click(function(){
+        uid = $(this).attr('name')
+          FB.ui(
+            {
+             method: 'apprequests',
+             message: 'come and see this good app' ,
+             to: uid
+            },
+            function(response) {
+              
+            }
+          );
+      });
+  });
+
+  
+
+</script>
+
 </head>
 <body>
+  <div id="fb-root"></div>
 <div id="wrapper">
     <div id="fixed-right-side-bar">
       <%= render :partial => 'layouts/side_bar', :locals => {:user => current_user} %>

@@ -138,16 +138,19 @@ class AdminController < ApplicationController
 	end
 
 	def hash_test
-
+		course_id = params[:id]
+		@course = Course.find_by_id(course_id)
 	end
 
 	def process_hash_test
 		@questions = eval(params[:questions])
+		course_id = params[:course_id]
+		@course = Course.find_by_id(course_id)
 		
 		@questions.each do |q|
 			quiz = Question.new
 			quiz.question = q["question"] 
-			quiz.course_id = 3
+			quiz.course_id = course_id
 			answer = q["answer"]
 			if quiz.save
 				q["choices"].each do |c|
@@ -159,6 +162,7 @@ class AdminController < ApplicationController
 				end
 			end
 		end
+		redirect_to(:action=>'list_course')
 	end
 
 	def course_questions

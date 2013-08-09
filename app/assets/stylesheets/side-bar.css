@@ -1,0 +1,58 @@
+#fixed-right-side-bar{
+	background-color:#E8E8E8;
+	border-left:1px solid #ABABAB;
+	width:200px;
+	position:fixed;
+	right:0;
+	top:0;
+	height:100%;
+	font-size: 11px;
+	color: #333;
+}
+#fixed-right-side-bar h3{
+	color: #fff;
+	margin:0;
+	padding: 5px 9px;
+	background-color: #3B5998;
+	font-weight: normal;
+}
+#fixed-right-side-bar ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+#fixed-right-side-bar ul li{
+	padding:4px 1px;
+	border-bottom: 1px solid #ccc;
+}
+#fixed-right-side-bar ul li:hover{
+	background-color: #ccc;
+}
+#fixed-right-side-bar ul li .fb-img img{
+	max-width: 30px;
+	max-height: 30px;
+}
+#fixed-right-side-bar .side-bar-item{
+	height: 45%;
+	border-bottom: 2px solid #999;
+	overflow: hidden;
+}
+.side-bar-section{
+}
+.side-bar-section ul li .left{
+	float: left;
+	width: 20%;
+}
+.side-bar-section ul li .right{
+	float: left;
+	width: 80%;
+}
+#hovered-user{
+	display: none;
+	position: absolute;
+	width: 250px;
+	height: 110px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	z-index: 20;
+}

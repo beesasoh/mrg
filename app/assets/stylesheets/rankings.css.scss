@@ -1,3 +1,87 @@
-// Place all the styles related to the Rankings controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* styles for the rankings pages */
+
+#rank-menu{
+	text-align: right;
+	margin-top: -0.8em;
+}
+#rank-menu ul{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	float: right;
+	border: 1px solid #ccc; 
+	border-top: none;
+}
+#rank-menu ul li{
+	float: left;
+}
+#rank-menu ul li a{
+	display: block;
+	padding:0.5em 1.3em;
+	border-right: 1px solid #ccc;
+	font-weight: normal;
+	background-color: #F5F5F5;
+}
+#rank-menu ul li a:hover{
+	background-color: #EBEBEB;
+}
+#rank-menu ul li a:active{
+	background-color: blue;
+}
+
+#rankings-list{
+
+}
+#rankings-list ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+#rankings-list ul li{
+	float: left;
+	width: 280px;
+	height: 110px;
+	background-color: #fff;
+	border:1px solid #ccc;
+	margin: 1em;
+	position: relative;
+}
+#rankings-list ul li .rank-item{
+	padding: 5px;
+}
+#rankings-list ul li .rank-item .rank-image{
+	float: left;
+	width: 40%;
+}
+#rankings-list ul li .rank-item .rank-image img{
+	max-height: 100px;
+	max-width: 100px;
+	border:1px solid #ccc;
+}
+#rankings-list ul li .rank-item .rank-info{
+	float: left;
+	width: 60%;
+}
+#rankings-list .rank-info .rank-name{
+	color: #003366;
+	font-size: 13px;
+	font-weight: bold;
+}
+#rankings-list .rank-info .rank-school{
+	font-size: 11px;
+	margin: 5px 0;	
+	color: #003300;
+}
+#rankings-list .rank-info .rank-marks{
+	margin: 5px 0;	
+	font-size: 14px;
+	color:#003300;
+}
+#rankings-list .rank-info .rank-position{
+	position: absolute;
+	bottom: 15px;
+	right: 5px;
+	font-size: 2em;
+	color: #4d4d4d;
+}
+/* end of ranking styles */

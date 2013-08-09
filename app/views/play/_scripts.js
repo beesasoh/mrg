@@ -55,7 +55,6 @@ function next(){
 		$("#q"+c).slideUp();
 		c = n;
 	}else{
-		//TODO handle game over
 		MRG_PLAY.gameOver();
 	}
 }
@@ -103,6 +102,10 @@ var MRG_PLAY = {
 		$.post("/play/create", {course: c_id, score: f_score}, function(data){
 			$("#mrg-out").html(data);
 			MRG_PLAY.handle_share();
+			pd = $("textarea#u-p").val();
+			$("textarea#u-p").remove()
+			eval("var plot_data = "+pd);
+			MRG_PLAY.plot(plot_data);
 		});
 	},
 
@@ -148,6 +151,17 @@ var MRG_PLAY = {
 		$.get("/play/fb_share", {message: m}, function(data){
 			//alert("Posted to wall")
 		});
+	},
+	plot : function(plot_data){
+		$.plot("#graph-place", [ plot_data ], {
+			series: {
+				lines: { show: true }
+			},
+			yaxis:{
+				min: 0,
+				max: 100
+			}
+		});
 	}
 }
 
@@ -174,6 +188,7 @@ var PLAY_SCORE = {
 			},5);
 		}else{
 			$("#mrg-out").fadeIn();
+			$("#performance-graph").slideDown(1000);
 			PLAY_SCORE.add_share_link_to_score(sc);
 		}
 	},

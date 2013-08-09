@@ -1,3 +1,143 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#mrg-content .mrg-table{
+	width:100%;
+	border-top:1px solid #BDBDBD;
+	border-bottom: 1px solid #BDBDBD;;
+	border-collapse:collapse;
+}
+
+#mrg-content .mrg-table td{
+	padding:0;
+	vertical-align:top;
+}
+#mrg-content .mrg-table td:first-child{
+	border-right: 1px solid #BDBDBD;
+}
+#mrg-content .mrg-table td.mrg-spanner{
+	width:50%;
+}
+#mrg-content .mrg-table label{
+	color:#333333;
+	font-weight:bold;
+	display:block;
+	margin-left:10px;
+}
+#mrg-content .mrg-table span{
+	display:block;
+	margin-left:10px;
+}
+#mrg-content .mrg-table td .mrg-play{
+	background-color:#339900;
+	background-image:url(play.jpg);
+	background-repeat:no-repeat;
+	background-position:center center;
+	width:460px;
+	height: 340px;
+	margin:10px;
+}
+#mrg-content .mrg-table td .mrg-library{
+	width:460px;
+	height: 340px;
+	margin:10px;
+	background-image:url(library-thumb.jpg);
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+#mrg-content .mrg-table td .mrg-ranking{
+	width:460px;
+	height: 340px;
+	margin:10px;
+	background-image:url(ranking-thumb.jpg);
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+.thumbs{
+}
+.thumbs .mrg-thumb{
+	width:49.5%;
+	float:left;
+	border:1px solid #999;
+	height:200px;
+	border-right:none;
+	border-bottom:none;
+}
+.thumbs .mrg-thumb img{
+	border:1px solid #C0C0C0;
+	margin:	7px;
+	width:220px;
+	height:140px;
+}
+.thumbs .mrg-thumb .lib{
+	width:220px;
+	height:150px;
+	background-color:#F3F4F6;
+	border:1px solid #D5D5D5;
+	margin:8px;
+	background-image:url(lib-icon.png);
+	background-repeat:no-repeat;
+	background-position:left center;
+	text-align:center;
+}
+.thumbs .mrg-thumb .lib h4{
+	margin-top:5em;
+	margin-left:1em;
+}
+.thumbs .mrg-thumb:first-child{
+	border-top:none;
+	border-left:none;
+}
+.thumbs .mrg-thumb:nth-child(2){
+	border-top:none;
+}
+.thumbs .mrg-thumb:nth-child(3){
+	border-left:none;
+}
+#subject_list{
+}
+#subject_list ul{
+	list-style-type: none;
+	padding: 0;
+	margin:0;
+}
+#subject_list ul li{
+	float: left;
+	padding:1em 3.5em;
+}
+#subject_list ul li img{
+	border: 1px solid #999;
+	width: 216px;
+}
+
+#mrg_tests{
+
+}
+#mrg_tests .t1{
+	float: left;
+	width: 15%;
+	text-align: center;
+}
+#mrg_tests .t2{
+	float: left;
+	width: 84%;
+	}
+#mrg_tests .t2 ul{
+	font-family: 'Marmelad', sans-serif;
+	list-style-type: none;
+	padding:0;
+	margin: 0;
+}
+#mrg_tests .t2 ul li{
+	max-width: 750px;
+}
+#mrg_tests .t2 ul li a{
+	background-color: #EAEAEA;
+	display: block;
+	padding: 15px;
+	margin: 7px 0;
+	font-size: 16px;
+	font-weight: normal;
+}
+#mrg_tests .t2 ul li a:hover{
+	background-color: #339900;
+	color: #fff;
+}

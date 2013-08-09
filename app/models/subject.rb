@@ -8,6 +8,11 @@
   validates :name, :presence => true
   validates_attachment :image_thumb, :presence => true,
   										:size => { :in => 1..20.kilobytes }
+
+  def published_courses
+  	courses.where(:published=>true)
+  end
+
 end
 
 

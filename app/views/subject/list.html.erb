@@ -8,7 +8,7 @@
 		<%= link_to image_tag(subject.image_thumb.url(:thumb)) , :action => 'quizzes', :id => subject.id %>
 		<br />
 		<div><a href = <%= "subject/quizzes/#{subject.id}#mrg_tests" %> class = "mrg_ajax_load" ><%= subject.name %></a></div>
-		<span><%= pluralize(subject.courses.length, 'quiz') %></span>
+		<span><%= pluralize(subject.published_courses.size, 'quiz') %></span>
 	</li>
 
 <% end %>

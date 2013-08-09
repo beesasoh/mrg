@@ -3,12 +3,15 @@ class UserController < ApplicationController
 	before_filter :confirm_logged_in
 
 	def index
-		if (@user = User.find_by_id(params[:id])).nil?
-			not_found
-		else
+		
+		@user = current_user if (@user = User.find_by_id(params[:id])).nil?
+			
 			@stats = @user.stats.to_a
+			#@user = params[:id].nil? ? current_user : User.find_by_id(params[:id])
+			@data = @user.performance
+			@last_days = @user.performance_last_7_days
 			render :layout => "application.html.erb"
-		end
+	
 	end
 
 	def school_info

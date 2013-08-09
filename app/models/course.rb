@@ -10,6 +10,8 @@ class Course < ActiveRecord::Base
   validates_presence_of :title, :level, :cost
   validates :cost, :numericality => {:only_integer => true}
   validates :published, inclusion: [true,false]
+
+  
 end
 
 

@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
 
   has_and_belongs_to_many :courses
-  has_many :games_played , :class_name => :game ,:dependent => :destroy
+  has_many :games_played , :class_name => "Game",:dependent => :destroy
   belongs_to :school
   
   def self.create_user_from(auth)
@@ -144,6 +144,48 @@ class User < ActiveRecord::Base
 
   def num_games_played_subject subject_id
     Game.where(:user_id => self.id, :subject_id => subject_id).count
+  end
+
+  def performance num_games = 50
+    Game.select("score,updated_at")
+        .where(:user_id => self.id)
+        .limit(num_games)
+        .order("updated_at desc")
+        .reverse
+        .each_with_index
+        .map{|game, index| [index+1 ,game.score]}
+  end
+
+  def performance_in_subject subject_id, num_games = 50
+    Game.select("score,updated_at,subject_id")
+    .where(:user_id => self.id, :subject_id => subject_id)
+    .limit(num_games)
+    .order("games.updated_at desc")
+    .reverse
+    .each_with_index
+    .map{|game, index| [index+1 ,game.score]}
+  end
+
+  def performance_in_course course_id , num_games=50 
+    Game.select("score,updated_at,course_id")
+        .where(:user_id => self.id, :course_id => course_id)
+        .limit(num_games)
+        .order("games.updated_at desc")
+        .reverse
+        .each_with_index
+        .map{|game, index| [index+1 ,game.score]}
+  end
+
+  def performance_last_7_days
+    perfomance = []
+    days = 6
+      7.times do
+        date = Date.today - days
+        score = Game.where(:user_id => self.id, :created_at => date).sum(:score)
+        perfomance << [date.strftime("%A"), score]
+        days = days - 1
+      end
+      return perfomance
   end
 
 end

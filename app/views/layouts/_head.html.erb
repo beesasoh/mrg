@@ -16,9 +16,7 @@
         	<%= image_tag('patchit-logo.png') %>
             <ul>
                 <li><%= link_to "my account", {:controller =>'user', :action => 'index', :id=>user.id} %></li>
-                <li>
-					<%= link_to("signout",signout_url) %>
-                </li>
+                <li><%= link_to("signout",signout_url) %></li>
                 <div class="clear-fix"></div>
             </ul>
         </div>

@@ -7,7 +7,21 @@
 	<% if @user.id == current_user.id %>
 		<%= render :partial => 'user_edit_form' %>
 	<% end %>
-	<%= render :partial => 'stats_table', :locals => {:user => @user, :stats => @stats} %>
+
+	<div id="user-tbl-graph">
+		<div class = "left">
+			<%= render :partial => 'stats_table', :locals => {:user => @user, :stats => @stats} %>
+		</div>
+		<div class = "right">
+				<h3 class="g-head">Last <%= @data.size %> games </h3>
+				<div id="graph-place" class="graph-place"></div>
+
+				<br />
+				<h3 class="g-head">Last 7 days</h3>
+				<div id="graph-place2" class="graph-place"></div>
+		</div>
+		<div class="clear-fix"></div>
+	</div>
 </div>
 
 
@@ -63,6 +77,78 @@ $(function(){
 	$("#edit-btn").click(function(){
 		//alert("clicked")
 		$("#edit-user-info").show();
+	});
+
+	//ploting data
+	var marks = <%= @data %>
+	var last_days = <%= raw @last_days %>
+	$.plot("#graph-place", [
+		{data : marks, label : "Points"}
+		], {
+			series: {
+				lines: {
+					show: true
+				},
+				points: {
+					show: true
+				}
+			},
+			yaxis:{
+				min: 0,
+				max: 100
+			},
+			grid: {
+				hoverable: true,
+				clickable: true
+			}
+	});
+
+	$.plot("#graph-place2", [ last_days ], {
+			series: {
+				bars: {
+					show: true,
+					barWidth: 0.6,
+					align: "center"
+				}
+			},
+			xaxis: {
+				mode: "categories",
+				tickLength: 0
+			}
+		});
+
+	function showTooltip(x, y, contents) {
+		$("<div id='tooltip'>" + contents + "</div>").css({
+			position: "absolute",
+			display: "none",
+			top: y + 5,
+			left: x + 5,
+			border: "1px solid #fdd",
+			padding: "2px",
+			color: "#FFF",
+			"background-color": "#009933",
+			opacity: 0.80
+		}).appendTo("body").fadeIn(200);
+	}
+
+	var previousPoint = null;
+	$("#graph-place").bind("plothover", function (event, pos, item) {
+		//alert("hover point")
+		if (item) {
+			if (previousPoint != item.dataIndex) {
+
+				previousPoint = item.dataIndex;
+
+				$("#tooltip").remove();
+				var x = item.datapoint[0].toFixed(2),
+				y = item.datapoint[1].toFixed(2);
+
+				showTooltip(item.pageX, item.pageY,  "Game " + parseInt(x) + " , " + parseInt(y) + " points");
+			}
+		} else {
+			$("#tooltip").remove();
+			previousPoint = null;            
+		}	
 	});
 });
 

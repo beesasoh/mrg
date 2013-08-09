@@ -1,3 +1,176 @@
-// Place all the styles related to the play controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/*styles apply to the play page only */
+#xa{
+	visibility: hidden !important;
+	display: none !important;
+}
+h1.score{
+	color: #C60;
+	text-align: center;
+}
+#mrg_qns{
+	display: block;
+}
+
+#mrg_qns ul{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+#mrg_qns ul li span.qns{
+	font-family: 'Alef', sans-serif;
+	line-height: 25px;
+	color:#C60;
+	font-weight:normal;
+	font-size:22px;
+	display:block;
+	padding:0.5em;
+	padding-bottom:0;
+	margin-bottom: 10px;
+}
+
+#mrg_qns ul.chs li{
+	background-color: #FBFBFB;
+	font-family: 'Marmelad', sans-serif;
+	color:#444444;font-weight:normal;
+	padding:1.7em 1em;
+	border-width:1px 0 0;border-top:1px solid #E0E0E0;
+	font-size: 16px;
+}
+#mrg_qns ul.chs li:last-child{
+	border-bottom:1px solid #CCC;
+}
+#mrg_qns ul.chs li:hover{
+	background-color: #EBEBEB;
+}
+#mrg_qns ul.chs li.correct{
+	color:#FFFFFF;
+	background-color: #009900;
+}
+#mrg_qns ul.chs li.wrong{
+	color:#FFFFFF;
+	background-color: #FF0000;
+}
+#mrg_qns .qns{
+	display: none;
+}
+#mrg_qns .first{
+	display: block;
+}
+#timer{
+	position: absolute;
+	display: block;
+	padding: 10px;
+	font-size: 20px;
+}
+
+#mrg_play_results{
+	margin: 1em 2em;
+	display: none;
+}
+#mrg_play_results .left{
+	width: 60%;
+	float: left;
+}
+#mrg_play_results .right{
+	width: 35%;
+	float: right;
+	padding: 5px;
+}
+#mrg_play_results .right .earned-points{
+	text-align: center;
+}
+#earned-points{
+	font-size: 46px;
+}
+#res-outer{
+	background-color:#CCC;
+	border:1px solid #999;
+	width:100%;
+	height:20px;
+}
+#res-outer .red{
+	background-color: #FF0000;
+	color:#FFF;
+}
+#res-outer .green{
+	background-color:#390;
+	color:#FFF;
+}
+#res-outer .orange{
+	background-color:#F90;
+	color:#000;
+}
+#res-inner{
+	width:0%;
+	height:100%;
+	text-align:right;
+	font-weight: bold;
+}
+#mrg-out{
+	margin: 1em 0;
+	display: none;
+}
+#buttons{
+	margin-top: 2em;
+}
+.rank-wrapper{
+	width: 100%;
+	background: #fff;
+	border: 1px solid #ddd;
+	margin: 10px 0;
+	padding: 5px 0;
+}
+.rank-wrapper h3{
+	margin: 2px 0 3px;
+	padding: 2px 5px 7px;
+	color: #333;
+	font-weight: normal;
+	font-size: 15px;
+	border-bottom: 1px solid #ddd;
+}
+.rank-wrapper .r-item{
+	width:20%;
+	float:left;
+	text-align:center;
+}
+.rank-wrapper .r-item .u-rank{
+	font-weight: bold;
+	font-size: 14px;
+	color: #393939;
+
+}
+.rank-wrapper .r-item .u-img img{
+	border:1px solid #ccc;
+	border-radius: 100px;
+}
+.rank-wrapper .fb-share{
+	text-align: right;
+	min-height: 15px;
+	padding-right: 5px;
+}
+.fb-share a{
+	font-size: 11px;
+	color: #003366;
+	font-weight: normal;
+}
+#performance-graph{
+	display: none;
+}
+#performance-graph h3{
+	color: #006633;
+	padding-left: 7px;
+	margin-top: 2.5em;
+	margin-bottom: 2px;
+}
+#graph-place{
+	width: 100%;
+	height: 300px;
+}
+#u-p{
+	display: none !important;
+	visibility: hidden !important;
+}
+
+
+/* end play styles */

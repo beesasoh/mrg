@@ -1,4 +1,49 @@
-// Place all the styles related to the admin controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#mrg_admin_table{
+	border: 1px solid #BDBDBD;
+	border-collapse: collapse;
+	width: 100%;
+}
+#mrg_admin_table th , #mrg_admin_table td{
+	border: 1px solid #BDBDBD;
+	padding: 10px;
+} 
+#mrg_admin_table th{
+	background-color: brown;
+	color: #fff;
+}
 
+
+
+
+/* admin edit tests */
+
+#mrg-admin-edit-qns{
+
+}
+#mrg-admin-edit-qns ol{
+	margin: 0;
+	padding-left: 20px;
+}
+#mrg-admin-edit-qns ul{
+	list-style-type: none;
+	margin-top: 0;
+	padding: 0;
+}
+#mrg-admin-edit-qns  ol li.qsn{
+	margin-top: 1.5em;
+	color: #C60;
+	font-size: 15px;
+}
+#mrg-admin-edit-qns  ul li.ch{
+	color: #333;
+	font-size: 14px;
+	border-bottom: 1px solid #ccc;
+	padding: 15px;
+}
+#mrg-admin-edit-qns  ul li.correct{
+	background-color: #66CC66;
+}
+#mrg-admin-edit-qns  ul li a.edit{
+	
+}
+/* end admin edit tests */

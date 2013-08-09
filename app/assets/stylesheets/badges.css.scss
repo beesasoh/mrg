@@ -1,3 +1,53 @@
-// Place all the styles related to the Badges controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* styles for badges page */
+
+#badges{
+
+}
+#badges .badge-wrap{
+	
+}
+#badges .badge-item{
+	background-image:url(badge-placeholder.gif); 
+	background-color: #30B2E6;
+	color: #fff;
+	width: 212px;
+	height: 156px;
+	position: relative;
+	float: left;
+	margin: 1em 0.8em;
+	box-shadow: 0 0 10px rgba(0,0,0 ,0.2);
+
+}
+#badges .badge-item .b-name{
+	position: absolute;
+	bottom: 15px;
+	left: 15px;
+	font-size: 16px;
+}
+#badges .badge-item .b-desc{
+	color: #000;
+	border: 2px solid #2997C3;
+	position: absolute;
+	top: -83px;
+	height: 60px;
+	background-color: #D4EBF5;
+	padding: 4px;
+	display: none;
+}
+#badges .badge-item .b-desc:before{
+	content: "";
+	display: block;
+	width: 0px;
+	height: 0px;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 10px solid #2997C3;
+	position: absolute;
+	bottom: -10px;
+	left: 48%;
+}
+#badges .badge-item:hover .b-desc{
+	display: block;
+}
+
+/* end styles for badges page */

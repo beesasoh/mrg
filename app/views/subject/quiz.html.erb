@@ -6,14 +6,13 @@
 	</div>
 	<div class="t2">
 		<ul>
-			<% courses = @subject.courses %>
+			<% courses = @subject.published_courses %>
 			<% if courses.empty? %>
 					<p>Ohhhh, can't find any <%= @subject.name %> quiz now, Please try me later</p>
 			<% else %>
 				<% courses.each do |course| %>
 					<li>
-						<%= link_to course.title, {:controller => 'play',
-														:id => course.id} %>
+						<%= link_to course.title, {:controller => 'play', :id => course.id} %>
 						
 				<% end %>
 			<% end %>

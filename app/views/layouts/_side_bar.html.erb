@@ -11,3 +11,18 @@
 <% items.sample(3).uniq.sample(2).each do |item| %>
     <%= render :partial => item %>
 <% end %>
+
+
+<script type="text/javascript">
+
+$(function(){
+	$("li.ur").hover(function(){
+		position = $(this).offset();
+		$("#hovered-user").show();
+		$("#hovered-user").offset({top: position.top, left: position.left-270});
+	});
+	$("#hovered-user").mouseout(function(){
+		$(this).fadeOut();
+	});
+});
+</script>

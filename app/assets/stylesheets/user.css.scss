@@ -1,3 +1,146 @@
-// Place all the styles related to the User controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* styles for the user page */
+
+#user-top{
+	color: #003366;
+	background-image: url(link_bg.png);
+	background-color: #DDD;
+	position: relative;
+	top: -11px;	
+}
+#user-top .user-top-wrapper{
+	padding:10px;
+}
+#user-top .user-top-left{
+	margin-top: 1em;
+	float: left;
+	width: 22%;
+	text-align: center;
+}
+#user-top .user-top-left .rank-label{
+	font-size: 16px;
+	font-weight: 600;
+}
+#user-top .user-top-left .rank{
+	font-size: 5em;
+	margin: 0.56em 0;
+	color: #003366;
+}
+#user-top .user-top-left .prof-image img{
+	background-color: #fff;
+	padding: 3px;
+	border: 1px solid #ccc;
+}
+#user-top .user-top-right{
+	float: right;
+	width: 77%;
+}
+#prof-fields{
+	position: relative;
+}
+#user-top .user-top-right .field{
+	line-height: 20px; 
+	font-weight: 600;
+}
+#user-top .user-cover{
+	position: relative;
+	width: 720px;
+	height: 266px;
+	overflow: hidden;
+}
+#user-top .user-cover .motto{
+	background:rgba(0,0,0,0.4);
+	font-size: 16px;
+	text-align: center;
+	padding: 1em;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	font-weight: 600;
+	color: #fff;
+}
+#user-top .edit-btn{
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	z-index: 1000;
+}
+#user-cover-img{
+	position: absolute;
+}
+
+#user-stats{
+	width: 100%;
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+#user-stats th{
+	color: #333;
+}
+#user-stats th,#user-stats td{
+	border: 1px solid #ccc;
+	padding: 1em;
+}
+#user-stats th{
+	background-color: #eee;
+}
+#edit-user-info {
+	margin-bottom: 2em;
+	display: none;
+}
+#edit-user-info h3{
+	margin-bottom: 4px;
+	margin-top: 1em;
+}
+#edit-user-info .left{
+	float: left;
+	width: 50%;
+	border-right: 1px solid #ccc;
+}
+#edit-user-info .right{
+	float: right;
+	width: 49%;
+}
+#edit-user-info .right .wrap{
+	padding: 4em 2em;
+	line-height: 22px;
+}
+#edit-school{
+	padding: 10px 2em;
+	line-height: 20px;
+}
+#edit-motto{
+	padding: 10px 2em;
+}
+#edit-motto input[type='text']{
+	border: 1px solid #ccc;
+	padding: 5px;
+	width: 90%;
+}
+
+#user-tbl-graph{
+}
+#user-tbl-graph .left{
+	float: left;
+	width: 48%;
+}
+#user-tbl-graph .right{
+	width: 48%;
+	float: right;
+}
+#user-tbl-graph .graph-place{
+	width: 100%;
+	height: 300px;
+}
+#user-tbl-graph h3.g-head{
+	font-size: 16px;
+	color: #006633;
+	margin-left: 1.3em;
+}
+#user-tbl-graph h3.tbl-head{
+	font-size: 16px;
+	color: #006633;
+	margin-left: 0.3em;
+}
+/* end styles for the user page */

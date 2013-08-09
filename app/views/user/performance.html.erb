@@ -1,0 +1,82 @@
+<% @page_title = "performance" %>
+<h1 class="mrg_head"><%= @user.first_and_last_name %> performance graphs</h1>
+
+<div class="wrap">
+	<h2>last <%= @data.size %> games </h2>
+	<div id="graph-place" style="height:400px;"></div>
+	<div id="graph-place2" style="height:400px;"></div>
+</div>
+
+
+<script type="text/javascript">
+
+$(function(){
+	var marks = <%= @data %>
+	var last_days = <%= @last_days %>
+	// $.plot("#graph-place", [
+	// 	{data : marks, label : "Points"}
+	// 	], {
+	// 		series: {
+	// 			lines: {
+	// 				show: true
+	// 			},
+	// 			points: {
+	// 				show: true
+	// 			}
+	// 		},
+	// 		grid: {
+	// 			hoverable: true,
+	// 			clickable: true
+	// 		}
+	// });
+
+	$.plot("#graph-place2", [ last_days ], {
+			series: {
+				bars: {
+					show: true,
+					barWidth: 0.6,
+					align: "center"
+				}
+			},
+			xaxis: {
+				mode: "categories",
+				tickLength: 0
+			}
+		});
+
+	function showTooltip(x, y, contents) {
+		$("<div id='tooltip'>" + contents + "</div>").css({
+			position: "absolute",
+			display: "none",
+			top: y + 5,
+			left: x + 5,
+			border: "1px solid #fdd",
+			padding: "2px",
+			color: "#FFF",
+			"background-color": "#009933",
+			opacity: 0.80
+		}).appendTo("body").fadeIn(200);
+	}
+
+	var previousPoint = null;
+	$("#graph-place").bind("plothover", function (event, pos, item) {
+		//alert("hover point")
+		if (item) {
+			if (previousPoint != item.dataIndex) {
+
+				previousPoint = item.dataIndex;
+
+				$("#tooltip").remove();
+				var x = item.datapoint[0].toFixed(2),
+				y = item.datapoint[1].toFixed(2);
+
+				showTooltip(item.pageX, item.pageY,  "Game " + parseInt(x) + " , " + parseInt(y) + " points");
+			}
+		} else {
+			$("#tooltip").remove();
+			previousPoint = null;            
+		}	
+	});
+});
+
+</script>

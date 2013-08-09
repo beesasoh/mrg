@@ -28,6 +28,7 @@ class PlayController < ApplicationController
 		  		@rankings_today = Game.rankings_today
 		  		@rankings_this_week = Game.rankings_this_week
 		  		@rankings_friends = Game.friends_ranking current_user
+		  		@performance = current_user.performance_in_course(course_id)
  		  		render :layout =>'game'
 		  	else
 		  		render :layout =>'game'

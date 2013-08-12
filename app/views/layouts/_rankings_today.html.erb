@@ -5,7 +5,11 @@
         <% ranking_arr = Game.rankings_today(10).keys %>
         <% ranking_arr.each do |user_id| %>
             <% user = User.find_by_id(user_id) %>
-            <li class="ur">
+            <li class="ur" 
+                dt-img  = "http://graph.facebook.com/<%= user.uid %>/picture?width=100&height=100"
+                dt-name = "<%= user.name %>" 
+                dt-link  = "/profile/<%= user.id %>"
+                dt-rank = "<%= user.rank %>" >
                 <div class = "left">
                     <span class="fb-img">
                         <%= image_tag("http://graph.facebook.com/#{user.uid}/picture?width=30&height=30") %>

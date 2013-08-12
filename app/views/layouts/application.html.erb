@@ -9,43 +9,22 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
-  <script type="text/javascript">
-
-  $(document).ready(function() {
-    $.ajaxSetup({ cache: true });
-    $.getScript('//connect.facebook.net/en_UK/all.js', function(){
-        FB.init({
-          appId: '462973483793316',
-          frictionlessRequests : true,
-          channelUrl: '//localhost:3000/channel.html',
-        });
-      });     
-      
-      $("li.fb-inv").click(function(){
-        uid = $(this).attr('name')
-        $(this).fadeOut();
-          FB.ui(
-            {
-             method: 'apprequests',
-             message: 'come and see this good app' ,
-             to: uid
-            },
-            function(response) {
-              
-            }
-          );
-      });
-
-      $(".side-bar-item").niceScroll();
-  });
-
-  
-
-</script>
-
 </head>
 <body>
   <div id="fb-root"></div>
+  <div id="hovered-user">
+    <div class="wrap">
+      <div class="lt">
+          <img id="up-img" src="" />
+      </div>
+      <div class="rt">
+          <div class = "u-name" id = "sb-u-n"> Beesasoh Fredie</div>
+          <div class = "u-rank" id = "sb-u-rank"> Rank: 7</div>
+          <div class = "link">   <a href="#" id= "sb-u-link">view profile</a> </div>
+      </div>
+      <div class="clear-fix"></div>
+    </div>
+  </div>
 <div id="wrapper">
     <div id="fixed-right-side-bar">
       <%= render :partial => 'layouts/side_bar', :locals => {:user => current_user} %>

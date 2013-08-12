@@ -50,9 +50,45 @@
 #hovered-user{
 	display: none;
 	position: absolute;
-	width: 250px;
-	height: 110px;
+	width: 350px;
 	background-color: #fff;
-	border: 1px solid #ccc;
+	border: 1px solid #999;
 	z-index: 20;
+	top:-100px;
+	left:-100px;
+	box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+#hovered-user .wrap{
+	padding: 10px;
+	position: relative;
+}
+
+#hovered-user .lt{
+	width: 35%;
+	float: left;
+}
+#hovered-user .lt img{
+	border: 1px solid #ccc;
+}
+#hovered-user .rt{
+	width: 60%;
+	float: left;
+}
+#hovered-user .rt .u-name{
+	font-size: 16px;
+	color: #3B5998;
+}
+#hovered-user .rt .u-rank{
+	font-weight: bold;
+	font-size: 1em;
+	margin-top: 4px;
+}
+#hovered-user .rt .link{
+	position: absolute;
+	bottom: 5px;
+}
+#hovered-user .rt .link a{
+	color: #3B5998;
+	font-weight: normal;
 }

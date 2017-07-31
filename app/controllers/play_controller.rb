@@ -9,7 +9,7 @@ class PlayController < ApplicationController
   def create 
   		results_hash = Hash.new
   		if request.get?
-  			results_hash["message"] = "dont be a hero"
+  			results_hash["message"] = "weldone hero"
 			render json: results_hash
 		else
 			score = params[:score]
@@ -24,6 +24,7 @@ class PlayController < ApplicationController
 		  	game.created_at = Date.today
 
 		  	if game.save
+		  		@badges_earned = Badge.get_earned_badges(score,current_user)
 		  		@rankings = Game.rankings
 		  		@rankings_today = Game.rankings_today
 		  		@rankings_this_week = Game.rankings_this_week

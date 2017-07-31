@@ -55,6 +55,8 @@ GEM
       multipart-post (~> 1.1)
     flot-rails (0.0.4)
       jquery-rails
+    friendly_id (4.0.10.1)
+      activerecord (>= 3.0, < 4.0)
     hashie (2.0.5)
     hike (1.2.3)
     httpauth (0.2.0)
@@ -164,6 +166,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   factory_girl_rails
   flot-rails
+  friendly_id
   jquery-rails
   koala (~> 1.7.0rc1)
   mysql2

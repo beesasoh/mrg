@@ -8,5 +8,6 @@ class CreateUserCoursesTable < ActiveRecord::Migration
   end
 
   def down
+  	drop_table :courses_users
   end
 end

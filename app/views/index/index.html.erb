@@ -1,9 +1,14 @@
 
 <style type="text/css">
 body{
-	padding:3em;
+	
 	font-family: 'Roboto', sans-serif;
 	font-size:14px;
+}
+.bdy{
+	padding:6em 0;
+	width: 900px;
+	margin: 0 auto;
 }
 .clear{
 	clear:both;
@@ -11,6 +16,9 @@ body{
 a{
 	color:#069;
 	text-decoration:none;
+}
+a img{
+	border: none;
 }
 #mrg-wrapper{
 	max-width:1200px;
@@ -27,6 +35,7 @@ a{
 #mrg-home .left{
 	width:60%;
 	float:left;
+	padding-top: 2em;
 }
 #mrg-home .left img{
 	width:80%;
@@ -39,8 +48,6 @@ a{
 #login{
 	width:340px;
 	height:330px;
-	background-color:#F0F6F9;
-	border:1px solid #ABCDDD;
 	border-radius: 5px;
 	padding:10px;
 }
@@ -54,7 +61,7 @@ a{
 	float:left;
 }
 #login .title h1{
-	color:#3D8BB1;
+	color:#5B76B3;
 	font-size:25px;
 	margin:10px 0;
 	font-weight:normal;
@@ -74,14 +81,43 @@ a{
 	text-align:center;
 	margin-top:2em;
 }
+div.line{
+	background-color: #ccc;
+	margin: 3em 0;
+	height: 1px;
+}
+
+#info{
+	margin: 2em auto;
+	width: 800px;
+}
+#info h2{
+	color: #3B5998;
+	font-weight: normal;
+	margin-top:2.5em; 
+}
+#info h3{
+	color: #3B5998;
+	font-weight: normal;
+	margin-top: 2em;
+
+}
+#info p{
+	line-height: 24px;
+	color: #444;
+}
+.anc{
+	visibility: hidden;
+}
 </style>
-<body>
+
+<div class='bdy'>
 <div id ="mrg-wrapper">
-	<div id="mrg-download"><a href="#">Download</a></div>
+	<!-- <div id="mrg-download"><a href="#">Download</a></div> -->
     
     <div id="mrg-home">
     	<div class="left">
-        	<%= image_tag "my_revision_guide1.jpg" %>
+        	<%= image_tag "laptop.jpg" %>
         </div>
         <div class="right">
         	<div id="login">
@@ -102,11 +138,67 @@ a{
                 
                 <div class="fb-btn">
                 	<a href="/auth/facebook">
-                		<%= image_tag "fb-login.png" %>
+                		<%= image_tag "fb-login.gif" %>
                     </a>
                  </div>
             </div>
         </div>
         <div class="clear"></div>
     </div>
+</div>
+</div>
+
+<center><a href= "#info"> learn more </a></center>
+
+<div class ="line" ></div>
+	<a name="info" class="anc"></a>
+<div id="info">
+
+<h2>What is my revision guide?</h2>
+<p>
+	My revision guide is a mobile and web app that makes revision fun, social and competitive. <strong>FUN</strong> in 
+	a way that it is designed as a multiple choice question game that automagically generates tests in a students subject of interest. We use facebook information to make it <strong>Social</strong> so that you can see what your friends 
+	are achiving and also leaderboards, weekly rankings , daily rankings and Badges make it <strong>competitive.</strong>
+</p>
+
+<h2>Facebook permissions</h2>
+<p>We request for a few facebook permissions that allow us to get your data already on facebook so that you don't have to
+type. lets go through the permission. </p>
+
+<h3>User education history</h3>
+<p>Being an education app, your education history and your friends' education history can help us identify
+	your schoolmates or classmates. And revision is always better with people you know.
+</p>
+
+<h3>Publish stream</h3>
+<p>
+	We do not share anything on your timeline unless you share it yourself. This permission enables you to share 
+	your scores and rankings on facebook when you want.
+</p>
+
+<h3>Public profile</h3>
+<p>This permission gives us the ability to get your name and profile picture, generally information that
+you have shared publically</p>
+
+
+<h2>Supported syllabases</h2>
+<p>
+	Currently we have UNEB syllabse for Uganda but working on GCSE , HSC and CICSCO. However questions
+	in science subjects like physics , chemistry , biology don't change therefore everyone can find them relevant. Just login and check it out.
+</p>
+
+<h2>How do i get started?</h2>
+<p>
+	This is the simplest part, just click login with facebook and you are done. After logging in select a subject
+	you want to revise -> then select a topic and the app will set a test for you. Happy revision.
+</p>
+
+<h2>Contacts</h2>
+<p>
+	Teachers who want to work with us or any content provider you are so welcome. And if you have
+	any question or suggestion please reach us: <br />
+	<strong>Email: </strong>beesasoh@facebook.com <br />
+	<strong>TEL: </strong> +256 787 399351
+</p>
+
 </div>

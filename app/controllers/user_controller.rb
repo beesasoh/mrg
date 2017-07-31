@@ -7,9 +7,9 @@ class UserController < ApplicationController
 		@user = current_user if (@user = User.find_by_id(params[:id])).nil?
 			
 			@stats = @user.stats.to_a
-			#@user = params[:id].nil? ? current_user : User.find_by_id(params[:id])
 			@data = @user.performance
 			@last_days = @user.performance_last_7_days
+			@pie_chart_data = @user.pie_chart_peformance
 			render :layout => "application.html.erb"
 	
 	end

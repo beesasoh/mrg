@@ -1,5 +1,17 @@
-<%= play_print_rankings(current_user.get_pivot_array @rankings.keys) %>
+<% if !@badges_earned.empty? %>
+	<div class="rank-wrapper earned-bdg">
+		<h3>You have earned:</h3>
+		<ul>
+			<% @badges_earned.each do |badge_id| %>
+				<li><%= Badge.find(badge_id).name %> Badge</li>
+			<% end %>
+		</ul>
+		<div class='fb-share'><a href='/badges' title = 'view all badges'>view all badges.</a></div>
+	</div>
+<% end %>
 <%= play_print_rankings_today(current_user.get_pivot_array @rankings_today.keys) %>
 <%= play_print_rankings_this_week(current_user.get_pivot_array @rankings_this_week.keys) %>
 <%= play_print_friends_rankings(current_user.get_pivot_array @rankings_friends.keys ) %>
+<%= play_print_rankings(current_user.get_pivot_array @rankings.keys) %>
+
 <textarea id="u-p"><%= @performance %></textarea>

@@ -7,7 +7,7 @@
 		<div class ="badge-wrap">
 			<% @badges.each do |badge| %>
 				<div class = "badge-item">
-					<div class = "b-img"></div>
+					<div class = "b-img"><%= image_tag("badge_p.png") if current_user.has_badge?(badge.id) %></div>
 					<div class = "b-name"><%= badge.name %></div>
 					<div class = "b-desc"><%= badge.description %></div>
 				</div>

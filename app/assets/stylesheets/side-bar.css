@@ -1,5 +1,5 @@
 #fixed-right-side-bar{
-	background-color:#E8E8E8;
+	background-color:#F2F4F8;
 	border-left:1px solid #ABABAB;
 	width:200px;
 	position:fixed;
@@ -23,7 +23,6 @@
 }
 #fixed-right-side-bar ul li{
 	padding:4px 1px;
-	border-bottom: 1px solid #ccc;
 }
 #fixed-right-side-bar ul li:hover{
 	background-color: #ccc;
@@ -49,7 +48,7 @@
 }
 #hovered-user{
 	display: none;
-	position: absolute;
+	position: fixed;
 	width: 350px;
 	background-color: #fff;
 	border: 1px solid #999;
@@ -60,12 +59,12 @@
 }
 
 #hovered-user .wrap{
-	padding: 10px;
+	padding: 5px;
 	position: relative;
 }
 
 #hovered-user .lt{
-	width: 35%;
+	width: 32%;
 	float: left;
 }
 #hovered-user .lt img{
@@ -76,17 +75,17 @@
 	float: left;
 }
 #hovered-user .rt .u-name{
-	font-size: 16px;
+	font-size: 13px;
 	color: #3B5998;
+	font-weight: bold;
 }
 #hovered-user .rt .u-rank{
-	font-weight: bold;
 	font-size: 1em;
 	margin-top: 4px;
 }
 #hovered-user .rt .link{
 	position: absolute;
-	bottom: 5px;
+	bottom: 10px;
 }
 #hovered-user .rt .link a{
 	color: #3B5998;

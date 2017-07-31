@@ -23,18 +23,27 @@ describe User do
   end
 
   describe "Associations" do 
+    before :each do
+      @user = FactoryGirl.build(:user)
+    end
   	it " has many games played" do
-  		user = FactoryGirl.build(:user)
-  		user.should respond_to(:games_played)
+  		@user.should respond_to(:games_played)
   	end
 
   	it " has many courses/favourites" do
-  		user = FactoryGirl.build(:user)
-  		user.should respond_to(:courses)
+  		@user.should respond_to(:courses)
   	end
+
+    it " reponds to badges" do
+      @user.should respond_to(:badges) 
+    end
   end
 
   describe "Methods" do
+
+    pending "first_name"
+    pending "first_and_last_name"
+
     it "points should return the total points of the user" do
       user = FactoryGirl.create(:user)
       game1 = FactoryGirl.create(:game, :score => 20, :user_id => user.id)
@@ -222,5 +231,17 @@ describe User do
       rankings_array = [1,2,3,4,user.id,6,7,8,9]
         expect(user.get_pivot_array(rankings_array)).to eq([3,4,user.id,6,7])
     end
+
+    pending "stats"
+    pending "num_games_played"
+    pending "num_games_played_subject"
+    pending "performance"
+    pending "performance_in_subject"
+    pending "performance_in_course"
+    pending "performance_last_7_days"
+    pending "badges_array"
+    pending "has_badge?"
+    pending "has_no_badge?"
+
   end
 end

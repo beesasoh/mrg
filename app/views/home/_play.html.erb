@@ -33,7 +33,7 @@
                                 :id => subject.id %>
                             <label>
                               <%= link_to(subject.name, :action => 'quizzes', :id => subject.id) %></label>
-                            <span><%= pluralize(subject.courses.length, 'Exercise') %></span>
+                            <span><%= pluralize(subject.published_courses.size, 'Exercise') %></span>
                         </div>
                     </div>
                     <% end %>

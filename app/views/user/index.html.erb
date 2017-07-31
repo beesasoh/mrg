@@ -11,14 +11,17 @@
 	<div id="user-tbl-graph">
 		<div class = "left">
 			<%= render :partial => 'stats_table', :locals => {:user => @user, :stats => @stats} %>
+			<h3 class="tbl-head">Performance in subjects</h3>
+			<br /><br />
+			<div id="pie-graph" class="graph-place"></div>
 		</div>
 		<div class = "right">
-				<h3 class="g-head">Last <%= @data.size %> games </h3>
-				<div id="graph-place" class="graph-place"></div>
+			<h3 class="g-head">Last <%= @data.size %> games </h3>
+			<div id="graph-place" class="graph-place"></div>
 
-				<br />
-				<h3 class="g-head">Last 7 days</h3>
-				<div id="graph-place2" class="graph-place"></div>
+			<br />
+			<h3 class="g-head">Last 7 days</h3>
+			<div id="graph-place2" class="graph-place"></div>
 		</div>
 		<div class="clear-fix"></div>
 	</div>
@@ -79,9 +82,11 @@ $(function(){
 		$("#edit-user-info").show();
 	});
 
-	//ploting data
+	//ploting graphs data
 	var marks = <%= @data %>
 	var last_days = <%= raw @last_days %>
+	var pie_data = <%= raw @pie_chart_data %>
+
 	$.plot("#graph-place", [
 		{data : marks, label : "Points"}
 		], {
@@ -116,6 +121,17 @@ $(function(){
 				tickLength: 0
 			}
 		});
+
+	$.plot("#pie-graph", pie_data , {
+			series: {
+				pie: { show: true }
+			},
+			grid: {
+				hoverable: true,
+				clickable: true
+			}
+		});
+
 
 	function showTooltip(x, y, contents) {
 		$("<div id='tooltip'>" + contents + "</div>").css({

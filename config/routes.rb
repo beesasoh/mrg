@@ -5,6 +5,8 @@ Mrg::Application.routes.draw do
   match 'signout' , to: 'session#destroy', as: 'signout'
   match 'game/:id', :controller => 'play', :action => 'index'
   match 'profile/:id', :controller => 'user', :action => 'index'
+  #match 'subjects/:id', :controller => 'subject', :action => 'quizzes'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

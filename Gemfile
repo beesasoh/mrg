@@ -9,6 +9,7 @@ gem "factory_girl_rails"
 gem 'mysql2'
 gem 'rack-mini-profiler'
 gem 'flot-rails'
+gem 'friendly_id'
 
 group :development, :test do
 	gem 'rspec-rails', '~> 2.0'

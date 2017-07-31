@@ -1,4 +1,8 @@
 	class Subject < ActiveRecord::Base
+
+  extend FriendlyId
+  friendly_id :name 
+
   attr_accessible :name , :image_thumb
 
   has_many :courses , :dependent => :destroy

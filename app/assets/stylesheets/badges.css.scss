@@ -18,6 +18,11 @@
 	box-shadow: 0 0 10px rgba(0,0,0 ,0.2);
 
 }
+#badges .badge-item .b-img{
+	text-align: center;
+	position: relative;
+	top: -4px;
+}
 #badges .badge-item .b-name{
 	position: absolute;
 	bottom: 15px;
@@ -26,11 +31,11 @@
 }
 #badges .badge-item .b-desc{
 	color: #000;
-	border: 2px solid #2997C3;
+	border: 2px solid #F1D031;
 	position: absolute;
 	top: -83px;
 	height: 60px;
-	background-color: #D4EBF5;
+	background-color: #FFFFA3;
 	padding: 4px;
 	display: none;
 }
@@ -41,7 +46,7 @@
 	height: 0px;
 	border-left: 5px solid transparent;
 	border-right: 5px solid transparent;
-	border-top: 10px solid #2997C3;
+	border-top: 10px solid #F1D031;;
 	position: absolute;
 	bottom: -10px;
 	left: 48%;

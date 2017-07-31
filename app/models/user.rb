@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
+
   attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid , :email , :image , :coins , :level , :school_id , :motto
 
   validates_presence_of :name, :oauth_expires_at, :oauth_token, :provider, :uid , :email , :coins , :level
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
 
   has_and_belongs_to_many :courses
+  has_and_belongs_to_many :badges
   has_many :games_played , :class_name => "Game",:dependent => :destroy
   belongs_to :school
   
@@ -37,7 +39,7 @@ class User < ActiveRecord::Base
     return img.html_safe
   end 
 
-  def get_friends
+  def get_friends #returns the user's friends who are also registerd on the app
     app_users = User.pluck(:uid)
     graph = Koala::Facebook::API.new(self.oauth_token)
     friends_hash_array = graph.get_connections("me", "friends")
@@ -46,6 +48,13 @@ class User < ActiveRecord::Base
       user_fb_friends << friend_hash["id"]
     end
     return app_users & user_fb_friends
+  end
+
+  def get_friends_not_registered_on_app
+    @app_users = User.pluck(:uid)
+    graph = Koala::Facebook::API.new(self.oauth_token)
+    friends_hash_array = graph.get_connections("me", "friends")
+    friends_hash_array.select {|friend|  @app_users.include?(friend["id"])==false}
   end
 
   def points
@@ -186,6 +195,37 @@ class User < ActiveRecord::Base
         days = days - 1
       end
       return perfomance
+  end
+
+  def pie_chart_peformance
+    @str = '['
+    arr = ActiveRecord::Base.connection.exec_query(
+      "SELECT SUM(`games`.`score`) AS sum_score, 
+      subjects.name FROM `games` INNER JOIN `subjects` ON `subjects`.`id` = `games`.`subject_id` 
+      WHERE `games`.`user_id` = #{self.id} GROUP BY subject_id;").to_a
+
+    arr.each do |rec|
+        sbj_name = rec["name"]
+        sbj_score = rec["sum_score"].to_i
+       @str += '{label: "'+ sbj_name +'", data: '+sbj_score.to_s+'},'
+    end
+
+    @str += ']'
+
+    return @str
+
+  end
+
+  def badges_array
+    self.badges.map{|badge| badge.id}
+  end
+
+  def has_badge?(badge_id)
+    return badges_array.include?(badge_id)
+  end
+
+  def has_no_badge?(badge_id)
+    !has_badge?(badge_id)
   end
 
 end

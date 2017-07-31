@@ -39,10 +39,11 @@
 }
 #rankings-list ul li{
 	float: left;
-	width: 280px;
+	width: 30%;
 	height: 110px;
 	background-color: #fff;
 	border:1px solid #ccc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 	margin: 1em;
 	position: relative;
 }
@@ -54,16 +55,15 @@
 	width: 40%;
 }
 #rankings-list ul li .rank-item .rank-image img{
-	max-height: 100px;
+	width: 90%;
 	max-width: 100px;
-	border:1px solid #ccc;
 }
 #rankings-list ul li .rank-item .rank-info{
 	float: left;
 	width: 60%;
 }
 #rankings-list .rank-info .rank-name{
-	color: #003366;
+	color: green;
 	font-size: 13px;
 	font-weight: bold;
 }
@@ -82,6 +82,6 @@
 	bottom: 15px;
 	right: 5px;
 	font-size: 2em;
-	color: #4d4d4d;
+	color: #006699;
 }
 /* end of ranking styles */

@@ -12,7 +12,7 @@
 	<% else %>
 		<%  count = 1
 			correct_ans = Hash.new
-			number_of_questions = 5
+			number_of_questions = 10
 			correct_ans["num"] = number_of_questions
 			correct_ans["cid"] = @course.id
 		 %>
@@ -46,7 +46,7 @@
 		
 	    <div id="mrg-out"></div>
 	    <div id="buttons"> 
-		<%= link_to "Play again", "" , :class => 'btn' %>
+		<%= link_to "Play again", {:controller=>"play", :id=>@course.id } , :class => 'btn' %>
 		<%= link_to "main menu", {:controller=>"home", :action => "index"}, :class => 'btn' %>
 	</div>
 	</div>

@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :badge do
-    name "MyString"
-    description "MyString"
+    name "badge1"
+    description "Sample badge"
   end
 end

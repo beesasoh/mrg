@@ -118,14 +118,15 @@ h1.score{
 	width: 100%;
 	background: #fff;
 	border: 1px solid #ddd;
-	margin: 10px 0;
+	margin: 1.5em 0;
 	padding: 5px 0;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
 }
 .rank-wrapper h3{
 	margin: 2px 0 3px;
 	padding: 2px 5px 7px;
-	color: #333;
-	font-weight: normal;
+	color: green;
+	font-weight: bold;
 	font-size: 15px;
 	border-bottom: 1px solid #ddd;
 }
@@ -148,6 +149,9 @@ h1.score{
 	text-align: right;
 	min-height: 15px;
 	padding-right: 5px;
+}
+.earned-bdg{
+	background-color: orange;
 }
 .fb-share a{
 	font-size: 11px;

@@ -15,7 +15,7 @@
 body{
 	margin:0;
 	padding:0;
-	background-color:#F3F4F6;
+	background-color:#FFF;
 	font-family: 'Arial', sans-serif;
 	font-size:13px;
 }
@@ -23,6 +23,9 @@ a{
 	text-decoration: none;
  	color: #333;
  	font-weight: bold;
+}
+a img{
+	border: none;
 }
 h1,h2{
 	font-size: 20px;
@@ -45,9 +48,8 @@ h1,h2{
 }
 
 #mrg-page{
-	width:960px;
+	max-width:1000px;
 	margin:0 auto;
-	border:1px solid #F3F4F6;
 }
 
 #header{
@@ -149,9 +151,9 @@ color:#339900;
 
 #mrg-content{
 	width:100%;
-	border:1px solid #BDBDBD;
-	background-color:#F8F8F8;
-	margin-bottom:5em;
+	border:1px solid #DDD;
+	background-color:#FCFCFC;
+	margin-bottom:3em;
 	min-height:600px;
 	-webkit-box-shadow: inset 0px 2px 3px 1px #D5D5D5;
 	box-shadow: inset 0px 2px 3px 1px #D5D5D5;

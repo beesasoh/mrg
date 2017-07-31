@@ -2,7 +2,8 @@
 <div class="side-bar-item">
     <div class="side-bar-section">
     <ul>
-        <% friends = user_graph.get_connections("me", "friends") %>
+        <% friends = current_user.get_friends_not_registered_on_app %>
+        <% friends_to_invite = friends.select{|friend| friend["id"]} %>
         <% friends.sample(20).each do |friend| %>
         	<li class="fb-inv" name="<%= friend['id'] %>">
                 <div class = "left">

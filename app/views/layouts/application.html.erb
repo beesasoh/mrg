@@ -2,6 +2,7 @@
 <html>
 <head>
   <title><%= @page_title || "My revision guide"%></title>
+  <%= favicon_link_tag 'fav.ico' %>
   <%= stylesheet_link_tag  "application", :media => "all" %>
   <%= stylesheet_link_tag  "http://fonts.googleapis.com/css?family=Alef", :media => "all" %>
   <%= stylesheet_link_tag  "http://fonts.googleapis.com/css?family=Marmelad", :media => "all" %>
@@ -39,6 +40,10 @@
             <div id="mrg-content">
                  <%= yield %>
             </div>
+            <center style="font-size:11px"> 
+              My revision guide is a product of patch-it ltd, &copy; 2013 all rights reserved. <br />
+                Contact: +256 787 399351.
+             </center>
         </div>
     </div>
 </div>
